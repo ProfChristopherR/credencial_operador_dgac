@@ -1,0 +1,430 @@
+/* ============================================
+   ANIMACIONES ADICIONALES - DGAC Drones
+   ============================================ */
+
+/* ---------- Efectos de hover en cards ---------- */
+.card-hover-lift {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Efecto shimmer en botones ---------- */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-shimmer:hover::after {
+  transform: translateX(100%);
+}
+
+/* ---------- Efecto de brillo en bordes ---------- */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light), var(--accent-dark));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+}
+
+.glow-border:hover::before {
+  opacity: 0.5;
+}
+
+/* ---------- Animación de contador ---------- */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.count-up {
+  animation: countUp 0.6s ease both;
+}
+
+/* ---------- Animación de typing ---------- */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(40, end);
+}
+
+/* ---------- Efecto de onda al hacer clic ---------- */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ---------- Animación de flotación ---------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ---------- Animación de rotación suave ---------- */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* ---------- Efecto de parallax sutil ---------- */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* ---------- Efecto de glassmorphism mejorado ---------- */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .glass {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Efecto de gradiente animado ---------- */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, var(--accent-dark), var(--accent), var(--accent-light), var(--accent-dark));
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ---------- Efecto de sombra neumórfica ---------- */
+.neumorph {
+  background: var(--bg-secondary);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.05),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-lg);
+}
+
+[data-theme="dark"] .neumorph {
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.3),
+    -8px -8px 16px rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Animación de entrada escalonada ---------- */
+@keyframes stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.stagger-item {
+  opacity: 0;
+  animation: stagger-in 0.5s ease forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* ---------- Efecto de focus visible ---------- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Efecto de transición de página ---------- */
+.page-transition {
+  animation: pageIn 0.5s ease both;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Efecto de resaltado de texto ---------- */
+.highlight-text {
+  background: linear-gradient(120deg, var(--accent-soft) 0%, var(--accent-soft) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%;
+  transition: background-size 0.3s ease;
+}
+
+.highlight-text:hover {
+  background-size: 100% 100%;
+}
+
+/* ---------- Efecto de línea bajo links ---------- */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ---------- Efecto de tarjeta 3D ---------- */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: rotateX(5deg) rotateY(5deg) translateZ(10px);
+}
+
+/* ---------- Efecto de pulso en iconos ---------- */
+@keyframes icon-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.icon-pulse:hover {
+  animation: icon-pulse 0.6s ease infinite;
+}
+
+/* ---------- Efecto de sombra dinámica ---------- */
+.dynamic-shadow {
+  transition: box-shadow 0.3s ease;
+}
+
+.dynamic-shadow:hover {
+  box-shadow: 
+    0 20px 40px -10px rgba(14, 165, 233, 0.2),
+    0 10px 20px -5px rgba(14, 165, 233, 0.1);
+}
+
+/* ---------- Efecto de borde animado ---------- */
+@keyframes border-dance {
+  0% { border-color: var(--accent); }
+  25% { border-color: var(--accent-light); }
+  50% { border-color: var(--accent-dark); }
+  75% { border-color: var(--accent-light); }
+  100% { border-color: var(--accent); }
+}
+
+.border-dance:hover {
+  animation: border-dance 2s ease infinite;
+}
+
+/* ---------- Efecto de brillo en texto ---------- */
+@keyframes text-shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shine {
+  background: linear-gradient(90deg, var(--text-primary) 0%, var(--accent) 50%, var(--text-primary) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shine 3s linear infinite;
+}
+
+/* ---------- Efecto de carga progresiva ---------- */
+@keyframes load-progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.load-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  animation: load-progress 1.5s ease forwards;
+}
+
+/* ---------- Efecto de aparición de lista ---------- */
+@keyframes list-item-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.list-animate li {
+  opacity: 0;
+  animation: list-item-in 0.4s ease forwards;
+}
+
+.list-animate li:nth-child(1) { animation-delay: 0.1s; }
+.list-animate li:nth-child(2) { animation-delay: 0.2s; }
+.list-animate li:nth-child(3) { animation-delay: 0.3s; }
+.list-animate li:nth-child(4) { animation-delay: 0.4s; }
+.list-animate li:nth-child(5) { animation-delay: 0.5s; }
+.list-animate li:nth-child(6) { animation-delay: 0.6s; }
+.list-animate li:nth-child(7) { animation-delay: 0.7s; }
+.list-animate li:nth-child(8) { animation-delay: 0.8s; }
+
+/* ---------- Efecto de tarjeta con imagen de fondo ---------- */
+.card-image-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card-image-bg:hover::before {
+  opacity: 0.15;
+  transform: scale(1.05);
+}
+
+/* ---------- Efecto de notificación ---------- */
+@keyframes notification-pop {
+  0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+  70% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.notification-pop {
+  animation: notification-pop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+}
+
+/* ---------- Efecto de desenfoque al hover ---------- */
+.blur-hover {
+  transition: filter 0.3s ease;
+}
+
+.blur-hover:hover {
+  filter: blur(2px);
+}
+
+/* ---------- Efecto de escala en imagen ---------- */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* ---------- Efecto de tarjeta con borde luminoso ---------- */
+.glow-card {
+  position: relative;
+}
+
+.glow-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent), transparent, var(--accent-light));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  filter: blur(10px);
+}
+
+.glow-card:hover::after {
+  opacity: 0.4;
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clase 2: Reglas del Aire | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" width="44" height="44">
+        <div class="brand-text">
+          <span class="brand-name">Liceo Bicentenario de Excelencia Polivalente San Nicolás</span>
+          <span class="brand-sub">Operador Full Stack</span>
+        </div>
+      </a>
+      <div class="navbar-nav" id="main-nav">
+        <a href="marco-normativo.html" class="nav-link">Clase 1</a>
+        <a href="reglas-aire.html" class="nav-link active">Clase 2</a>
+        <a href="areas-pobladas.html" class="nav-link">Clase 3</a>
+        <a href="aerodinamica.html" class="nav-link">Clase 4</a>
+        <a href="meteorologia.html" class="nav-link">Clase 5</a>
+        <a href="../evaluacion.html" class="nav-link">Evaluación</a>
+      </div>
+      <div class="navbar-actions">
+        <button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page-transition" style="padding-top: 96px; padding-bottom: var(--space-3xl);">
+    <div class="page-header reveal">
+      <p class="body-lg" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: var(--space-sm);">Clase 2</p>
+      <h2 class="heading-xl">Reglas del Aire y Planificación de Vuelo (DAN 91)</h2>
+      <p>Límites del espacio aéreo, clasificación de zonas, distancias de seguridad y trámites ante la DGAC.</p>
+    </div>
+
+    <!-- Activación -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🗺️</div>
+        <h3>Activación: ¿Podemos volar en la plaza de armas?</h3>
+      </div>
+      <div class="card-body">
+        <p>Se presenta a los estudiantes una cartografía local de una ciudad chilena típica, destacando su centro cívico, plaza de armas, edificios municipales, iglesia, palacio de gobierno regional, mercado, avenidas principales y, en algunos casos, un aeropuerto cercano. La consigna es determinar si es legal elevar un RPAS en el centro de la ciudad.</p>
+
+        <p>El ejercicio obliga a identificar simultáneamente múltiples factores: proximidad a personas no involucradas, distancia a infraestructura aeroportuaria, presencia de edificios de soberanía, zonas de seguridad pública, y la necesidad de notificación previa al SDO. En la mayoría de los casos, la conclusión es que el centro cívico no es un espacio viable para operar sin autorización expresa.</p>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/plaza-armas.webp" alt="Plaza de armas ciudad chilena" loading="lazy">
+          <div class="media-caption">Análisis espacial: no todo espacio público es operacionalmente seguro o legal.</div>
+        </div>
+
+        <div class="alert-box alert-warning">
+          <strong>Conclusión inicial:</strong> La plaza de armas de una ciudad chilena suele concentrar personas, edificios oficiales y avenidas transitadas. Operar allí sin planificación constituye una infracción a la DAN 91 y puede activar responsabilidades penales si se producen daños o capturas indebidas.
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Antes de decir "sí se puede volar":</strong> Siempre pregunta: ¿hay gente? ¿hay un aeropuerto cerca? ¿hay edificios oficiales? ¿está notificado al SDO? Si alguna respuesta es negativa o dudosa, la operación requiere autorización o directamente está prohibida.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Nomenclatura -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🚁</div>
+        <h3>Nomenclatura del Espacio Aéreo y Límites Operacionales</h3>
+      </div>
+      <div class="card-body">
+        <p>La aviación civil internacional clasifica el espacio aéreo mediante una nomenclatura estandarizada que todo piloto debe conocer. En Chile, estas zonas se publican oficialmente en la <strong>AIP Chile</strong> (Publicación de Información Aeronáutica) y en la plataforma <strong>IFIS</strong> (Integrated Flight Information System) de la DGAC.</p>
+
+        <ul>
+          <li><strong>Zona Prohibida (P):</strong> Espacio aéreo donde el vuelo está prohibido en forma permanente por razones de soberanía o seguridad nacional. Ejemplo: instalaciones presidenciales o bases militares estratégicas.</li>
+          <li><strong>Zona Restringida (R):</strong> Espacio aéreo donde el vuelo está restringido en ciertas condiciones y requiere autorización específica. Puede activarse temporalmente por eventos o maniobras.</li>
+          <li><strong>Zona Peligrosa (D):</strong> Espacio aéreo donde pueden producirse actividades peligrosas para el vuelo, como ejercicios militares, tiro al blanco o lanzamientos. No está prohibido, pero requiere precaución y coordinación.</li>
+        </ul>
+
+        <div class="alert-box alert-info">
+          <strong>Números sagrados del examen:</strong> Memorice los siguientes límites operacionales de la DAN 91, ya que constituyen preguntas de alta frecuencia en la prueba teórica DGAC.
+        </div>
+
+        <div class="diagram">
+          <div style="display:flex;flex-direction:column;gap:0.75rem;">
+            <div class="distance-row">
+              <div class="distance-icon blue">📏</div>
+              <div>
+                <strong>Altura máxima:</strong> 400 pies (120 metros) sobre el terreno (AGL). Superar este límite configura infracción grave y pone en riesgo la separación con aeronaves tripuladas.
+              </div>
+            </div>
+            <div class="distance-row">
+              <div class="distance-icon orange">👥</div>
+              <div>
+                <strong>Distancia a terceros no involucrados:</strong> Margen vertical de 30 metros y margen horizontal de 20 metros. Esto protege a personas ajenas a la operación.
+              </div>
+            </div>
+            <div class="distance-row">
+              <div class="distance-icon red">✈️</div>
+              <div>
+                <strong>Distancia a aeropuertos:</strong> Prohibición absoluta a menos de 2 km del eje de la pista y a menos de 1 km de sus costados paralelos.
+              </div>
+            </div>
+          </div>
+          <div class="diagram-caption">Distancias de seguridad obligatorias para operación RPAS.</div>
+        </div>
+
+        <p>La altura se mide siempre <strong>AGL (Above Ground Level)</strong>, es decir, sobre el terreno inmediato. Esto es crítico en zonas montañosas o con desnivel: un dron a 120 metros AGL sobre una ladera puede estar a una altitud barométrica mucho mayor que uno sobre el valle. El piloto debe calibrar correctamente su altímetro y nunca confundir AGL con altitud sobre el nivel del mar.</p>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Mnemotécnica "4-3-2-1":</strong> 400 pies de altura máxima, 30 metros verticales y 20 metros horizontales a personas, 2 km al eje de pista y 1 km a los costados. Repita: "cuatrocientos, treinta-veinte, dos-uno".</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Operación y Documentación -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📋</div>
+        <h3>Operación y Documentación Oficial</h3>
+      </div>
+      <div class="card-body">
+        <p>La DAN 91 establece que toda operación RPAS que no esté exenta debe ser solicitada ante el <strong>SDO (Subdepartamento de Operaciones)</strong> de la DGAC. La solicitud se realiza exclusivamente a través de la plataforma web <strong>SIPA</strong> (Sistema de Información y Procesos Aeronáuticos), utilizando la <strong>Firma Electrónica Avanzada (FEA)</strong> del operador.</p>
+
+        <div class="alert-box alert-warning">
+          <strong>Plazo legal:</strong> La solicitud debe ingresarse con un mínimo de <strong>7 días hábiles</strong> de anticipación a la fecha de operación. Presentarla con menos tiempo no garantiza su aprobación y podría significar que el vuelo se realice sin autorización.
+        </div>
+
+        <p><strong>Mito urbano a desterrar:</strong> Las municipalidades NO se les notifica ni tienen atribuciones sobre el espacio aéreo. Un permiso municipal no autoriza un vuelo de drone. La única autoridad competente es la DGAC. Los operadores deben evitar caer en la trampa de solicitar "permiso a la municipalidad" como si fuera suficiente.</p>
+
+        <p>El día de la operación, el piloto debe portar físicamente en el sitio la siguiente documentación:</p>
+        <ul>
+          <li><strong>Certificado de Registro del RPAS:</strong> Documento que acredita que la aeronave está inscrita en el registro aeronáutico.</li>
+          <li><strong>Credencial de Piloto vigente:</strong> Acredita la idoneidad del operador. Debe encontrarse dentro del periodo de vigencia.</li>
+          <li><strong>Póliza de Seguro de daños a terceros:</strong> Debe estar visada por la JAC y cubrir la operación específica. Sin seguro no hay operación legal.</li>
+        </ul>
+
+        <div class="diagram">
+          <div style="display:flex;flex-direction:column;gap:0.75rem;max-width:700px;margin:0 auto;">
+            <div style="display:flex;align-items:center;gap:1rem;background:var(--bg-secondary);padding:1rem;border-radius:var(--radius-md);border:1px solid var(--border);">
+              <div style="background:var(--accent-soft);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent-dark);">1</div>
+              <div><strong>Ingresar solicitud en SIPA</strong> con FEA, 7 días hábiles antes.</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:1rem;background:var(--bg-secondary);padding:1rem;border-radius:var(--radius-md);border:1px solid var(--border);">
+              <div style="background:var(--accent-soft);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent-dark);">2</div>
+              <div><strong>Esperar resolución del SDO</strong> (aprobación, rechazo o requerimiento).</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:1rem;background:var(--bg-secondary);padding:1rem;border-radius:var(--radius-md);border:1px solid var(--border);">
+              <div style="background:var(--accent-soft);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent-dark);">3</div>
+              <div><strong>Portar documentación</strong> en terreno: registro, credencial y seguro.</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:1rem;background:var(--bg-secondary);padding:1rem;border-radius:var(--radius-md);border:1px solid var(--border);">
+              <div style="background:var(--accent-soft);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent-dark);">4</div>
+              <div><strong>Operar dentro de los límites autorizados</strong> y cumplir DAN 91.</div>
+            </div>
+          </div>
+          <div class="diagram-caption">Flujo de planificación de vuelo ante la DGAC.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Documentación mínima en terreno:</strong> "Registro, Credencial y Seguro". Si en el examen te piden enumerar documentos obligatorios a portar, no menciones la municipalidad ni el permiso de vecinos como sustitutos de la autorización DGAC. Los vecinos deben informarse, pero no autorizan el espacio aéreo.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Excepciones -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🏠</div>
+        <h3>Excepciones Recreativas: Marco de Exclusión Total de Trámites</h3>
+      </div>
+      <div class="card-body">
+        <p>La regulación chilena contempla una exclusión específica para ciertas operaciones recreativas de muy bajo riesgo. Para estar <strong>100% exento</strong> de autorizaciones y credenciales de la DGAC se deben cumplir <strong>simultáneamente</strong> cuatro condiciones acumulativas:</p>
+
+        <ol>
+          <li>La nave debe estar construida en <strong>polietileno expandido (plumavit)</strong> o material equivalente de absorción de impactos.</li>
+          <li>El <strong>peso máximo de despegue</strong> debe ser <strong>inferior a 750 gramos</strong>.</li>
+          <li>La operación debe confinarse a un <strong>recinto privado</strong> con la <strong>autorización expresa del dueño</strong>.</li>
+          <li>La altura máxima de vuelo debe estar <strong>limitada a 50 metros</strong>.</li>
+        </ol>
+
+        <div class="alert-box alert-danger">
+          <strong>Condición acumulativa:</strong> El incumplimiento de <em>cualquiera</em> de estas cuatro condiciones elimina la exención. No basta con que la nave pese menos de 750 gramos si se opera en un parque público o si supera los 50 metros de altura.
+        </div>
+
+        <p>Esta excepción busca fomentar la educación aeronáutica y el entretenimiento responsable sin sobrecargar administrativamente a operadores de muy bajo riesgo. Sin embargo, la responsabilidad civil subsiste: si el drone causa daños, el operador responde con su patrimonio. Además, el respeto a la privacidad y a terceros sigue siendo obligatorio incluso dentro de un recinto privado.</p>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/drone-vuelo.webp" alt="Drone pequeño en vuelo recreativo" loading="lazy">
+          <div class="media-caption">La exención recreativa solo aplica cuando se cumplen las 4 condiciones simultáneamente.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Formula mágica de la exención:</strong> "Plumavit + 750g + recinto privado + 50m". Si falta una, la exención desaparece. En el examen, muchas preguntas tratan de ver si recuerdas que las condiciones son acumulativas, no alternativas.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Cierre -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🎟️</div>
+        <h3>Cierre: Ticket de Salida</h3>
+      </div>
+      <div class="card-body">
+        <p>Resuelva los siguientes casos prácticos antes de finalizar la clase:</p>
+        <ul>
+          <li>Un piloto vuela a 150 metros de altura sobre un cerro cercano a un aeropuerto. ¿Qué límites está infringiendo?</li>
+          <li>¿Un drone de 700 gramos de poliestileno puede volar en la plaza de armas sin autorización? ¿Por qué?</li>
+          <li>¿Qué documentos debe portar un operador comercial el día de un vuelo autorizado?</li>
+          <li>¿Cuántos días hábiles antes debe solicitarse una operación ante el SDO?</li>
+          <li>¿Puede una municipalidad autorizar un vuelo de drone? Justifique.</li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="reveal" style="display: flex; justify-content: space-between; margin-top: var(--space-2xl);">
+      <a href="marco-normativo.html" class="btn btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Anterior: Clase 1
+      </a>
+      <a href="areas-pobladas.html" class="btn btn-primary">
+        Siguiente: Clase 3
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" class="footer-logo" width="56" height="56">
+        <div class="footer-brand">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+        <div class="footer-info">
+          Especialidad de Operaciones de Drones — 3°AF<br>
+          Operador Full Stack - Obtención de la credencial de la DGAC<br>
+          <strong>Ing. Christopher Ruiz</strong>
+        </div>
+        <div class="footer-credit">Material educativo generado para uso institucional.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script>
+    function toggleTip(button) {
+      const content = button.nextElementSibling;
+      button.classList.toggle('open');
+      content.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

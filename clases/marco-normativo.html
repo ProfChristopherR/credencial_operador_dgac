@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clase 1: Marco Normativo | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" width="44" height="44">
+        <div class="brand-text">
+          <span class="brand-name">Liceo Bicentenario de Excelencia Polivalente San Nicolás</span>
+          <span class="brand-sub">Operador Full Stack</span>
+        </div>
+      </a>
+      <div class="navbar-nav" id="main-nav">
+        <a href="marco-normativo.html" class="nav-link active">Clase 1</a>
+        <a href="reglas-aire.html" class="nav-link">Clase 2</a>
+        <a href="areas-pobladas.html" class="nav-link">Clase 3</a>
+        <a href="aerodinamica.html" class="nav-link">Clase 4</a>
+        <a href="meteorologia.html" class="nav-link">Clase 5</a>
+        <a href="../evaluacion.html" class="nav-link">Evaluación</a>
+      </div>
+      <div class="navbar-actions">
+        <button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page-transition" style="padding-top: 96px; padding-bottom: var(--space-3xl);">
+    <div class="page-header reveal">
+      <p class="body-lg" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: var(--space-sm);">Clase 1</p>
+      <h2 class="heading-xl">Marco Normativo y Sistema Infraccional</h2>
+      <p>Fundamentos legales, jerarquía normativa y consecuencias de la operación irregular de RPAS en Chile.</p>
+    </div>
+
+    <!-- Tarjeta Activación -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🎬</div>
+        <h3>Activación: El caso de la vecina</h3>
+      </div>
+      <div class="card-body">
+        <p>Un operador de drone decide realizar prácticas de vuelo en el patio de su casa en un barrio residencial de Santiago. Sin percatarse, la cámara del RPAS apunta hacia el patio trasero de una vecina, captando imágenes de su familia, su terraza y los interiores parcialmente visibles de su vivienda. La vecina, al escuchar el zumbido del equipo, sale al exterior, identifica la nave y toma fotografías del aparato. Al día siguiente presenta una denuncia ante Carabineros y la DGAC.</p>
+
+        <div class="alert-box alert-info">
+          <strong>Pregunta central:</strong> ¿Constituye esta conducta una falta administrativa aeronáutica, un delito penal o ambas? ¿Qué normas se aplican y cuáles son las consecuencias para el piloto?
+        </div>
+
+        <p>El análisis debe partir de una distinción fundamental: el espacio aéreo es un bien de dominio público regulado por el Estado, pero la privacidad de las personas es un derecho fundamental protegido por la Constitución Política y el Código Penal. Cuando un RPAS capta imágenes de patios privados o espacios domésticos sin autorización, se produce una colisión entre dos órdenes jurídicos: el aeronáutico y el penal.</p>
+
+        <p>Desde la perspectiva administrativa, la DGAC evaluará si el vuelo cumplió con la altura permitida, las distancias de seguridad y si se notificó adecuadamente la operación. Desde la óptica penal, el Ministerio Público analizará si existió intención de captar datos o imágenes privadas sin consentimiento, configurando la figura del artículo 161-a del Código Penal.</p>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/privacidad.webp" alt="Vista aérea de patio residencial" loading="lazy">
+          <div class="media-caption">El dilema de privacidad: límites entre el espacio aéreo y la vida privada.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Clave mnemotécnica:</strong> "Captura sin permiso = doble problema". La DGAC te sanciona administrativamente por incumplir normas de operación, pero el Ministerio Público puede perseguirte penalmente por violación a la intimidad. En el examen, nunca elijas una sola vía cuando el caso involucre imágenes privadas: siempre ambas son posibles.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tarjeta Jerarquía Jurídica -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">⚖️</div>
+        <h3>Jerarquía Jurídica del Espacio Aéreo Chileno</h3>
+      </div>
+      <div class="card-body">
+        <p>Para comprender las obligaciones del operador de RPAS es indispensable conocer la pirámide normativa que rige la aviación en Chile. En la cúspide se encuentra la Constitución Política del Estado, que reconoce la soberanía nacional sobre el espacio aéreo. Inmediatamente debajo se sitúa el <strong>Código Aeronáutico</strong>, correspondiente a la <strong>Ley N° 18.916</strong>, que constituye la norma de mayor rango dentro de la materia.</p>
+
+        <div class="diagram">
+          <div class="pyramid">
+            <div class="pyramid-level l1">Constitución Política del Estado</div>
+            <div class="pyramid-level l2">Ley 18.916 - Código Aeronáutico</div>
+            <div class="pyramid-level l3">Normas Aeronáuticas (DAN 91, 151, 137)</div>
+            <div class="pyramid-level l4">Reglamentos Aeronáuticos (DAR 51, DAR 50)</div>
+          </div>
+          <div class="diagram-caption">Pirámide normativa del espacio aéreo chileno.</div>
+        </div>
+
+        <p>El <strong>Artículo 1° del Código Aeronáutico</strong> establece de manera taxativa que el Estado de Chile ejerce <strong>soberanía exclusiva</strong> sobre el espacio aéreo nacional. Esto implica que ningún vuelo, sea tripulado o remoto, puede realizarse sin reconocer la autoridad del Estado sobre ese territorio vertical. La soberanía aérea justifica la existencia de la DGAC como ente fiscalizador y de un conjunto de normas que regulan qué, cómo, dónde y por quién se vuela.</p>
+
+        <p>El <strong>Artículo 82</strong> del mismo cuerpo legal define las <strong>zonas e instalaciones prohibidas y restringidas</strong>. Estas zonas incluyen, entre otras, aeropuertos, bases militares, instalaciones presidenciales, centrales nucleares, edificios de soberanía y cualquier área que la autoridad aeronáutica declare como de interés para la seguridad nacional o la seguridad pública. Sobrevolarlas sin autorización constituye una infracción grave.</p>
+
+        <p>Debajo del Código Aeronáutico se encuentran las <strong>Normas Aeronáuticas (DAN)</strong>, que desarrollan técnicamente las obligaciones de operación:</p>
+        <ul>
+          <li><strong>DAN 91:</strong> Reglas generales de vuelo y operación de aeronaves en espacio aéreo no controlado.</li>
+          <li><strong>DAN 151:</strong> Operaciones de sistemas de aeronaves pilotadas a distancia (RPAS) en áreas pobladas.</li>
+          <li><strong>DAN 137:</strong> Operaciones de RPAS en áreas no pobladas y requisitos de certificación.</li>
+        </ul>
+
+        <p>Los <strong>Reglamentos Aeronáuticos (DAR)</strong>, por su parte, establecen los procedimientos administrativos y sancionatorios:</p>
+        <ul>
+          <li><strong>DAR 51:</strong> Procedimiento para la aplicación de sanciones administrativas en materia aeronáutica.</li>
+          <li><strong>DAR 50:</strong> Requisitos para la habilitación, certificación y registro de aeronaves y personal.</li>
+        </ul>
+
+        <p>Finalmente, es necesario distinguir los roles de los organismos involucrados:</p>
+        <ul>
+          <li><strong>DGAC (Dirección General de Aeronáutica Civil):</strong> Ente técnico fiscalizador dependiente del Ministerio de Transportes. Aprueba, controla y sanciona faltas administrativas en materia aeronáutica.</li>
+          <li><strong>JAC (Junta Aeronáutica Civil):</strong> Órgano colegiado encargado de resolver conflictos técnico-administrativos, revisar sanciones y fiscalizar seguros de responsabilidad civil.</li>
+          <li><strong>DAE (Dirección de Aeronáutica del Ejército):</strong> Coordina la aviación militar y la defensa aérea, pudiendo restringir espacio aéreo por razones de seguridad nacional.</li>
+        </ul>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Recuerda:</strong> La pirámide no miente. Si en el examen te preguntan cuál norma tiene mayor jerarquía, la respuesta siempre será la Ley (Código Aeronáutico), no las DAN ni los DAR. Las DAN regulan <em>cómo</em> se opera; el Código Aeronáutico regula <em>quién tiene la soberanía</em> y las sanciones penales.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tarjeta Infracciones -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🚨</div>
+        <h3>Infracciones y Sanciones: Régimen Penal y Administrativo</h3>
+      </div>
+      <div class="card-body">
+        <p>El Código Aeronáutico contempla un sistema sancionatorio escalonado que busca disuadir conductas de riesgo sin necesariamente recurrir a la cárcel. El <strong>Artículo 185</strong> regula las faltas a las disposiciones de la ley y de los reglamentos, estableciendo cuatro niveles de sanción administrativa:</p>
+
+        <ol>
+          <li><strong>Amonestación escrita:</strong> Aplicada por faltas leves o primera infracción documentada.</li>
+          <li><strong>Multas severas:</strong> Su monto oscila entre <strong>5 y 500 Ingresos Mínimos Mensuales (IMM)</strong>. El rango amplio permite a la autoridad graduar la sanción según la peligrosidad de la conducta.</li>
+          <li><strong>Suspensión temporal de privilegios:</strong> El piloto o la empresa quedan inhabilitados para operar durante un plazo determinado.</li>
+          <li><strong>Cancelación definitiva de la licencia o credencial:</strong> Sanción máxima administrativa, aplicada por reincidencia grave o conductas que comprometan la seguridad aérea.</li>
+        </ol>
+
+        <div class="alert-box alert-warning">
+          <strong>Contraste inmediato con la vía penal:</strong> Cuando la infracción trasciende el orden administrativo y atenta contra derechos fundamentales, entra en juego el <strong>Artículo 161-a del Código Penal Chileno</strong>. Este tipo penal sanciona a quien grabe o capture imágenes o datos privados sin el consentimiento de la persona afectada, con penas de <strong>reclusión menor en sus grados mínimo a medio</strong> y multas de <strong>50 a 500 UTM</strong>.
+        </div>
+
+        <p>Es fundamental que el futuro piloto entienda que la sanción administrativa y la penal <strong>no se excluyen mutuamente</strong>. Una misma conducta puede generar un procedimiento sancionatorio ante la DGAC y una investigación penal ante el Ministerio Público. Por ejemplo, un vuelo no autorizado sobre una zona residencial que capture imágenes de personas sin su permiso podría terminar en multa inmediata por parte de la aeronáutica y en una causa penal por violación a la intimidad.</p>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/documentos-ley.webp" alt="Documentos legales y sanciones" loading="lazy">
+          <div class="media-caption">El operador debe conocer las consecuencias administrativas y penales de sus decisiones.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Comparación clave:</strong> Las multas de la DGAC usan IMM como unidad de cuenta; las penas del Código Penal usan UTM. Si en la prueba te preguntan cuánto se paga en una falta aeronáutica, busca el rango 5-500 IMM (Art. 185). Si te preguntan por captura indebida de imágenes, busca reclusión menor y 50-500 UTM (Art. 161-a CP).</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tarjeta Taller El Fiscal -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🕵️</div>
+        <h3>Taller "El Fiscal": Protocolo de Fiscalización en Terreno</h3>
+      </div>
+      <div class="card-body">
+        <p>Una de las confusiones más frecuentes entre los operadores noveles es creer que la DGAC puede llegar a un lugar de operación, confiscar el drone y detener al piloto. Esto es falso. La fiscalización aeronáutica funciona mediante un protocolo preciso que separa las atribuciones administrativas de las penales.</p>
+
+        <p>La <strong>DGAC</strong>, por sí sola, solo puede procesar <strong>faltas administrativas</strong> conforme al <strong>DAR 51</strong>. Sus inspectores pueden solicitar documentación, verificar identidad, filmar la operación, levantar un acta de infracción e iniciar un procedimiento sancionatorio. Sin embargo, <strong>no pueden incautar la nave de forma autónoma</strong>.</p>
+
+        <div class="alert-box alert-danger">
+          <strong>Regla de oro:</strong> La requisa física del RPAS solo puede ejecutarla <strong>Carabineros de Chile</strong>, y únicamente bajo la instrucción directa y firmada de un <strong>Fiscal del Ministerio Público</strong>, cuando exista un presunto <strong>delito</strong> y no una simple falta administrativa.
+        </div>
+
+        <p>El taller propone a los estudiantes simular una fiscalización en terreno. Se divide al curso en tres grupos:</p>
+        <ul>
+          <li><strong>Grupo DGAC:</strong> Debe identificar qué documentos solicitar y qué infracciones administrativas podrían configurarse.</li>
+          <li><strong>Grupo Carabineros:</strong> Debe determinar si la situación amerita incautación y bajo qué orden legal actúa.</li>
+          <li><strong>Grupo Ministerio Público:</strong> Debe evaluar si los antecedentes constituyen delito y qué tipo penal podría aplicarse.</li>
+        </ul>
+
+        <p>Cada grupo debe elaborar una lista de control (checklist) con los pasos que seguiría. Al finalizar, se contrastan las respuestas para evidenciar que la misma operación puede tener múltiples consecuencias jurídicas dependiendo de quién actúe y con qué facultades.</p>
+
+        <div class="diagram">
+          <div style="display:flex;flex-direction:column;gap:1rem;max-width:600px;margin:0 auto;">
+            <div style="background:linear-gradient(135deg, var(--accent-dark), var(--accent));color:#fff;padding:1rem;border-radius:var(--radius-md);text-align:center;font-weight:700;box-shadow:var(--shadow-md);">Operación RPAS observada</div>
+            <div style="display:flex;justify-content:center;align-items:center;font-size:1.5rem;color:var(--text-muted);">↓</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+              <div style="background:var(--bg-secondary);border:2px solid var(--accent);padding:1rem;border-radius:var(--radius-md);text-align:center;"><strong>Vía Administrativa</strong><br>DGAC + DAR 51<br>Multa / suspensión</div>
+              <div style="background:var(--bg-secondary);border:2px solid var(--danger);padding:1rem;border-radius:var(--radius-md);text-align:center;"><strong>Vía Penal</strong><br>Fiscal + Carabineros<br>Incautación / juicio</div>
+            </div>
+          </div>
+          <div class="diagram-caption">Bifurcación de la fiscalización según la naturaleza de la falta.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Para no confundirte:</strong> "DGAC multa, Carabineros requisa y el Fiscal ordena". Si una pregunta afirma que la DGAC puede confiscar un drone, la respuesta es <strong>FALSA</strong>. La incautación es una medida cautelar penal, no administrativa.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tarjeta Cierre -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📝</div>
+        <h3>Cierre: Evaluaciones Formativas Conceptuales</h3>
+      </div>
+      <div class="card-body">
+        <p>Al término de la sesión, se proponen las siguientes preguntas guía para discusión grupal o pizarra:</p>
+        <ul>
+          <li>¿Por qué el Artículo 1° del Código Aeronáutico es la base de toda regulación de drones en Chile?</li>
+          <li>¿Qué diferencia existe entre una DAN y un DAR? Ponga un ejemplo de cada uno.</li>
+          <li>Explique la diferencia entre multa en IMM y multa en UTM. ¿En qué norma se encuentra cada una?</li>
+          <li>¿Qué institución puede incautar un RPAS y bajo qué condiciones?</li>
+          <li>¿Qué ocurre si un drone capta imágenes de un patio privado sin autorización?</li>
+        </ul>
+
+        <div class="alert-box alert-success">
+          <strong>Reflexión final:</strong> El piloto RPAS no solo maneja una aeronave, sino que actúa bajo un marco de soberanía aérea, privacidad y seguridad pública. Conocer las normas no es opcional: es la condición de posibilidad para operar con responsabilidad profesional.
+        </div>
+      </div>
+    </article>
+
+    <!-- Navegación entre clases -->
+    <div class="reveal" style="display: flex; justify-content: space-between; margin-top: var(--space-2xl);">
+      <a href="../index.html" class="btn btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Volver al inicio
+      </a>
+      <a href="reglas-aire.html" class="btn btn-primary">
+        Siguiente: Clase 2
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" class="footer-logo" width="56" height="56">
+        <div class="footer-brand">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+        <div class="footer-info">
+          Especialidad de Operaciones de Drones — 3°AF<br>
+          Operador Full Stack - Obtención de la credencial de la DGAC<br>
+          <strong>Ing. Christopher Ruiz</strong>
+        </div>
+        <div class="footer-credit">Material educativo generado para uso institucional.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script>
+    function toggleTip(button) {
+      const content = button.nextElementSibling;
+      button.classList.toggle('open');
+      content.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clase 3: Operaciones en Áreas Pobladas | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" width="44" height="44">
+        <div class="brand-text">
+          <span class="brand-name">Liceo Bicentenario de Excelencia Polivalente San Nicolás</span>
+          <span class="brand-sub">Operador Full Stack</span>
+        </div>
+      </a>
+      <div class="navbar-nav" id="main-nav">
+        <a href="marco-normativo.html" class="nav-link">Clase 1</a>
+        <a href="reglas-aire.html" class="nav-link">Clase 2</a>
+        <a href="areas-pobladas.html" class="nav-link active">Clase 3</a>
+        <a href="aerodinamica.html" class="nav-link">Clase 4</a>
+        <a href="meteorologia.html" class="nav-link">Clase 5</a>
+        <a href="../evaluacion.html" class="nav-link">Evaluación</a>
+      </div>
+      <div class="navbar-actions">
+        <button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page-transition" style="padding-top: 96px; padding-bottom: var(--space-3xl);">
+    <div class="page-header reveal">
+      <p class="body-lg" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: var(--space-sm);">Clase 3</p>
+      <h2 class="heading-xl">Operaciones RPAS en Áreas Pobladas (DAN 151)</h2>
+      <p>Requisitos técnicos, mitigación de riesgos, categorías SORA y segmentación visual del vuelo.</p>
+    </div>
+
+    <!-- Activación -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">⚡</div>
+        <h3>Activación: Pérdida de enlace sobre avenida principal</h3>
+      </div>
+      <div class="card-body">
+        <p>Un multirrotor de 4 kg realiza un vuelo de inspección sobre una avenida principal de una ciudad mediana. De repente, el piloto pierde el enlace de control: la pantalla se congela, los comandos no responden y la telemetría desaparece. La aeronave sigue volando bajo su última instrucción conocida. Debajo, peatones, vehículos y un puesto de diarios.</p>
+
+        <div class="alert-box alert-danger">
+          <strong>Pregunta urgente:</strong> ¿Qué debió haberse planificado antes del despegue para mitigar este escenario? ¿Qué sistemas debía tener la nave? ¿Qué protocolos de emergencia debían estar activados?
+        </div>
+
+        <p>La DAN 151 nace precisamente para regular estas operaciones de mayor riesgo: aquellas que se desarrollan sobre o cerca de concentraciones de personas, infraestructura urbana y escenarios donde un fallo técnico puede traducirse en daño a terceros. El piloto no solo debe saber volar, sino que debe demostrar que ha evaluado los riesgos y dispuesto de medidas de mitigación.</p>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/ciudad-aerea.webp" alt="Vista aérea urbana" loading="lazy">
+          <div class="media-caption">Operar sobre áreas pobladas exige el más alto nivel de planificación y mitigación de riesgos.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Regla de oro:</strong> Sobre personas e infraestructura, la pregunta no es "¿qué hago si falla?", sino "¿qué hice <em>antes</em> para que el fallo no lastime a nadie?". La DAN 151 exige que el riesgo residual sea aceptable, no que simplemente tengas buena suerte.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Requisitos Técnicos -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🛡️</div>
+        <h3>Requisitos Técnicos y de Idoneidad</h3>
+      </div>
+      <div class="card-body">
+        <p>La DAN 151 establece estándares exigentes tanto para la aeronave como para el piloto. Uno de los más importantes es la <strong>obligatoriedad de sistemas de mitigación de impacto</strong> cuando se operan aeronaves con un <strong>peso máximo de despegue (MTOW) superior a 25 kilogramos</strong> o cuando se vuela sobre grandes aglomeraciones urbanas.</p>
+
+        <p>Los sistemas de mitigación pueden ser:</p>
+        <ul>
+          <li><strong>Paracaídas de emergencia certificado:</strong> Sistema balístico o electromecánico que despliega una vela de frenado en caso de falla crítica, reduciendo la energía de impacto.</li>
+          <li><strong>Software de descenso controlado:</strong> Lógica de vuelo que, ante pérdida de enlace o falla parcial, ejecuta una maniobra de aterrizaje automático en zona segura.</li>
+        </ul>
+
+        <p>Respecto a la <strong>Credencial de Operador de la DGAC</strong>, los requisitos son:</p>
+        <ul>
+          <li>Ser mayor de <strong>18 años</strong>.</li>
+          <li>Aprobar el <strong>examen teórico</strong> con una nota mínima del <strong>75%</strong>.</li>
+          <li>Conocer que la credencial tiene una <strong>vigencia limitada a 36 meses (3 años)</strong>, tras los cuales debe revalidarse.</li>
+        </ul>
+
+        <div class="alert-box alert-info">
+          <strong>Importancia de la vigencia:</strong> Operar con una credencial vencida equivale a operar sin credencial. La sanción administrativa se aplicará conforme al DAR 51, independientemente de la experiencia previa del piloto.
+        </div>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/paracaidas.webp" alt="Sistema de paracaídas para drone" loading="lazy">
+          <div class="media-caption">Sistema de mitigación de impacto: paracaídas balístico para RPAS.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Datos a memorizar:</strong> MTOW &gt; 25 kg o grandes aglomeraciones = mitigación de impacto obligatoria. Credencial DGAC: mayores de 18, nota mínima 75%, vigencia 36 meses. "75-36" es la clave mnemotécnica.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- SORA -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📊</div>
+        <h3>Evaluación de Riesgos y Marco SORA</h3>
+      </div>
+      <div class="card-body">
+        <p>La DGAC ha adoptado la metodología internacional <strong>SORA (Specific Operations Risk Assessment)</strong> para evaluar la seguridad operacional de los vuelos RPAS. SORA permite clasificar las operaciones según su nivel de criticidad y determinar qué autorizaciones se requieren.</p>
+
+        <p>Las operaciones se clasifican en tres categorías:</p>
+        <ul>
+          <li><strong>Categoría Abierta:</strong> Operaciones de riesgo mínimo. No requieren autorización explícita del SDO, pero deben cumplir limitaciones de peso, altura y distancia.</li>
+          <li><strong>Categoría Específica:</strong> Riesgo moderado. Requieren autorización SDO explícita tras presentar una evaluación de riesgos y medidas de mitigación.</li>
+          <li><strong>Categoría Certificada:</strong> Alto riesgo, comparable a la aviación tripulada. Exige homologación a estándares de certificación aeronáutica formal.</li>
+        </ul>
+
+        <div class="diagram">
+          <div class="risk-matrix">
+            <div class="risk-header">Entorno / Capacidad</div>
+            <div class="risk-header">Bajo</div>
+            <div class="risk-header">Medio</div>
+            <div class="risk-header">Alto</div>
+
+            <div class="risk-header">Rural abierto</div>
+            <div class="risk-low">Aceptable</div>
+            <div class="risk-low">Aceptable</div>
+            <div class="risk-med">Mitigar</div>
+
+            <div class="risk-header">Suburbano</div>
+            <div class="risk-low">Aceptable</div>
+            <div class="risk-med">Mitigar</div>
+            <div class="risk-high">Autorizar</div>
+
+            <div class="risk-header">Urbano denso</div>
+            <div class="risk-med">Mitigar</div>
+            <div class="risk-high">Autorizar</div>
+            <div class="risk-extreme">Certificar</div>
+          </div>
+          <div class="diagram-caption">Matriz conceptual de evaluación de riesgos SORA.</div>
+        </div>
+
+        <p>La evaluación SORA considera factores como el entorno geográfico, la densidad poblacional, las características técnicas de la nave, la experiencia del piloto, la complejidad de la operación y la existencia de observadores visuales. El objetivo es demostrar que el riesgo residual es aceptable antes de autorizar el vuelo.</p>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Tríada SORA:</strong> Abierta = riesgo mínimo (sin autorización); Específica = riesgo moderado (autorización SDO); Certificada = alto riesgo (certificación formal). Piensa en "Abierta-Específica-Certificada" como niveles crecientes de control.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Segmentación Ocular -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">👁️</div>
+        <h3>Segmentación Ocular de Vuelos</h3>
+      </div>
+      <div class="card-body">
+        <p>Uno de los conceptos más importantes de la DAN 151 es la clasificación de las operaciones según la <strong>línea de vista</strong> entre el piloto y la aeronave. Esta distinción define qué equipos, personal y autorizaciones son necesarios.</p>
+
+        <ol>
+          <li><strong>VLOS (Visual Line of Sight):</strong> Vuelo dentro del alcance visual directo del piloto. Está limitado estrictamente a <strong>500 metros de distancia horizontal</strong> y <strong>400 pies de altura</strong>. Está prohibido usar pantallas FPV o binoculares como medio principal de control. El piloto debe mantener contacto visual permanente con el drone.</li>
+          <li><strong>EVLOS (Extended Visual Line of Sight):</strong> Extensión del rango visual mediante el uso de <strong>observadores visuales (VO)</strong> en constante comunicación radial con el piloto. Los VO actúan como "ojos" del piloto en sectores donde este no tiene línea directa, manteniendo la nave bajo vigilancia visual en todo momento.</li>
+          <li><strong>BVLOS (Beyond Visual Line of Sight):</strong> Vuelo completamente fuera de la vista del piloto. Exige sistemas avanzados <strong>DAA (Detect and Avoid)</strong>, enlaces redundantes de telemetría y una estricta aprobación y análisis SDO. Es la modalidad más exigente y de mayor riesgo.</li>
+        </ol>
+
+        <div class="diagram">
+          <div style="display:flex;flex-direction:column;gap:0.75rem;max-width:700px;margin:0 auto;">
+            <div style="background:var(--success-soft);border:1px solid var(--success);padding:var(--space-lg);border-radius:var(--radius-md);">
+              <strong>VLOS</strong> — Piloto ve al dron directamente. Máximo 500 m horizontal / 400 pies vertical.
+            </div>
+            <div style="background:var(--warning-soft);border:1px solid var(--warning);padding:var(--space-lg);border-radius:var(--radius-md);">
+              <strong>EVLOS</strong> — Observadores visuales extienden la línea de vista mediante comunicación radial.
+            </div>
+            <div style="background:var(--danger-soft);border:1px solid var(--danger);padding:var(--space-lg);border-radius:var(--radius-md);">
+              <strong>BVLOS</strong> — Vuelo fuera de vista. Requiere DAA, enlaces redundantes y aprobación SDO.
+            </div>
+          </div>
+          <div class="diagram-caption">Esquema de segmentación visual de operaciones RPAS.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Diferencia clave:</strong> En VLOS no se permiten gafas FPV ni binoculares como control principal. Si el piloto pierde contacto visual directo, deja de ser VLOS. EVLOS necesita observadores visuales con comunicación radial. BVLOS es el nivel más alto y siempre requiere autorización SDO.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Cierre -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🎲</div>
+        <h3>Cierre: Banco de Preguntas Simuladas DAN 151</h3>
+      </div>
+      <div class="card-body">
+        <p>Resuelva en el aula las siguientes preguntas tipo examen:</p>
+        <ul>
+          <li>¿En qué casos es obligatorio contar con sistema de mitigación de impacto?</li>
+          <li>¿Cuál es la nota mínima para aprobar el examen teórico DGAC y cuánto dura la credencial?</li>
+          <li>¿Qué categoría SORA corresponde a un vuelo de alto riesgo sobre una multitud?</li>
+          <li>¿Cuál es la distancia máxima permitida en una operación VLOS?</li>
+          <li>¿Puede un piloto usar gafas FPV para mantener una operación VLOS? Justifique.</li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="reveal" style="display: flex; justify-content: space-between; margin-top: var(--space-2xl);">
+      <a href="reglas-aire.html" class="btn btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Anterior: Clase 2
+      </a>
+      <a href="aerodinamica.html" class="btn btn-primary">
+        Siguiente: Clase 4
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" class="footer-logo" width="56" height="56">
+        <div class="footer-brand">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+        <div class="footer-info">
+          Especialidad de Operaciones de Drones — 3°AF<br>
+          Operador Full Stack - Obtención de la credencial de la DGAC<br>
+          <strong>Ing. Christopher Ruiz</strong>
+        </div>
+        <div class="footer-credit">Material educativo generado para uso institucional.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script>
+    function toggleTip(button) {
+      const content = button.nextElementSibling;
+      button.classList.toggle('open');
+      content.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

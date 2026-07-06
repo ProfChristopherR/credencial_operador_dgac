@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clase 5: Meteorología y Decodificación | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" width="44" height="44">
+        <div class="brand-text">
+          <span class="brand-name">Liceo Bicentenario de Excelencia Polivalente San Nicolás</span>
+          <span class="brand-sub">Operador Full Stack</span>
+        </div>
+      </a>
+      <div class="navbar-nav" id="main-nav">
+        <a href="marco-normativo.html" class="nav-link">Clase 1</a>
+        <a href="reglas-aire.html" class="nav-link">Clase 2</a>
+        <a href="areas-pobladas.html" class="nav-link">Clase 3</a>
+        <a href="aerodinamica.html" class="nav-link">Clase 4</a>
+        <a href="meteorologia.html" class="nav-link active">Clase 5</a>
+        <a href="../evaluacion.html" class="nav-link">Evaluación</a>
+      </div>
+      <div class="navbar-actions">
+        <button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page-transition" style="padding-top: 96px; padding-bottom: var(--space-3xl);">
+    <div class="page-header reveal">
+      <p class="body-lg" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: var(--space-sm);">Clase 5</p>
+      <h2 class="heading-xl">Meteorología Aeronáutica y Decodificación (METAR / NOTAM)</h2>
+      <p>Estructura de la atmósfera, lectura de informes meteorológicos y gestión de avisos a los aviadores.</p>
+    </div>
+
+    <!-- Activación -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🔐</div>
+        <h3>Activación: Desafío de Criptografía Aeronáutica</h3>
+      </div>
+      <div class="card-body">
+        <p>Se proyecta en pantalla la siguiente cadena METAR sin procesar, correspondiente a un aeródromo chileno:</p>
+
+        <div class="alert-box alert-info" style="font-family: 'SF Mono', monospace; font-size: 1.1rem; letter-spacing: 0.02em;">
+          SCCI 051200Z 26008KT 9999 FEW030 BKN060 M01/M04 Q1012 RMK PK WND 27020KT
+        </div>
+
+        <p>El desafío para los estudiantes es identificar, en menos de dos minutos, las variables de peligro para el despegue de un RPAS. La cadena parece críptica, pero cada grupo de caracteres tiene un significado preciso y estandarizado internacionalmente.</p>
+
+        <div class="alert-box alert-warning">
+          <strong>Preguntas de activación:</strong> ¿Cuál es la dirección y velocidad del viento? ¿Hay nubosidad significativa? ¿Qué temperatura ambiente reporta el informe? ¿Cuál es la presión atmosférica? ¿Existe algún indicador de fenómenos peligrosos?
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Antes de volar, decodifica.</strong> En el examen, una pregunta METAR puede parecer intimidante, pero si identificas los bloques (estación, hora, viento, visibilidad, nubosidad, temperatura, QNH), podrás responder con seguridad. Busca siempre primero el viento y la visibilidad.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Estructura Atmosférica -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🌤️</div>
+        <h3>Estructura Atmosférica y Dinámicas Locales</h3>
+      </div>
+      <div class="card-body">
+        <p>Todas las operaciones RPAS se desarrollan en la <strong>Troposfera</strong>, la capa más baja de la atmósfera terrestre. Es aquí donde ocurren los fenómenos climáticos relevantes para la aviación: vientos, nubes, turbulencia, precipitaciones y variaciones térmicas.</p>
+
+        <p>El <strong>Gradiente Térmico Vertical estándar</strong> establece que la temperatura del aire disminuye aproximadamente <strong>6.5 °C por cada 1.000 metros</strong> de altitud ganada. Esta cifra es útil para estimar la temperatura a la altura máxima de operación de un RPAS y evaluar el riesgo de condensación o formación de hielo.</p>
+
+        <p>El <strong>Efecto Coriolis</strong> en el Hemisferio Sur desvía las corrientes de viento hacia la <strong>izquierda</strong> de su trayectoria original, cuando el aire se desplaza desde zonas de alta presión hacia zonas de baja presión. Este efecto es importante para entender la circulación atmosférica a gran escala y la orientación de los sistemas frontales en Chile.</p>
+
+        <div class="alert-box alert-danger">
+          <strong>Nube más peligrosa:</strong> El <strong>Cumulonimbus (Cb)</strong> es la nube más peligrosa para la aviación. Sus corrientes de convección térmica, rayos, granizo y vientos que superan los 50 nudos pueden destruir un RPAS en segundos. Nunca se debe volar cerca o bajo una tormenta en desarrollo.
+        </div>
+
+        <p>Las <strong>ventanas operacionales</strong> también dependen de la hora del día:</p>
+        <ul>
+          <li>La <strong>turbulencia térmica</strong> alcanza su punto crítico entre las <strong>11:00 y las 16:00 horas</strong>, cuando el sol calienta el suelo y generan corrientes convectivas irregulares.</li>
+          <li>La <strong>brisa marina</strong> se produce durante el día, con flujo del mar hacia la tierra.</li>
+          <li>La <strong>brisa terrestre</strong> se produce durante la noche, con flujo de la tierra hacia el mar.</li>
+        </ul>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/cumulonimbus.webp" alt="Cumulonimbus en el horizonte" loading="lazy">
+          <div class="media-caption">Un Cumulonimbus representa una condición de vuelo inaceptable para cualquier RPAS.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Mnemotécnicas meteorológicas:</strong> Coriolis en el Sur desvía a la izquierda. Cb = nube mala, nunca vueles cerca. Turbulencia térmica pico: 11 a 16 horas. Brisa marina = día; brisa terrestre = noche.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- METAR/SPECI -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📡</div>
+        <h3>Taller Práctico de Decodificación METAR/SPECI</h3>
+      </div>
+      <div class="card-body">
+        <p>Los informes <strong>METAR</strong> (Meteorological Aerodrome Report) y <strong>SPECI</strong> (informe especial emitido cuando hay cambios significativos) son reportes meteorológicos estandarizados de aeródromos. La DGAC utiliza el formato internacional ICAO, que se lee de izquierda a derecha en bloques.</p>
+
+        <p>La estructura estándar es:</p>
+        <ol>
+          <li><strong>Identificador de estación:</strong> Código ICAO de cuatro letras (ej. SCCI para Punta Arenas).</li>
+          <li><strong>Fecha y hora:</strong> Día y hora en formato Zulu (UTC), terminado en Z.</li>
+          <li><strong>Dirección y velocidad del viento:</strong> En grados y nudos (KT).</li>
+          <li><strong>Visibilidad horizontal:</strong> En metros. 9999 significa visibilidad superior a 10 km.</li>
+          <li><strong>Nubosidad y altura de base:</strong> FEW (pocas), SCT (dispersas), BKN (nublado), OVC (cubierto), seguido de la altura en cientos de pies.</li>
+          <li><strong>Temperatura y punto de rocío:</strong> En grados Celsius. M indica valores bajo cero.</li>
+          <li><strong>Presión barométrica ajustada al nivel del mar (QNH):</strong> En hPa, precedida por Q.</li>
+        </ol>
+
+        <div class="diagram">
+          <div class="metar-decoder">
+            <div class="metar-token"><code>SCCI</code><span>Estación Punta Arenas</span></div>
+            <div class="metar-token"><code>051200Z</code><span>Día 5, 12:00 UTC</span></div>
+            <div class="metar-token"><code>26008KT</code><span>Viento 260°, 8 nudos</span></div>
+            <div class="metar-token"><code>9999</code><span>Visibilidad &gt;10 km</span></div>
+            <div class="metar-token"><code>FEW030</code><span>Pocas nubes a 3.000 ft</span></div>
+            <div class="metar-token"><code>BKN060</code><span>Nublado a 6.000 ft</span></div>
+            <div class="metar-token"><code>M01/M04</code><span>Temp -1°C, rocío -4°C</span></div>
+            <div class="metar-token"><code>Q1012</code><span>QNH 1012 hPa</span></div>
+          </div>
+          <div class="diagram-caption">Decodificador visual del METAR de ejemplo.</div>
+        </div>
+
+        <p><strong>Identificadores críticos para el examen:</strong></p>
+        <ul>
+          <li><code>9999</code>: Visibilidad óptima, superior a 10 kilómetros.</li>
+          <li><code>FEW / BKN / OVC</code>: Pocas, nublado y cubierto, respectivamente.</li>
+          <li><code>-SHRA</code>: Chubascos ligeros de lluvia (el signo menos indica ligero; SH = chubasco; RA = lluvia).</li>
+          <li><code>M01</code>: Valor de temperatura bajo cero. La letra M reemplaza al signo menos.</li>
+        </ul>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Decodificación rápida:</strong> "M" antes de la temperatura significa negativo. La altura de nubes en METAR se expresa en <strong>cientos de pies</strong>: 030 = 3.000 pies. El viento se lee como "dirección de donde viene / velocidad en nudos". 9999 siempre es buena noticia: visibilidad mayor a 10 km.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- NOTAM -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📢</div>
+        <h3>Avisos a los Aviadores (NOTAM)</h3>
+      </div>
+      <div class="card-body">
+        <p>Los <strong>NOTAM</strong> (Notice to Airmen) son avisos urgentes que informan sobre cambios en la información aeronáutica publicada: pistas en mantención, zonas restringidas temporales, ejercicios militares, eventos públicos, torres de construcción, luces obstrucción fuera de servicio, entre otros.</p>
+
+        <p>El uso de la plataforma <strong>IFIS</strong> de la DGAC es obligatorio antes de encender motores. Un piloto que desconozca un NOTAM vigente puede incurrir en una infracción administrativa grave o provocar un incidente de seguridad.</p>
+
+        <p>Los NOTAM se clasifican según su naturaleza administrativa:</p>
+        <ul>
+          <li><strong>NOTAMN:</strong> Aviso Nuevo. Comunica una situación que no existía previamente.</li>
+          <li><strong>NOTAMR:</strong> Aviso que Reemplaza a uno anterior. Actualiza o modifica la información de un NOTAM previo.</li>
+          <li><strong>NOTAMC:</strong> Aviso que Cancela una restricción previa. Indica que una condición notificada ya no existe.</li>
+        </ul>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/espacio-aereo.webp" alt="Torre de control y aviación" loading="lazy">
+          <div class="media-caption">La información NOTAM es obligatoria antes de cualquier operación aérea.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Tipos de NOTAM:</strong> N = Nuevo, R = Reemplaza, C = Cancela. Puedes recordarlo como "Nuevo-Reemplaza-Cancela". Siempre revisa IFIS antes de volar; un NOTAMC puede liberar una zona que antes estaba restringida.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Cierre -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🏁</div>
+        <h3>Cierre: Examen Simulado Integrador Final</h3>
+      </div>
+      <div class="card-body">
+        <p>Preguntas de alta frecuencia de la DGAC para cerrar el año escolar del Liceo Bicentenario de Excelencia Polivalente San Nicolás:</p>
+        <ul>
+          <li>Decodifique el METAR: SCEL 101200Z 18015KT 8000 SCT020 BKN040 12/08 Q1015.</li>
+          <li>¿A qué hora del día es más peligrosa la turbulencia térmica?</li>
+          <li>¿En qué dirección desvía el efecto Coriolis los vientos en el Hemisferio Sur?</li>
+          <li>¿Qué significa un NOTAMR y cuándo se usa?</li>
+          <li>¿Por qué es peligroso volar cerca de un Cumulonimbus?</li>
+          <li>¿Cuál es la relación entre velocidad y resistencia parásita?</li>
+          <li>¿Qué condiciones deben cumplirse simultáneamente para estar exento de trámites DGAC?</li>
+        </ul>
+
+        <div class="alert-box alert-success">
+          <strong>Mensaje de cierre:</strong> El curso de Piloto RPAS del Liceo Bicentenario de Excelencia Polivalente San Nicolás ha recorrido el camino completo: normativa, reglas del aire, operaciones en áreas pobladas, aerodinámica y meteorología. Con disciplina de estudio y práctica responsable, estarán preparados para rendir el examen teórico DGAC y operar drones con seguridad y profesionalismo.
+        </div>
+      </div>
+    </article>
+
+    <div class="reveal" style="display: flex; justify-content: space-between; margin-top: var(--space-2xl);">
+      <a href="aerodinamica.html" class="btn btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Anterior: Clase 4
+      </a>
+      <a href="../evaluacion.html" class="btn btn-primary">
+        Evaluación Final
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" class="footer-logo" width="56" height="56">
+        <div class="footer-brand">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+        <div class="footer-info">
+          Especialidad de Operaciones de Drones — 3°AF<br>
+          Operador Full Stack - Obtención de la credencial de la DGAC<br>
+          <strong>Ing. Christopher Ruiz</strong>
+        </div>
+        <div class="footer-credit">Material educativo generado para uso institucional.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script>
+    function toggleTip(button) {
+      const content = button.nextElementSibling;
+      button.classList.toggle('open');
+      content.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluación Final | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" width="44" height="44">
+        <div class="brand-text">
+          <span class="brand-name">Liceo Bicentenario de Excelencia Polivalente San Nicolás</span>
+          <span class="brand-sub">Operador Full Stack</span>
+        </div>
+      </a>
+      <div class="navbar-nav" id="main-nav">
+        <a href="clases/marco-normativo.html" class="nav-link">Clase 1</a>
+        <a href="clases/reglas-aire.html" class="nav-link">Clase 2</a>
+        <a href="clases/areas-pobladas.html" class="nav-link">Clase 3</a>
+        <a href="clases/aerodinamica.html" class="nav-link">Clase 4</a>
+        <a href="clases/meteorologia.html" class="nav-link">Clase 5</a>
+        <a href="evaluacion.html" class="nav-link active">Evaluación</a>
+      </div>
+      <div class="navbar-actions">
+        <button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page-transition" style="padding-top: 96px; padding-bottom: var(--space-3xl);">
+    <div class="page-header reveal">
+      <p class="body-lg" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: var(--space-sm);">Evaluación Final</p>
+      <h2 class="heading-xl">Examen Simulado Integrador DGAC</h2>
+      <p>Responde las siguientes preguntas tipo examen DGAC para practicar los conceptos del curso.</p>
+    </div>
+
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">✅</div>
+        <h3>Examen Simulado DGAC</h3>
+      </div>
+      <div class="card-body">
+        <div class="alert-box alert-success" style="margin-bottom: var(--space-xl);">
+          <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+            <div style="font-size: 2.5rem; flex-shrink: 0;">🎯</div>
+            <div>
+              <strong style="font-size: 1.1rem; display: block; margin-bottom: var(--space-xs);">Examen Completo de Práctica DGAC</strong>
+              <span>Para una preparación exhaustiva con el banco completo de preguntas, visita el simulador oficial del curso.</span>
+            </div>
+          </div>
+          <a href="https://profchristopherr.github.io/Examen_DGAC/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg btn-shimmer ripple" style="width: 100%; margin-top: var(--space-md);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            Ir al Examen Completo DGAC
+          </a>
+        </div>
+
+        <div id="quiz-container">
+          <!-- Pregunta 1 -->
+          <div class="quiz-question" data-correct="b">
+            <p>1. ¿Cuál es la sanción máxima administrativa que puede aplicar la DGAC según el Artículo 185 del Código Aeronáutico?</p>
+            <div class="quiz-options">
+              <label><input type="radio" name="q1" value="a"> Prisión preventiva</label>
+              <label><input type="radio" name="q1" value="b"> Cancelación definitiva de la licencia o credencial</label>
+              <label><input type="radio" name="q1" value="c"> Multa de 50 a 500 UTM</label>
+              <label><input type="radio" name="q1" value="d"> Incautación permanente del RPAS</label>
+            </div>
+            <button class="btn-check" onclick="checkAnswer(this)">Verificar respuesta</button>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <!-- Pregunta 2 -->
+          <div class="quiz-question" data-correct="d">
+            <p>2. ¿Quién puede ordenar la incautación física de un RPAS en terreno?</p>
+            <div class="quiz-options">
+              <label><input type="radio" name="q2" value="a"> La DGAC por sí sola</label>
+              <label><input type="radio" name="q2" value="b"> El municipio local</label>
+              <label><input type="radio" name="q2" value="c"> Carabineros sin orden judicial</label>
+              <label><input type="radio" name="q2" value="d"> Carabineros bajo instrucción directa de un Fiscal</label>
+            </div>
+            <button class="btn-check" onclick="checkAnswer(this)">Verificar respuesta</button>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <!-- Pregunta 3 -->
+          <div class="quiz-question" data-correct="c">
+            <p>3. ¿Cuál es la altura máxima de operación permitida para un RPAS según la DAN 91?</p>
+            <div class="quiz-options">
+              <label><input type="radio" name="q3" value="a"> 120 pies (37 metros)</label>
+              <label><input type="radio" name="q3" value="b"> 500 metros</label>
+              <label><input type="radio" name="q3" value="c"> 400 pies (120 metros) AGL</label>
+              <label><input type="radio" name="q3" value="d"> 50 metros</label>
+            </div>
+            <button class="btn-check" onclick="checkAnswer(this)">Verificar respuesta</button>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <!-- Pregunta 4 -->
+          <div class="quiz-question" data-correct="b">
+            <p>4. ¿Qué significa 9999 en un informe METAR?</p>
+            <div class="quiz-options">
+              <label><input type="radio" name="q4" value="a"> Visibilidad nula</label>
+              <label><input type="radio" name="q4" value="b"> Visibilidad superior a 10 kilómetros</label>
+              <label><input type="radio" name="q4" value="c"> Altura máxima de nubes</label>
+              <label><input type="radio" name="q4" value="d"> Presión atmosférica</label>
+            </div>
+            <button class="btn-check" onclick="checkAnswer(this)">Verificar respuesta</button>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <!-- Pregunta 5 -->
+          <div class="quiz-question" data-correct="a">
+            <p>5. En un multirrotor, la guiñada (yaw) se logra principalmente:</p>
+            <div class="quiz-options">
+              <label><input type="radio" name="q5" value="a"> Alterando el equilibrio de torque entre motores CW y CCW</label>
+              <label><input type="radio" name="q5" value="b"> Usando un timón de dirección</label>
+              <label><input type="radio" name="q5" value="c"> Inclinando toda la nave hacia un lado</label>
+              <label><input type="radio" name="q5" value="d"> Variando el ángulo de ataque de las alas</label>
+            </div>
+            <button class="btn-check" onclick="checkAnswer(this)">Verificar respuesta</button>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <!-- Pregunta 6 -->
+          <div class="quiz-question" data-correct="d">
+            <p>6. Para estar exento de trámites DGAC, ¿cuál de estas condiciones NO es necesaria?</p>
+            <div class="quiz-options">
+              <label><input type="radio" name="q6" value="a"> Peso inferior a 750 gramos</label>
+              <label><input type="radio" name="q6" value="b"> Material de absorción de impactos</label>
+              <label><input type="radio" name="q6" value="c"> Altura máxima de 50 metros</label>
+              <label><input type="radio" name="q6" value="d"> Notificación previa al municipio</label>
+            </div>
+            <button class="btn-check" onclick="checkAnswer(this)">Verificar respuesta</button>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <!-- Pregunta 7 -->
+          <div class="quiz-question" data-correct="b">
+            <p>7. ¿Cuánto dura la Credencial de Operador de la DGAC antes de revalidar?</p>
+            <div class="quiz-options">
+              <label><input type="radio" name="q7" value="a"> 12 meses</label>
+              <label><input type="radio" name="q7" value="b"> 36 meses</label>
+              <label><input type="radio" name="q7" value="c"> 60 meses</label>
+              <label><input type="radio" name="q7" value="d"> Vitalicia</label>
+            </div>
+            <button class="btn-check" onclick="checkAnswer(this)">Verificar respuesta</button>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <!-- Pregunta 8 -->
+          <div class="quiz-question" data-correct="a">
+            <p>8. ¿Qué fenómeno ocurre cuando un multirrotor desciende rápidamente dentro de su propio flujo de aire descendente?</p>
+            <div class="quiz-options">
+              <label><input type="radio" name="q8" value="a"> Estado de anillo de vórtice (VRS)</label>
+              <label><input type="radio" name="q8" value="b"> Efecto Coriolis</label>
+              <label><input type="radio" name="q8" value="c"> Gradient térmico vertical</label>
+              <label><input type="radio" name="q8" value="d"> Resistencia inducida</label>
+            </div>
+            <button class="btn-check" onclick="checkAnswer(this)">Verificar respuesta</button>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+
+        <div class="alert-box alert-info" style="margin-top: var(--space-xl);">
+          <strong>Resultado:</strong> <span id="score-text">Responde todas las preguntas para ver tu puntaje.</span>
+        </div>
+
+        <div class="alert-box alert-success" style="margin-top: var(--space-xl);">
+          <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+            <div style="font-size: 2.5rem; flex-shrink: 0;">🚀</div>
+            <div>
+              <strong style="font-size: 1.1rem; display: block; margin-bottom: var(--space-xs);">¿Listo para el examen real?</strong>
+              <span>Practica con el banco completo de preguntas en el simulador oficial.</span>
+            </div>
+          </div>
+          <a href="https://profchristopherr.github.io/Examen_DGAC/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-shimmer ripple" style="width: 100%; margin-top: var(--space-md);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+            Ir al Examen Completo DGAC
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <div class="reveal" style="display: flex; justify-content: center; margin-top: var(--space-2xl);">
+      <a href="index.html" class="btn btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Volver al inicio
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <img src="assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" class="footer-logo" width="56" height="56">
+        <div class="footer-brand">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+        <div class="footer-info">
+          Especialidad de Operaciones de Drones — 3°AF<br>
+          Operador Full Stack - Obtención de la credencial de la DGAC<br>
+          <strong>Ing. Christopher Ruiz</strong>
+        </div>
+        <div class="footer-credit">Material educativo generado para uso institucional.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/quiz.js"></script>
+</body>
+</html>

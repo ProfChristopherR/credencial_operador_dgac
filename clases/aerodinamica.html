@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clase 4: Aerodinámica Aplicada | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" width="44" height="44">
+        <div class="brand-text">
+          <span class="brand-name">Liceo Bicentenario de Excelencia Polivalente San Nicolás</span>
+          <span class="brand-sub">Operador Full Stack</span>
+        </div>
+      </a>
+      <div class="navbar-nav" id="main-nav">
+        <a href="marco-normativo.html" class="nav-link">Clase 1</a>
+        <a href="reglas-aire.html" class="nav-link">Clase 2</a>
+        <a href="areas-pobladas.html" class="nav-link">Clase 3</a>
+        <a href="aerodinamica.html" class="nav-link active">Clase 4</a>
+        <a href="meteorologia.html" class="nav-link">Clase 5</a>
+        <a href="../evaluacion.html" class="nav-link">Evaluación</a>
+      </div>
+      <div class="navbar-actions">
+        <button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page-transition" style="padding-top: 96px; padding-bottom: var(--space-3xl);">
+    <div class="page-header reveal">
+      <p class="body-lg" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: var(--space-sm);">Clase 4</p>
+      <h2 class="heading-xl">Principios de Aerodinámica Aplicada a RPAS</h2>
+      <p>Fuerzas de vuelo, ángulo de ataque, control de actitud y resistencias en aeronaves remotamente pilotadas.</p>
+    </div>
+
+    <!-- Activación -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🔋</div>
+        <h3>Activación: El dilema energético en Hover</h3>
+      </div>
+      <div class="card-body">
+        <p>Un multirrotor debe mantener una posición fija (hover) frente a dos escenarios meteorológicos distintos: primero con viento de frente moderado y luego con viento de cola de igual intensidad. Los estudiantes deben predecir en cuál de los dos casos el consumo eléctrico será mayor.</p>
+
+        <p>La respuesta no es obvia. En hover estacionario, la nave debe generar sustentación igual a su peso. Con viento de frente, los rotores trabajan en aire "fresco" y relativamente no perturbado, lo que mejora la eficiencia del rotor. Con viento de cola, el dron descansa sobre su propio flujo descendente y el rotor ingesta aire más turbulento, reduciendo la eficiencia y aumentando el consumo para mantener la misma altitud.</p>
+
+        <div class="alert-box alert-warning">
+          <strong>Conclusión:</strong> Mantener hover con viento de cola suele consumir más energía que con viento de frente, porque el rotor opera en aire más perturbado. Este fenómeno es clave para entender la gestión de batería y la planificación de vuelos en condiciones variables.
+        </div>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/hover-drone.webp" alt="Multirrotor en hover" loading="lazy">
+          <div class="media-caption">El hover exige equilibrio constante entre peso, sustentación y eficiencia rotórica.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Recuerda:</strong> "Viento de cola = más consumo en hover". No confundas con aviones de ala fija, donde el viento de cola afecta la velocidad respecto al suelo pero no necesariamente el consumo en vuelo nivelado de la misma manera. En multirrotores, la eficiencia del rotor depende de la calidad del aire que ingiere.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Vectores -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">↔️</div>
+        <h3>Vectores de Fuerza y Viento Relativo</h3>
+      </div>
+      <div class="card-body">
+        <p>El vuelo estable de cualquier aeronave se explica mediante el equilibrio de cuatro fuerzas fundamentales. En el caso de un multirrotor en vuelo horizontal, estas fuerzas actúan de la siguiente manera:</p>
+
+        <ul>
+          <li><strong>Sustentación:</strong> Fuerza vertical hacia arriba generada por los rotores. En vuelo estacionario es igual al peso.</li>
+          <li><strong>Peso:</strong> Fuerza vertical hacia abajo producto de la gravedad. Actúa sobre el centro de gravedad.</li>
+          <li><strong>Empuje:</strong> Fuerza horizontal producida por la inclinación de la nave, que vence la resistencia.</li>
+          <li><strong>Resistencia aerodinámica:</strong> Fuerza opuesta al movimiento generada por el rozamiento del aire.</li>
+        </ul>
+
+        <div class="diagram">
+          <div class="force-cross">
+            <div class="force-arrow up">Sustentación</div>
+            <div class="force-arrow down">Peso</div>
+            <div class="force-arrow right">Empuje</div>
+            <div class="force-arrow left">Resistencia</div>
+            <div class="drone-center">🛸</div>
+          </div>
+          <div class="diagram-caption">Cruz de fuerzas en vuelo estable.</div>
+        </div>
+
+        <p>El <strong>viento relativo</strong> es un concepto esencial para el piloto. Se define como el flujo de aire que experimenta la aeronave como resultado de su propio movimiento a través de la atmósfera. Matemáticamente, es la suma vectorial entre el viento real (meteorológico) y la velocidad propia del dron. Cuando el viento real cambia de dirección o intensidad, el vector de viento relativo cambia, afectando la actitud y la trayectoria.</p>
+
+        <div class="alert-box alert-info">
+          <strong>Ejemplo práctico:</strong> Si un dron vuela a 10 m/s hacia el norte y hay viento del norte a 5 m/s, su velocidad respecto al suelo será menor que si el viento viene del sur. El piloto debe anticipar estas variaciones para mantener la posición deseada.
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Viento relativo = velocidad propia + viento real (vectorial).</strong> Si en el examen te preguntan qué determina la dirección del flujo de aire sobre el perfil, la respuesta es el viento relativo, no el viento real ni la velocidad respecto al suelo.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ángulo de Ataque -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📐</div>
+        <h3>Ángulo de Ataque y Fenómenos Críticos</h3>
+      </div>
+      <div class="card-body">
+        <p>El <strong>Ángulo de Ataque (AOA)</strong> es el ángulo formado entre la línea de la cuerda del perfil alar (o el plano de las aspas del rotor) y la dirección del viento relativo. Este ángulo determina cuánta sustentación genera el perfil y qué tan cerca está de perder eficiencia.</p>
+
+        <p>Cada perfil aerodinámico posee un <strong>ángulo de ataque crítico</strong>. Si se supera, el flujo de aire deja de adherirse de manera laminar a la superficie del perfil, se produce la separación del flujo y la sustentación cae drásticamente. Este fenómeno se denomina <strong>entrada en pérdida (stall)</strong>.</p>
+
+        <div class="alert-box alert-danger">
+          <strong>Adaptación a multirrotores:</strong> Aunque los drones no tienen alas fijas, sus rotores también pueden entrar en pérdida. El fenómeno más peligroso es el <strong>Estado de Anillo de Vórtice (Vortex Ring State, VRS)</strong>, que ocurre cuando el dron desciende vertical y velozmente dentro de su propio flujo de aire descendente. Los vórtices reducen la eficiencia del rotor y la nave puede perder sustentación de forma abrupta.
+        </div>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/ala-avion.webp" alt="Flujo de aire sobre rotor" loading="lazy">
+          <div class="media-caption">El flujo laminar es esencial para mantener la sustentación; superar el ángulo crítico genera pérdida.</div>
+        </div>
+
+        <p>Para evitar el VRS, el piloto debe:</p>
+        <ul>
+          <li>Evitar descensos verticales rápidos, especialmente cerca del suelo.</li>
+          <li>Descender con ligero movimiento horizontal para que los rotores ingieran aire fresco.</li>
+          <li>Reconocer los primeros síntomas: vibraciones, aumento de potencia sin ganancia de sustentación y pérdida de altitud inesperada.</li>
+        </ul>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Clave:</strong> El stall se produce por superar el ángulo de ataque crítico, no por volar lento en sí mismo. En multirrotores, el VRS aparece en descensos verticales rápidos dentro del propio flujo descendente. Si ves la opción "VRS ocurre al subir rápido", es falsa.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- LPG -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🎮</div>
+        <h3>Dinámica de Rotación: La Regla LPG</h3>
+      </div>
+      <div class="card-body">
+        <p>El control de actitud de un multirrotor se realiza mediante la variación de velocidad de sus motores. Para memorizar los tres ejes de rotación se utiliza la nemotecnia <strong>LPG</strong>:</p>
+
+        <ol>
+          <li><strong>L - Alabeo (Roll):</strong> Rotación sobre el <strong>eje longitudinal</strong> de la nave. En multirrotores se controla acelerando los motores de un lado y desacelerando los del lado opuesto. Produce inclinación lateral.</li>
+          <li><strong>P - Cabeceo (Pitch):</strong> Rotación sobre el <strong>eje transversal</strong>. Se controla variando la potencia entre el tren de motores frontal y el trasero. Permite avanzar o retroceder.</li>
+          <li><strong>G - Guiñada (Yaw):</strong> Rotación sobre el <strong>eje vertical</strong>.</li>
+        </ol>
+
+        <div class="alert-box alert-info">
+          <strong>Diferencia crucial con los aviones:</strong> A diferencia de los aviones de ala fija, los multirrotores <strong>no poseen timón físico de dirección</strong>. La guiñada se ejecuta alterando el equilibrio de torque interno: se acelera un par de motores de giro horario (CW) y se desaceleran los de giro antihorario (CCW), o viceversa. Esto genera un par neto que hace rotar la nave sobre su eje vertical.
+        </div>
+
+        <div class="diagram">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+            <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-lg);text-align:center;transition:all var(--transition-base);" class="glow-card">
+              <div style="font-size:2rem;margin-bottom:0.5rem;">↔️</div>
+              <strong>Alabeo (Roll)</strong><br>Eje Longitudinal<br>Lateral
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-lg);text-align:center;transition:all var(--transition-base);" class="glow-card">
+              <div style="font-size:2rem;margin-bottom:0.5rem;">↕️</div>
+              <strong>Cabeceo (Pitch)</strong><br>Eje Transversal<br>Avance/Retroceso
+            </div>
+            <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-lg);text-align:center;transition:all var(--transition-base);" class="glow-card">
+              <div style="font-size:2rem;margin-bottom:0.5rem;">🔄</div>
+              <strong>Guiñada (Yaw)</strong><br>Eje Vertical<br>Rotación CW/CCW
+            </div>
+          </div>
+          <div class="diagram-caption">Los tres ejes de rotación de un RPAS y su control motor.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>LPG:</strong> "Lateral-Longitudinal, Progreso-Transversal, Giro-Vertical". Recuerda que la guiñada en multirrotores NO usa timón; usa desbalance de torque entre motores CW y CCW. Si en el examen aparece "timón de dirección" como mecanismo de guiñada en un dron, es falso.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Resistencia -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🌬️</div>
+        <h3>Coeficientes de Resistencia: Pérdidas Aerodinámicas</h3>
+      </div>
+      <div class="card-body">
+        <p>La resistencia al avance se divide en dos componentes principales que el piloto debe conocer:</p>
+
+        <ul>
+          <li><strong>Resistencia Inducida:</strong> Es la consecuencia física e inevitable de la generación de sustentación. Cuando un rotor o ala desvía aire hacia abajo para producir sustentación, parte de la energía se pierde en la formación de torbellinos en las puntas. Esta resistencia es mayor a bajas velocidades y altos ángulos de ataque.</li>
+          <li><strong>Resistencia Parásita:</strong> Es causada por los componentes estructurales expuestos al flujo de aire: trenes de aterrizaje, cámaras, chasis, antenas, cables y cualquier elemento que no genere sustentación.</li>
+        </ul>
+
+        <div class="alert-box alert-info">
+          <strong>Nota matemática de examen:</strong> La resistencia parásita incrementa directamente en proporción al <strong>cuadrado de la velocidad</strong> de la aeronave. Si duplicas la velocidad, la resistencia parásita se cuadruplica. Esto explica por qué volar rápido consume mucha más energía que volar lento.
+        </div>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/componentes-drone.webp" alt="Componentes estructurales de drone" loading="lazy">
+          <div class="media-caption">Cámaras, antenas y trenes de aterrizaje aumentan la resistencia parásita.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Fórmula mental:</strong> Resistencia parásita ∝ V². "El doble de velocidad, cuádruple de resistencia". La resistencia inducida, en cambio, disminuye al aumentar la velocidad. Si ves una pregunta sobre consumo versus velocidad, la clave está en la relación cuadrática de la parásita.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Cierre -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🔧</div>
+        <h3>Cierre: Taller de Análisis Aerodinámico</h3>
+      </div>
+      <div class="card-body">
+        <p>Analice las siguientes situaciones y proponga una explicación aerodinámica:</p>
+        <ul>
+          <li>Un dron comienza a vibrar y pierde altitud durante un descenso vertical rápido. ¿Qué fenómeno está ocurriendo?</li>
+          <li>¿Por qué un vuelo a máxima velocidad reduce drásticamente la autonomía de batería?</li>
+          <li>Al realizar un giro sobre su eje vertical, ¿qué par de motores debe acelerar un multirrotor y por qué?</li>
+          <li>Explique por qué el viento de cola en hover aumenta el consumo.</li>
+          <li>Dibuje mentalmente la cruz de fuerzas para un vuelo horizontal estable.</li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="reveal" style="display: flex; justify-content: space-between; margin-top: var(--space-2xl);">
+      <a href="areas-pobladas.html" class="btn btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Anterior: Clase 3
+      </a>
+      <a href="meteorologia.html" class="btn btn-primary">
+        Siguiente: Clase 5
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" class="footer-logo" width="56" height="56">
+        <div class="footer-brand">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+        <div class="footer-info">
+          Especialidad de Operaciones de Drones — 3°AF<br>
+          Operador Full Stack - Obtención de la credencial de la DGAC<br>
+          <strong>Ing. Christopher Ruiz</strong>
+        </div>
+        <div class="footer-credit">Material educativo generado para uso institucional.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script>
+    function toggleTip(button) {
+      const content = button.nextElementSibling;
+      button.classList.toggle('open');
+      content.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
