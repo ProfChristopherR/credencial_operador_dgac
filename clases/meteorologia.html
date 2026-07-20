@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clase 5: Meteorología y Decodificación | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
+  <title>Clase 5: Meteorología y Decodificación METAR | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/animations.css">
 </head>
@@ -23,6 +23,7 @@
         <a href="areas-pobladas.html" class="nav-link">Clase 3</a>
         <a href="aerodinamica.html" class="nav-link">Clase 4</a>
         <a href="meteorologia.html" class="nav-link active">Clase 5</a>
+        <a href="notam.html" class="nav-link">Clase 6</a>
         <a href="../evaluacion.html" class="nav-link">Evaluación</a>
       </div>
       <div class="navbar-actions">
@@ -40,8 +41,8 @@
   <main class="container page-transition" style="padding-top: 96px; padding-bottom: var(--space-3xl);">
     <div class="page-header reveal">
       <p class="body-lg" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: var(--space-sm);">Clase 5</p>
-      <h2 class="heading-xl">Meteorología Aeronáutica y Decodificación (METAR / NOTAM)</h2>
-      <p>Estructura de la atmósfera, lectura de informes meteorológicos y gestión de avisos a los aviadores.</p>
+      <h2 class="heading-xl">Meteorología Aeronáutica y Decodificación METAR/SPECI</h2>
+      <p>Estructura de la atmósfera, fenómenos meteorológicos relevantes para RPAS y lectura de informes METAR.</p>
     </div>
 
     <!-- Activación -->
@@ -69,6 +70,29 @@
         </button>
         <div class="tip-content">
           <p><strong>Antes de volar, decodifica.</strong> En el examen, una pregunta METAR puede parecer intimidante, pero si identificas los bloques (estación, hora, viento, visibilidad, nubosidad, temperatura, QNH), podrás responder con seguridad. Busca siempre primero el viento y la visibilidad.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Historia de la Meteorología Aeronáutica -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📜</div>
+        <h3>Breve Historia de la Meteorología Aeronáutica</h3>
+      </div>
+      <div class="card-body">
+        <p>La meteorología aeronáutica nace junto con la aviación misma. A principios del siglo XX, los pioneros del vuelo descubrieron de manera dramática que el clima no era solo un factor de confort, sino una variable de supervivencia. Los primeros pilotos dependían de observaciones visuales: nubes, dirección del humo de chimeneas y cambios de presión sentidos en el cuerpo.</p>
+
+        <p>Durante la <strong>Primera Guerra Mundial</strong> (1914-1918), la necesidad de operaciones militares sistemáticas impulsó la creación de servicios meteorológicos organizados. Se comenzaron a establecer redes de observación terrestre y a emitir los primeros informes codificados. Fue en este periodo cuando se consolidó la idea de que el tiempo era un factor táctico.</p>
+
+        <p>En <strong>1928</strong>, la recién creada <strong>OACI (Organización de Aviación Civil Internacional)</strong> comenzó a estandarizar los códigos meteorológicos para la aviación. El objetivo era que un piloto pudiera leer un informe meteorológico en cualquier aeropuerto del mundo sin necesidad de conocer el idioma local. De este esfuerzo nacieron los formatos que hoy conocemos: <strong>METAR</strong>, <strong>SPECI</strong>, <strong>TAF</strong> y <strong>NOTAM</strong>.</p>
+
+        <p>El código <strong>METAR</strong> (del francés <em>Météorologique Aviation Régulière</em>) se adoptó internacionalmente a partir de la <strong>Convención de Chicago de 1944</strong>, que estableció los principios modernos de la aviación civil. Su estructura codificada permite transmitir una gran cantidad de información en pocos caracteres, algo esencial en comunicaciones de radio y teletipo.</p>
+
+        <p>En Chile, la <strong>Dirección Meteorológica de Chile (DMC)</strong> y la <strong>DGAC</strong> trabajan en conjunto para producir y distribuir estos informes. Los aeródromos principales emiten METAR cada hora, mientras que los informes SPECI se generan cuando ocurren cambios significativos entre una hora y otra.</p>
+
+        <div class="alert-box alert-info">
+          <strong>¿Por qué es importante para el piloto RPAS?</strong> A diferencia de un avión comercial que puede desviarse alrededor de una tormenta, un dron de pequeño porte es extremadamente vulnerable a vientos, turbulencia y precipitaciones. Conocer el METAR no es una formalidad: es una herramienta de seguridad operacional.
         </div>
       </div>
     </article>
@@ -112,6 +136,47 @@
       </div>
     </article>
 
+    <!-- Horas Zulu -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🌍</div>
+        <h3>Horas Zulu (UTC): El Tiempo Universal de la Aviación</h3>
+      </div>
+      <div class="card-body">
+        <p>En aviación no se usan horarios locales para reportar condiciones meteorológicas. En su lugar, se utiliza el <strong>tiempo universal coordinado (UTC)</strong>, también conocido como <strong>hora Zulu</strong> o simplemente <strong>Z</strong>. Esto evita confusiones entre países con diferentes husos horarios, horarios de verano o medianoches desfasadas.</p>
+
+        <p>Chile continental tiene un desfase que varía según la época del año:</p>
+        <ul>
+          <li><strong>Horario de invierno (abril - septiembre):</strong> Chile UTC-4. Es decir, cuando son las 12:00 UTC, en Chile continental son las 08:00 horas locales.</li>
+          <li><strong>Horario de verano (septiembre - abril):</strong> Chile UTC-3. Es decir, cuando son las 12:00 UTC, en Chile continental son las 09:00 horas locales.</li>
+        </ul>
+
+        <div class="alert-box alert-info">
+          <strong>Ejemplos prácticos para Chile continental:</strong>
+          <ul style="margin-top: 0.5rem;">
+            <li>Un METAR con hora <code>121200Z</code> fue emitido el día 12 a las 12:00 UTC. En invierno chileno corresponde a las 08:00 horas locales; en verano, a las 09:00 horas locales.</li>
+            <li>Un METAR con hora <code>152300Z</code> fue emitido el día 15 a las 23:00 UTC. En invierno chileno corresponde a las 19:00 horas locales; en verano, a las 20:00 horas locales.</li>
+            <li>Un METAR con hora <code>010300Z</code> fue emitido el día 1 a las 03:00 UTC. En invierno chileno corresponde a las 23:00 horas del día anterior; en verano, a las 00:00 horas locales.</li>
+          </ul>
+        </div>
+
+        <p>En el METAR, la hora siempre se representa con <strong>seis dígitos</strong>: los dos primeros indican el día del mes, y los cuatro siguientes indican la hora y minutos en UTC. Por ejemplo:</p>
+        <ul>
+          <li><code>051200Z</code> = día 5 del mes, 12:00 UTC</li>
+          <li><code>221845Z</code> = día 22 del mes, 18:45 UTC</li>
+          <li><code>010015Z</code> = día 1 del mes, 00:15 UTC</li>
+        </ul>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Recuerda:</strong> "Z de Zulu = UTC = tiempo universal". Si el examen te pregunta la hora local de un METAR en Chile, resta 4 horas en invierno o 3 horas en verano. Nunca confundas la hora Zulu con la hora local del aeropuerto.</p>
+        </div>
+      </div>
+    </article>
+
     <!-- METAR/SPECI -->
     <article class="card reveal">
       <div class="card-header">
@@ -149,10 +214,15 @@
         <p><strong>Identificadores críticos para el examen:</strong></p>
         <ul>
           <li><code>9999</code>: Visibilidad óptima, superior a 10 kilómetros.</li>
-          <li><code>FEW / BKN / OVC</code>: Pocas, nublado y cubierto, respectivamente.</li>
+          <li><code>FEW / SCT / BKN / OVC</code>: Pocas, dispersas, nublado y cubierto, respectivamente.</li>
           <li><code>-SHRA</code>: Chubascos ligeros de lluvia (el signo menos indica ligero; SH = chubasco; RA = lluvia).</li>
           <li><code>M01</code>: Valor de temperatura bajo cero. La letra M reemplaza al signo menos.</li>
         </ul>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/nubes.webp" alt="Tipos de nubes en METAR: FEW, SCT, BKN, OVC" loading="lazy">
+          <div class="media-caption">Representación visual de la cobertura nubosa en informes METAR: FEW (1-2 octas), SCT (3-4 octas), BKN (5-7 octas) y OVC (8 octas).</div>
+        </div>
 
         <button class="tip-toggle" onclick="toggleTip(this)">
           <span>💡 Tip de Examen DGAC obligatorio</span>
@@ -164,27 +234,119 @@
       </div>
     </article>
 
-    <!-- NOTAM -->
+    <!-- CAVOK -->
     <article class="card reveal">
       <div class="card-header">
-        <div class="card-icon">📢</div>
-        <h3>Avisos a los Aviadores (NOTAM)</h3>
+        <div class="card-icon">☀️</div>
+        <h3>CAVOK: Ceiling and Visibility OK</h3>
       </div>
       <div class="card-body">
-        <p>Los <strong>NOTAM</strong> (Notice to Airmen) son avisos urgentes que informan sobre cambios en la información aeronáutica publicada: pistas en mantención, zonas restringidas temporales, ejercicios militares, eventos públicos, torres de construcción, luces obstrucción fuera de servicio, entre otros.</p>
+        <p>El código <strong>CAVOK</strong> (pronunciado "cav-ok") es uno de los términos más importantes para un piloto. Proviene del inglés <em>Ceiling and Visibility OK</em>, que significa "techo y visibilidad correctos". Cuando aparece en un METAR, indica condiciones meteorológicas ideales para volar.</p>
 
-        <p>El uso de la plataforma <strong>IFIS</strong> de la DGAC es obligatorio antes de encender motores. Un piloto que desconozca un NOTAM vigente puede incurrir en una infracción administrativa grave o provocar un incidente de seguridad.</p>
+        <p>Para que un METAR pueda reportar CAVOK, deben cumplirse <strong>simultáneamente</strong> tres condiciones:</p>
+        <ol>
+          <li><strong>Visibilidad horizontal de 10 km o más.</strong></li>
+          <li><strong>Ausencia de nubes por debajo de los 5.000 pies</strong> (1.500 metros) o por debajo del máximo sector de altitud de circuito, el que sea mayor.</li>
+          <li><strong>Ausencia de fenómenos meteorológicos significativos</strong> en el aeródromo o en su vecindad (lluvia, niebla, tormentas, nieve, etc.).</li>
+        </ol>
 
-        <p>Los NOTAM se clasifican según su naturaleza administrativa:</p>
-        <ul>
-          <li><strong>NOTAMN:</strong> Aviso Nuevo. Comunica una situación que no existía previamente.</li>
-          <li><strong>NOTAMR:</strong> Aviso que Reemplaza a uno anterior. Actualiza o modifica la información de un NOTAM previo.</li>
-          <li><strong>NOTAMC:</strong> Aviso que Cancela una restricción previa. Indica que una condición notificada ya no existe.</li>
-        </ul>
+        <div class="alert-box alert-success">
+          <strong>Ejemplo real:</strong> <code>SCEL 202100Z 19014KT CAVOK 28/08 Q1013</code> significa que en Santiago hay viento del sur a 14 nudos, visibilidad mayor a 10 km, sin nubes por debajo de 5.000 pies, sin fenómenos adversos, temperatura 28°C, punto de rocío 8°C y presión 1013 hPa. Condiciones excelentes para operar un RPAS.
+        </div>
 
-        <div class="media-frame img-zoom">
-          <img src="../assets/images/espacio-aereo.webp" alt="Torre de control y aviación" loading="lazy">
-          <div class="media-caption">La información NOTAM es obligatoria antes de cualquier operación aérea.</div>
+        <p>Es fundamental entender que CAVOK no significa "cielo completamente despejado". Pueden existir nubes por encima de los 5.000 pies. Lo que garantiza es que no hay obstáculos meteorológicos relevantes para las operaciones de baja altitud y despegue/aterrizaje.</p>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>CAVOK = Visibilidad ≥10 km + sin nubes bajo 5.000 pies + sin fenómenos significativos.</strong> Si falta una condición, no puede reportarse CAVOK y se debe describir el cielo y la visibilidad explícitamente. En el examen, muchas preguntas intentan confundir CAVOK con "cielo despejado".</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Códigos OACI -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🗺️</div>
+        <h3>Principales Códigos OACI de Aeropuertos Chilenos</h3>
+      </div>
+      <div class="card-body">
+        <p>El código OACI (ICAO) de cuatro letras identifica de manera única a cada aeródromo en el mundo. La primera letra indica la región: en América del Sur, los códigos comienzan con <strong>S</strong>. La segunda letra identifica el país: <strong>C</strong> corresponde a Chile.</p>
+
+        <div class="diagram" style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <thead>
+              <tr style="background: var(--accent-soft);">
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Código OACI</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Aeropuerto / Aeródromo</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Región</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCEL</td>
+                <td style="padding: 0.65rem;">Aeropuerto Internacional Arturo Merino Benítez</td>
+                <td style="padding: 0.65rem;">Santiago (Región Metropolitana)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCCF</td>
+                <td style="padding: 0.65rem;">Aeródromo El Loa</td>
+                <td style="padding: 0.65rem;">Calama (Antofagasta)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCFA</td>
+                <td style="padding: 0.65rem;">Aeropuerto Andrés Sabella</td>
+                <td style="padding: 0.65rem;">Antofagasta</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCAR</td>
+                <td style="padding: 0.65rem;">Aeródromo Chacalluta</td>
+                <td style="padding: 0.65rem;">Arica</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCIP</td>
+                <td style="padding: 0.65rem;">Aeropuerto Mataveri</td>
+                <td style="padding: 0.65rem;">Isla de Pascua</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCCI</td>
+                <td style="padding: 0.65rem;">Aeropuerto Internacional Carlos Ibáñez del Campo</td>
+                <td style="padding: 0.65rem;">Punta Arenas (Magallanes)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCIE</td>
+                <td style="padding: 0.65rem;">Aeropuerto Internacional Carriel Sur</td>
+                <td style="padding: 0.65rem;">Concepción (Bío Bío)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCQP</td>
+                <td style="padding: 0.65rem;">Aeropuerto La Araucanía</td>
+                <td style="padding: 0.65rem;">Temuco (La Araucanía)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCSE</td>
+                <td style="padding: 0.65rem;">Aeropuerto La Florida</td>
+                <td style="padding: 0.65rem;">La Serena (Coquimbo)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCVM</td>
+                <td style="padding: 0.65rem;">Aeropuerto Viña del Mar</td>
+                <td style="padding: 0.65rem;">Viña del Mar (Valparaíso)</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCTB</td>
+                <td style="padding: 0.65rem;">Aeródromo Eulogio Sánchez (Tobalaba)</td>
+                <td style="padding: 0.65rem;">Santiago (Región Metropolitana)</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="diagram-caption">Códigos OACI de principales aeropuertos y aeródromos de Chile.</div>
+        </div>
+
+        <div class="alert-box alert-info">
+          <strong>Patrón de codificación:</strong> Los códigos chilenos comienzan con <strong>SC</strong>. La tercera letra suele indicar una región geográfica y la cuarta un aeropuerto específico. Por ejemplo: <strong>SCEL</strong> = S (Sudamérica) + C (Chile) + E (Región Central/Santiago) + L (Merino Benítez).
         </div>
 
         <button class="tip-toggle" onclick="toggleTip(this)">
@@ -192,7 +354,198 @@
           <span class="chevron">▼</span>
         </button>
         <div class="tip-content">
-          <p><strong>Tipos de NOTAM:</strong> N = Nuevo, R = Reemplaza, C = Cancela. Puedes recordarlo como "Nuevo-Reemplaza-Cancela". Siempre revisa IFIS antes de volar; un NOTAMC puede liberar una zona que antes estaba restringida.</p>
+          <p><strong>Memoriza los principales:</strong> SCEL (Santiago), SCCI (Punta Arenas), SCFA (Antofagasta), SCIE (Concepción). Si en el examen te dan un METAR de "SCFA", ya sabes que es Antofagasta y puedes anticipar condiciones costeras, camanchaca o brisa marina.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Fenómenos Meteorológicos -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🌧️</div>
+        <h3>Fenómenos Meteorológicos en METAR</h3>
+      </div>
+      <div class="card-body">
+        <p>Además de viento, visibilidad y nubosidad, los METAR pueden incluir códigos de fenómenos meteorológicos que afectan directamente la operación de un RPAS. Es crucial reconocerlos rápidamente.</p>
+
+        <div class="diagram">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <thead>
+              <tr style="background: var(--accent-soft);">
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Código</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Significado</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Impacto en RPAS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">RA</td>
+                <td style="padding: 0.65rem;">Lluvia</td>
+                <td style="padding: 0.65rem;">Reduce visibilidad, puede dañar electrónica</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">-RA / +RA</td>
+                <td style="padding: 0.65rem;">Lluvia ligera / fuerte</td>
+                <td style="padding: 0.65rem;">Intensidad modifica la viabilidad de vuelo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">SN</td>
+                <td style="padding: 0.65rem;">Nieve</td>
+                <td style="padding: 0.65rem;">Acumulación en hélices/rotores, frío extremo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">FG</td>
+                <td style="padding: 0.65rem;">Niebla</td>
+                <td style="padding: 0.65rem;">Visibilidad severamente reducida</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">BR</td>
+                <td style="padding: 0.65rem;">Neblina</td>
+                <td style="padding: 0.65rem;">Visibilidad reducida, humedad alta</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">TS</td>
+                <td style="padding: 0.65rem;">Tormenta eléctrica</td>
+                <td style="padding: 0.65rem;">PROHIBIDO volar. Riesgo de impacto de rayo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">SHRA</td>
+                <td style="padding: 0.65rem;">Chubasco de lluvia</td>
+                <td style="padding: 0.65rem;">Vientos racheados y cambios abruptos</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">DZ</td>
+                <td style="padding: 0.65rem;">Llovizna</td>
+                <td style="padding: 0.65rem;">Reduce visibilidad, húmedo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">HZ</td>
+                <td style="padding: 0.65rem;">Calima / neblina seca</td>
+                <td style="padding: 0.65rem;">Visibilidad reducida por partículas</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">SQ</td>
+                <td style="padding: 0.65rem;">Chubasco con ráfagas</td>
+                <td style="padding: 0.65rem;">Peligroso para drones ligeros</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="diagram-caption">Códigos de fenómenos meteorológicos frecuentes en METAR.</div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Intensidad:</strong> El signo menos (-) indica ligero, el signo más (+) indica fuerte. Sin signo es moderado. Ejemplo: <code>-RA</code> = lluvia ligera, <code>+RA</code> = lluvia fuerte. Si ves <code>TS</code> en un METAR, la operación debe cancelarse.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ejercicios METAR -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📝</div>
+        <h3>Ejercicios de Decodificación METAR</h3>
+      </div>
+      <div class="card-body">
+        <p>A continuación se presentan 8 reportes METAR reales para practicar. Intenta decodificar cada uno antes de ver la solución.</p>
+
+        <!-- Ejercicio 1 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 1:</strong> <code>SCEL 121000Z 00000KT 0400 R17L/0600N FG VV002 04/04 Q1018 NOSIG</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>Viento en calma. Visibilidad horizontal de 400 metros por niebla densa (FG). Alcance visual en pista 17L de 600 metros sin cambios significativos. Techo vertical (VV) de 200 pies. Temperatura 4°C, punto de rocío 4°C (humedad saturada). QNH 1018 hPa. Sin cambios significativos previstos (NOSIG).</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 2:</strong> <code>MMGL 100344Z 26005KT 8SM BKN300 21/04 A3020</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>Viento del oeste-suroeste (260°) a 5 nudos. Visibilidad de 8 millas estatutas (aprox. 13 km). Cielo nublado fragmentado (BKN) por nubes altas a 30.000 pies. Temperatura 21°C, punto de rocío 4°C. Reglaje altimétrico 30.20 pulgadas de mercurio.</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 3:</strong> <code>SCFA 151200Z 19008KT 3000 BR OVC006 14/13 Q1014</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>Viento del sur-suroeste (190°) a 8 nudos. Visibilidad reducida a 3 km por neblina (BR). Cielo completamente cubierto (OVC) por estratos bajos a 600 pies (clásica camanchaca costera). Temperatura 14°C, punto de rocío 13°C. QNH 1014 hPa.</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 4 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 4:</strong> <code>KLAX 100353Z 28008KT 10SM FEW015 16/14 A2994</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>Viento del oeste (280°) a 8 nudos. Excelente visibilidad de 10 millas estatutas o más. Escasas nubes (FEW) a 1.500 pies. Temperatura 16°C, punto de rocío 14°C (influencia de humedad marina). Reglaje altimétrico 29.94 pulgadas de mercurio.</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 5 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 5:</strong> <code>SCIE 221800Z 32018G28KT 5000 -RA BR BKN012 OVC030 11/10 Q1004</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>Viento fuerte del noroeste (320°) a 18 nudos con ráfagas de 28 nudos. Visibilidad moderada de 5 km bajo lluvia ligera (-RA) y neblina (BR). Nubosidad fragmentada (BKN) a 1.200 pies y cubierta (OVC) a 3.000 pies. Temperatura 11°C, punto de rocío 10°C. Baja presión de 1004 hPa.</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 6 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 6:</strong> <code>SBBR 100400Z 14004KT 9999 SCT015 SCT040 20/19 Q1020</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>Viento del sureste (140°) a 4 nudos. Visibilidad de 10 km o más (9999). Nubes dispersas (SCT) en dos capas: a 1.500 pies y a 4.000 pies. Temperatura 20°C, punto de rocío 19°C. QNH 1020 hPa.</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 7 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 7:</strong> <code>SCEL 202100Z 19014KT CAVOK 28/08 Q1013</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>Viento sostenido del sur (190°) a 14 nudos. Condición CAVOK: visibilidad superior a 10 km, sin nubes por debajo de 5.000 pies y sin fenómenos meteorológicos significativos. Temperatura 28°C, punto de rocío 8°C. QNH 1013 hPa.</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 8 -->
+        <div class="quiz-question" style="margin-bottom: 0;">
+          <p><strong>Ejercicio 8:</strong> <code>SAEZ 100400Z 13004KT CAVOK 17/14 Q1019</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>Viento del sureste (130°) a 4 nudos. Condición CAVOK: visibilidad excelente, sin nubes de importancia operativa ni fenómenos meteorológicos. Temperatura 17°C, punto de rocío 14°C. QNH 1019 hPa.</p>
+          </div>
         </div>
       </div>
     </article>
@@ -201,23 +554,19 @@
     <article class="card reveal">
       <div class="card-header">
         <div class="card-icon">🏁</div>
-        <h3>Cierre: Examen Simulado Integrador Final</h3>
+        <h3>Cierre: Preguntas de Repaso</h3>
       </div>
       <div class="card-body">
-        <p>Preguntas de alta frecuencia de la DGAC para cerrar el año escolar del Liceo Bicentenario de Excelencia Polivalente San Nicolás:</p>
+        <p>Preguntas de alta frecuencia de la DGAC sobre meteorología y METAR:</p>
         <ul>
-          <li>Decodifique el METAR: SCEL 101200Z 18015KT 8000 SCT020 BKN040 12/08 Q1015.</li>
-          <li>¿A qué hora del día es más peligrosa la turbulencia térmica?</li>
-          <li>¿En qué dirección desvía el efecto Coriolis los vientos en el Hemisferio Sur?</li>
-          <li>¿Qué significa un NOTAMR y cuándo se usa?</li>
+          <li>¿A qué hora local chilena corresponde un METAR emitido a las 1800Z en horario de invierno?</li>
+          <li>¿Cuáles son las tres condiciones que deben cumplirse para reportar CAVOK?</li>
+          <li>¿Qué significa <code>9999</code> en un informe METAR?</li>
+          <li>¿Cuál es la diferencia entre <code>FEW</code>, <code>SCT</code>, <code>BKN</code> y <code>OVC</code>?</li>
+          <li>¿Qué indican los códigos <code>FG</code>, <code>BR</code> y <code>TS</code>?</li>
+          <li>¿Cuál es el código OACI del aeropuerto de Santiago?</li>
           <li>¿Por qué es peligroso volar cerca de un Cumulonimbus?</li>
-          <li>¿Cuál es la relación entre velocidad y resistencia parásita?</li>
-          <li>¿Qué condiciones deben cumplirse simultáneamente para estar exento de trámites DGAC?</li>
         </ul>
-
-        <div class="alert-box alert-success">
-          <strong>Mensaje de cierre:</strong> El curso de Piloto RPAS del Liceo Bicentenario de Excelencia Polivalente San Nicolás ha recorrido el camino completo: normativa, reglas del aire, operaciones en áreas pobladas, aerodinámica y meteorología. Con disciplina de estudio y práctica responsable, estarán preparados para rendir el examen teórico DGAC y operar drones con seguridad y profesionalismo.
-        </div>
       </div>
     </article>
 
@@ -226,9 +575,9 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         Anterior: Clase 4
       </a>
-      <a href="../evaluacion.html" class="btn btn-primary">
-        Evaluación Final
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      <a href="notam.html" class="btn btn-primary">
+        Siguiente: Clase 6
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </main>

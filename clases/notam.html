@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clase 6: NOTAM | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" width="44" height="44">
+        <div class="brand-text">
+          <span class="brand-name">Liceo Bicentenario de Excelencia Polivalente San Nicolás</span>
+          <span class="brand-sub">Operador Full Stack</span>
+        </div>
+      </a>
+      <div class="navbar-nav" id="main-nav">
+        <a href="marco-normativo.html" class="nav-link">Clase 1</a>
+        <a href="reglas-aire.html" class="nav-link">Clase 2</a>
+        <a href="areas-pobladas.html" class="nav-link">Clase 3</a>
+        <a href="aerodinamica.html" class="nav-link">Clase 4</a>
+        <a href="meteorologia.html" class="nav-link">Clase 5</a>
+        <a href="notam.html" class="nav-link active">Clase 6</a>
+        <a href="../evaluacion.html" class="nav-link">Evaluación</a>
+      </div>
+      <div class="navbar-actions">
+        <button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page-transition" style="padding-top: 96px; padding-bottom: var(--space-3xl);">
+    <div class="page-header reveal">
+      <p class="body-lg" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: var(--space-sm);">Clase 6</p>
+      <h2 class="heading-xl">Avisos a los Aviadores (NOTAM)</h2>
+      <p>Gestión de información operacional de última hora, plataforma IFIS y clasificación de avisos.</p>
+    </div>
+
+    <!-- Activación -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🚨</div>
+        <h3>Activación: La pista que cambió de estado</h3>
+      </div>
+      <div class="card-body">
+        <p>Un operador RPAS planifica una misión de fotografía aérea cerca de un aeródromo regional chileno. Consultó el METAR en la mañana y todo parecía favorable. Sin embargo, al llegar al sitio de operación, descubre que la pista principal está en mantención, hay grúas en el área y se ha establecido una zona restringida temporal que no estaba en los mapas oficiales.</p>
+
+        <div class="alert-box alert-danger">
+          <strong>Pregunta central:</strong> ¿Dónde debió buscar el operador esta información? ¿Qué tipo de aviso contiene datos de última hora sobre pistas, zonas restringidas temporales y obstáculos?
+        </div>
+
+        <p>La respuesta es el sistema <strong>NOTAM</strong>. Mientras el METAR informa sobre el estado del tiempo, el NOTAM informa sobre cambios en la infraestructura, servicios y condiciones operacionales que pueden aparecer o desaparecer en cuestión de horas.</p>
+      </div>
+    </article>
+
+    <!-- NOTAM -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📢</div>
+        <h3>¿Qué son los NOTAM?</h3>
+      </div>
+      <div class="card-body">
+        <p>Los <strong>NOTAM</strong> (Notice to Airmen) son avisos urgentes que informan sobre cambios en la información aeronáutica publicada: pistas en mantención, zonas restringidas temporales, ejercicios militares, eventos públicos, torres de construcción, luces de obstrucción fuera de servicio, entre otros.</p>
+
+        <p>El uso de la plataforma <strong>IFIS</strong> (Integrated Flight Information System) de la DGAC es obligatorio antes de encender motores. Un piloto que desconozca un NOTAM vigente puede incurrir en una infracción administrativa grave o provocar un incidente de seguridad.</p>
+
+        <div class="media-frame img-zoom">
+          <img src="../assets/images/espacio-aereo.webp" alt="Torre de control y aviación" loading="lazy">
+          <div class="media-caption">La información NOTAM es obligatoria antes de cualquier operación aérea.</div>
+        </div>
+
+        <p>Los NOTAM se clasifican según su naturaleza administrativa:</p>
+        <ul>
+          <li><strong>NOTAMN:</strong> Aviso Nuevo. Comunica una situación que no existía previamente.</li>
+          <li><strong>NOTAMR:</strong> Aviso que Reemplaza a uno anterior. Actualiza o modifica la información de un NOTAM previo.</li>
+          <li><strong>NOTAMC:</strong> Aviso que Cancela una restricción previa. Indica que una condición notificada ya no existe.</li>
+        </ul>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Tipos de NOTAM:</strong> N = Nuevo, R = Reemplaza, C = Cancela. Puedes recordarlo como "Nuevo-Reemplaza-Cancela". Siempre revisa IFIS antes de volar; un NOTAMC puede liberar una zona que antes estaba restringida.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ejemplos NOTAM -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🔍</div>
+        <h3>Ejemplos Prácticos de NOTAM</h3>
+      </div>
+      <div class="card-body">
+        <p>Los NOTAM pueden informar sobre una gran variedad de situaciones. Algunos ejemplos comunes para operaciones RPAS incluyen:</p>
+
+        <ul>
+          <li><strong>Pista en mantención:</strong> Cierre parcial o total de una pista de aterrizaje por trabajos de reparación.</li>
+          <li><strong>Zonas restringidas temporales:</strong> Restricciones de espacio aéreo por eventos públicos, visitas presidenciales o ejercicios militares.</li>
+          <li><strong>Obstáculos nuevos:</strong> Torres de construcción, grúas o antenas que afectan la seguridad del vuelo.</li>
+          <li><strong>Servicios fuera de servicio:</strong> Luces de pista, ayudas a la navegación o servicios de combate de incendios no disponibles.</li>
+          <li><strong>Eventos especiales:</strong> Fuegos artificiales, eventos deportivos o concentraciones masivas que requieren control aéreo.</li>
+        </ul>
+
+        <div class="alert-box alert-warning">
+          <strong>Importante:</strong> Los NOTAM tienen vigencia limitada. Un NOTAMN puede convertirse en NOTAMR si cambian las condiciones, o en NOTAMC cuando la situación termina. Por eso es necesario consultarlos <em>justo antes</em> de la operación, no solo el día anterior.
+        </div>
+      </div>
+    </article>
+
+    <!-- Cierre -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🏁</div>
+        <h3>Cierre: Preguntas de Repaso</h3>
+      </div>
+      <div class="card-body">
+        <p>Preguntas de alta frecuencia de la DGAC sobre NOTAM:</p>
+        <ul>
+          <li>¿Qué significa NOTAMN, NOTAMR y NOTAMC?</li>
+          <li>¿En qué plataforma de la DGAC se consultan los NOTAM?</li>
+          <li>¿Qué tipo de información NO encontrarás en un NOTAM?</li>
+          <li>¿Por qué es peligroso volar sin consultar los NOTAM vigentes?</li>
+          <li>¿Un NOTAMC elimina o confirma una restricción?</li>
+        </ul>
+
+        <div class="alert-box alert-success">
+          <strong>Mensaje de cierre:</strong> El curso de Operador Full Stack DGAC del Liceo Bicentenario de Excelencia Polivalente San Nicolás ha recorrido el camino completo: normativa, reglas del aire, operaciones en áreas pobladas, aerodinámica, meteorología y NOTAM. Con disciplina de estudio y práctica responsable, estarán preparados para rendir el examen teórico DGAC y operar drones con seguridad y profesionalismo.
+        </div>
+      </div>
+    </article>
+
+    <div class="reveal" style="display: flex; justify-content: space-between; margin-top: var(--space-2xl);">
+      <a href="meteorologia.html" class="btn btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Anterior: Clase 5
+      </a>
+      <a href="../evaluacion.html" class="btn btn-primary">
+        Evaluación Final
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" class="footer-logo" width="56" height="56">
+        <div class="footer-brand">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+        <div class="footer-info">
+          Especialidad de Operaciones de Drones — 3°AF<br>
+          Operador Full Stack - Obtención de la credencial de la DGAC<br>
+          <strong>Ing. Christopher Ruiz</strong>
+        </div>
+        <div class="footer-credit">Material educativo generado para uso institucional.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script>
+    function toggleTip(button) {
+      const content = button.nextElementSibling;
+      button.classList.toggle('open');
+      content.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
