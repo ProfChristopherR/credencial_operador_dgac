@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clase 6: NOTAM | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
+  <title>Clase 6: Lectura y Decodificación de NOTAM | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/animations.css">
 </head>
@@ -41,79 +41,267 @@
   <main class="container page-transition" style="padding-top: 96px; padding-bottom: var(--space-3xl);">
     <div class="page-header reveal">
       <p class="body-lg" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: var(--space-sm);">Clase 6</p>
-      <h2 class="heading-xl">Avisos a los Aviadores (NOTAM)</h2>
-      <p>Gestión de información operacional de última hora, plataforma IFIS y clasificación de avisos.</p>
+      <h2 class="heading-xl">Lectura y Decodificación de NOTAM</h2>
+      <p>Qué son los avisos a los aviadores, por qué son obligatorios antes de volar y cómo leerlos paso a paso con ejemplos reales de Chile.</p>
     </div>
 
     <!-- Activación -->
     <article class="card reveal">
       <div class="card-header">
         <div class="card-icon">🚨</div>
-        <h3>Activación: La pista que cambió de estado</h3>
+        <h3>Activación: El vuelo que no debió despegar</h3>
       </div>
       <div class="card-body">
-        <p>Un operador RPAS planifica una misión de fotografía aérea cerca de un aeródromo regional chileno. Consultó el METAR en la mañana y todo parecía favorable. Sin embargo, al llegar al sitio de operación, descubre que la pista principal está en mantención, hay grúas en el área y se ha establecido una zona restringida temporal que no estaba en los mapas oficiales.</p>
+        <p>Un operador RPAS llega a un aeródromo del sur de Chile para realizar un levantamiento fotogramétrico. Revisó el METAR: CAVOK, viento suave, condiciones perfectas. Despega con confianza... y a los pocos minutos recibe una llamada furiosa del jefe de aeródromo: <strong>la plataforma sector este estaba en trabajos, había maquinaria y personal en el área de movimiento, y existía un NOTAM vigente que lo advertía desde hacía una semana</strong>. El operador nunca lo consultó.</p>
+
+        <p>El resultado: operación suspendida, infracción administrativa ante la DGAC y un riesgo real de accidente. Toda la información que necesitaba estaba publicada, gratis y a un clic de distancia.</p>
 
         <div class="alert-box alert-danger">
-          <strong>Pregunta central:</strong> ¿Dónde debió buscar el operador esta información? ¿Qué tipo de aviso contiene datos de última hora sobre pistas, zonas restringidas temporales y obstáculos?
+          <strong>Pregunta central:</strong> Si el METAR le dijo que el tiempo estaba perfecto, ¿qué información le faltó revisar al operador? ¿Dónde se publican los cambios de última hora sobre pistas, plataformas, obstáculos y zonas restringidas?
         </div>
 
-        <p>La respuesta es el sistema <strong>NOTAM</strong>. Mientras el METAR informa sobre el estado del tiempo, el NOTAM informa sobre cambios en la infraestructura, servicios y condiciones operacionales que pueden aparecer o desaparecer en cuestión de horas.</p>
+        <p>La respuesta es el sistema <strong>NOTAM</strong>. Mientras el METAR informa sobre el estado del tiempo, el NOTAM informa sobre cambios en la infraestructura, los servicios y las condiciones operacionales. <strong>Un METAR perfecto no autoriza a volar si un NOTAM lo prohíbe.</strong></p>
+
+        <div class="alert-box alert-warning">
+          <strong>Los NOTAM salvan vidas:</strong> Gran parte de los incidentes aéreos relacionados con información operacional ocurren porque alguien no revisó los NOTAM vigentes. Pistas cerradas, grúas montadas de un día para otro, ejercicios militares, fuegos artificiales, drones de terceros: todo eso se avisa por NOTAM. Consultarlos no es opcional: es un requisito legal y de seguridad antes de cada operación.
+        </div>
       </div>
     </article>
 
-    <!-- NOTAM -->
+    <!-- Ejemplo de NOTAM -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">👀</div>
+        <h3>Primer contacto: Así se ve un NOTAM real</h3>
+      </div>
+      <div class="card-body">
+        <p>Este es un NOTAM real, publicado en la plataforma IFIS de la DGAC para el aeródromo <strong>Pichoy de Valdivia (SCVD)</strong>. No intentes entenderlo todavía: solo obsérvalo.</p>
+
+        <div class="alert-box alert-info" style="font-family: 'SF Mono', monospace; font-size: 1.05rem; letter-spacing: 0.02em;">
+          C3435/26 NOTAMN<br>
+          Q)SCTZ/QLTAS/IV/BO/A/000/999/3939S07305W005<br>
+          A)SCVD B)2608122052 C)2608312359<br>
+          E)REIL RWY 17 U/S
+        </div>
+
+        <p>Parece un mensaje cifrado, pero cada bloque tiene un significado exacto e internacionalmente estandarizado. Al terminar esta clase podrás leerlo completo en segundos.</p>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>🔓 Ver interpretación en español</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Traducción completa:</strong> Aviso nuevo (NOTAMN) número C3435 del año 2026, correspondiente a la FIR Puerto Montt (SCTZ). Afecta al aeródromo Pichoy de Valdivia (SCVD). Informa que las <strong>luces estroboscópicas de identificación de extremo de pista (REIL) de la pista 17 están fuera de servicio (U/S)</strong>. Vigente desde el 12 de agosto de 2026 a las 20:52 UTC hasta el 31 de agosto de 2026 a las 23:59 UTC. Aplica a tránsito IFR y VFR (IV), a nivel de aeródromo (A), desde la superficie hasta el infinito (000/999), centrado en las coordenadas del aeródromo con un radio de 5 millas náuticas.</p>
+          <p style="margin-bottom: 0;"><strong>En una frase:</strong> "En Valdivia, las luces del extremo de la pista 17 no funcionan entre el 12 y el 31 de agosto de 2026".</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Qué son los NOTAM -->
     <article class="card reveal">
       <div class="card-header">
         <div class="card-icon">📢</div>
-        <h3>¿Qué son los NOTAM?</h3>
+        <h3>¿Qué son los NOTAM, para qué sirven y cuándo se utilizan?</h3>
       </div>
       <div class="card-body">
-        <p>Los <strong>NOTAM</strong> (Notice to Airmen) son avisos urgentes que informan sobre cambios en la información aeronáutica publicada: pistas en mantención, zonas restringidas temporales, ejercicios militares, eventos públicos, torres de construcción, luces de obstrucción fuera de servicio, entre otros.</p>
+        <p>Los <strong>NOTAM</strong> (<em>Notice to Airmen</em>, "Aviso a los Aviadores") son mensajes de texto codificado que informan, con anticipación o de urgencia, sobre <strong>cambios en la información aeronáutica oficial</strong>: todo aquello que afecta las instalaciones, los servicios, los procedimientos o las condiciones del espacio aéreo y que un piloto necesita conocer antes de volar.</p>
 
-        <p>El uso de la plataforma <strong>IFIS</strong> (Integrated Flight Information System) de la DGAC es obligatorio antes de encender motores. Un piloto que desconozca un NOTAM vigente puede incurrir en una infracción administrativa grave o provocar un incidente de seguridad.</p>
+        <p><strong>¿Para qué sirven?</strong> Las publicaciones aeronáuticas oficiales (como el AIP Chile) se actualizan lentamente, cada semanas o meses. Pero la realidad operacional cambia en horas: una pista entra en mantención, se monta una grúa, se corta la energía de las luces, se restringe una zona por un evento público o una visita presidencial. Los NOTAM llenan ese vacío: son el canal oficial para avisar <strong>lo que cambió respecto de la información publicada</strong>.</p>
+
+        <p><strong>¿Cuándo se utilizan?</strong> Se emiten cada vez que ocurre o se planifica un evento como estos:</p>
+        <ul>
+          <li><strong>Pistas y plataformas:</strong> cierres, mantención, trabajos en el área de movimiento.</li>
+          <li><strong>Ayudas a la navegación y luces:</strong> ILS, VOR, luces de pista o de aproximación fuera de servicio.</li>
+          <li><strong>Espacio aéreo:</strong> zonas restringidas o peligrosas temporales, ejercicios militares, activación de áreas.</li>
+          <li><strong>Obstáculos:</strong> grúas, torres, antenas y globos que no están en las cartas.</li>
+          <li><strong>Operaciones especiales:</strong> vuelos de drones (RPAS), fuegos artificiales, paracaidismo, eventos masivos.</li>
+          <li><strong>Servicios:</strong> torre de control, frecuencias, servicio de extinción de incendios o meteorología no disponibles.</li>
+        </ul>
+
+        <p>En Chile, los NOTAM se consultan en la plataforma <strong>IFIS</strong> (<em>Internet Flight Information System</em>) de la DGAC: <code>aipchile.dgac.gob.cl/notam</code>. Su revisión es <strong>obligatoria en la planificación de todo vuelo</strong>, incluidos los RPAS. Un piloto que desconozca un NOTAM vigente puede incurrir en una infracción administrativa grave o provocar un incidente de seguridad.</p>
 
         <div class="media-frame img-zoom">
           <img src="../assets/images/espacio-aereo.webp" alt="Torre de control y aviación" loading="lazy">
-          <div class="media-caption">La información NOTAM es obligatoria antes de cualquier operación aérea.</div>
+          <div class="media-caption">La consulta de NOTAM en IFIS es obligatoria antes de cualquier operación aérea.</div>
         </div>
 
-        <p>Los NOTAM se clasifican según su naturaleza administrativa:</p>
+        <p>Según su naturaleza administrativa, los NOTAM se clasifican en tres tipos:</p>
         <ul>
-          <li><strong>NOTAMN:</strong> Aviso Nuevo. Comunica una situación que no existía previamente.</li>
-          <li><strong>NOTAMR:</strong> Aviso que Reemplaza a uno anterior. Actualiza o modifica la información de un NOTAM previo.</li>
-          <li><strong>NOTAMC:</strong> Aviso que Cancela una restricción previa. Indica que una condición notificada ya no existe.</li>
+          <li><strong>NOTAMN:</strong> Aviso <em>Nuevo</em>. Comunica una situación que no existía previamente.</li>
+          <li><strong>NOTAMR:</strong> Aviso que <em>Reemplaza</em> a uno anterior. Actualiza o modifica la información de un NOTAM previo (siempre indica a cuál reemplaza, ej.: <code>NOTAMR C2550/26</code>).</li>
+          <li><strong>NOTAMC:</strong> Aviso que <em>Cancela</em> un NOTAM previo. Indica que la condición notificada ya no existe: la pista reabrió, la grúa se retiró, la zona quedó liberada.</li>
         </ul>
+
+        <div class="alert-box alert-warning">
+          <strong>Importante:</strong> Los NOTAM tienen vigencia limitada (fechas de inicio y término) o son permanentes (<code>PERM</code>). Por eso deben consultarse <em>justo antes</em> de la operación, no solo el día anterior: un NOTAMN puede aparecer en cualquier momento, y un NOTAMC puede liberar una zona que antes estaba restringida.
+        </div>
 
         <button class="tip-toggle" onclick="toggleTip(this)">
           <span>💡 Tip de Examen DGAC obligatorio</span>
           <span class="chevron">▼</span>
         </button>
         <div class="tip-content">
-          <p><strong>Tipos de NOTAM:</strong> N = Nuevo, R = Reemplaza, C = Cancela. Puedes recordarlo como "Nuevo-Reemplaza-Cancela". Siempre revisa IFIS antes de volar; un NOTAMC puede liberar una zona que antes estaba restringida.</p>
+          <p><strong>Tipos de NOTAM:</strong> N = Nuevo, R = Reemplaza, C = Cancela. Recuérdalo como "Nuevo-Reemplaza-Cancela". Y nunca olvides: revisar IFIS antes de volar es tan obligatorio como revisar el clima.</p>
         </div>
       </div>
     </article>
 
-    <!-- Ejemplos NOTAM -->
+    <!-- Paso a paso -->
     <article class="card reveal">
       <div class="card-header">
         <div class="card-icon">🔍</div>
-        <h3>Ejemplos Prácticos de NOTAM</h3>
+        <h3>Anatomía de un NOTAM: lectura paso a paso</h3>
       </div>
       <div class="card-body">
-        <p>Los NOTAM pueden informar sobre una gran variedad de situaciones. Algunos ejemplos comunes para operaciones RPAS incluyen:</p>
+        <p>Para aprender a leer un NOTAM completo usaremos uno <strong>real y vigente, publicado por la DGAC</strong>, que además es especialmente relevante para nosotros: <strong>es un NOTAM que avisa operaciones de drones (RPAS)</strong> cerca del aeródromo Pichoy de Valdivia.</p>
 
+        <div class="alert-box alert-info" style="font-family: 'SF Mono', monospace; font-size: 1.05rem; letter-spacing: 0.02em;">
+          W1695/26 NOTAMN<br>
+          Q)SCTZ/QWULW/IV/BO/AW/000/004/3940S07251W012<br>
+          A)SCVD B)2605311133 C)2608302255<br>
+          D)DLY BTN CCCM-FCCV<br>
+          E)RPAS FLT SECT COMUNA MAFIL RDO 11.75NM CENTERED ON GEO COORD: 394004S/0725035W<br>
+          F)GND G)400FT AGL
+        </div>
+
+        <p>Leámoslo en orden, línea por línea.</p>
+
+        <h4 style="margin-top: var(--space-lg);">Paso 1: Número y tipo de NOTAM</h4>
+        <p><code>W1695/26 NOTAMN</code> se lee así:</p>
         <ul>
-          <li><strong>Pista en mantención:</strong> Cierre parcial o total de una pista de aterrizaje por trabajos de reparación.</li>
-          <li><strong>Zonas restringidas temporales:</strong> Restricciones de espacio aéreo por eventos públicos, visitas presidenciales o ejercicios militares.</li>
-          <li><strong>Obstáculos nuevos:</strong> Torres de construcción, grúas o antenas que afectan la seguridad del vuelo.</li>
-          <li><strong>Servicios fuera de servicio:</strong> Luces de pista, ayudas a la navegación o servicios de combate de incendios no disponibles.</li>
-          <li><strong>Eventos especiales:</strong> Fuegos artificiales, eventos deportivos o concentraciones masivas que requieren control aéreo.</li>
+          <li><strong>W</strong> = la <em>serie</em>. Cada FIR reparte los NOTAM en series identificadas con una letra de la A a la Z (excepto la S, reservada para los SNOWTAM de nieve). En Chile, por ejemplo, la serie W se usa para avisos de navegación como este.</li>
+          <li><strong>1695</strong> = el número correlativo del aviso dentro de su serie. Cada serie comienza en 0001 el 1 de enero de cada año.</li>
+          <li><strong>/26</strong> = el año de emisión: 2026.</li>
+          <li><strong>NOTAMN</strong> = es un aviso <em>nuevo</em> (si dijera NOTAMR vendría seguido del número del NOTAM que reemplaza; si dijera NOTAMC, del que cancela).</li>
         </ul>
 
-        <div class="alert-box alert-warning">
-          <strong>Importante:</strong> Los NOTAM tienen vigencia limitada. Un NOTAMN puede convertirse en NOTAMR si cambian las condiciones, o en NOTAMC cuando la situación termina. Por eso es necesario consultarlos <em>justo antes</em> de la operación, no solo el día anterior.
+        <h4 style="margin-top: var(--space-lg);">Paso 2: La línea Q (la "línea de calificativos")</h4>
+        <p>La línea <code>Q)</code> es la más rica en información. Tiene 7 campos separados por barras. Este decodificador visual resume cada uno:</p>
+
+        <div class="diagram">
+          <div class="metar-decoder">
+            <div class="metar-token"><code>SCTZ</code><span>FIR: Puerto Montt</span></div>
+            <div class="metar-token"><code>QWULW</code><span>Código: aeronave no tripulada / se realizará</span></div>
+            <div class="metar-token"><code>IV</code><span>Tránsito: IFR y VFR</span></div>
+            <div class="metar-token"><code>BO</code><span>Propósito: boletín pre-vuelo + operaciones IFR</span></div>
+            <div class="metar-token"><code>AW</code><span>Alcance: aeródromo + aviso a la navegación</span></div>
+            <div class="metar-token"><code>000/004</code><span>Límites: superficie a FL040</span></div>
+            <div class="metar-token"><code>3940S07251W012</code><span>Centro 39°40'S 072°51'W, radio 12 NM</span></div>
+          </div>
+          <div class="diagram-caption">Desglose de la línea Q del NOTAM W1695/26.</div>
+        </div>
+
+        <ol>
+          <li><strong>FIR (SCTZ):</strong> Región de Información de Vuelo afectada. Chile tiene 5 FIR: SCFZ (Antofagasta), SCEZ (Santiago), SCTZ (Puerto Montt), SCCZ (Punta Arenas) y SCIZ (Isla de Pascua). Valdivia pertenece a la FIR Puerto Montt.</li>
+          <li><strong>Código NOTAM (QWULW):</strong> Cinco letras: la <strong>Q</strong> inicial identifica la línea; las letras 2 y 3 indican el <em>asunto</em> (<strong>WU</strong> = aeronave no tripulada); las letras 4 y 5 indican la <em>condición o estado</em> (<strong>LW</strong> = "se realizará", del inglés <em>will take place</em>).</li>
+          <li><strong>Tránsito (IV):</strong> A qué tipo de vuelo afecta: <code>I</code> = IFR, <code>V</code> = VFR, <code>IV</code> = ambos.</li>
+          <li><strong>Propósito (BO):</strong> Qué tan urgente es leerlo: <code>N</code> = atención inmediata, <code>B</code> = incluir en el boletín pre-vuelo (PIB), <code>O</code> = importante para vuelos IFR, <code>M</code> = varios (disponible a solicitud).</li>
+          <li><strong>Alcance (AW):</strong> Dónde aplica: <code>A</code> = aeródromo, <code>E</code> = en ruta, <code>W</code> = aviso a la navegación. Aquí aplica a ambos: afecta al aeródromo y es un aviso de navegación.</li>
+          <li><strong>Límites inferior/superior (000/004):</strong> Sección vertical del espacio aéreo afectada, en niveles de vuelo (FL). <code>000/004</code> = desde la superficie (FL000) hasta FL040 (4.000 pies aprox.). En NOTAM de aeródromo suele verse <code>000/999</code> (de la superficie al infinito).</li>
+          <li><strong>Referencia geográfica (3940S07251W012):</strong> 11 caracteres: latitud (5), longitud (6) y radio de influencia en millas náuticas (3). Aquí: centro en 39°40'S 072°51'W, radio 12 NM.</li>
+        </ol>
+
+        <h4 style="margin-top: var(--space-lg);">Paso 3: Las casillas A) a G)</h4>
+        <ul>
+          <li><strong>A) Indicador de lugar:</strong> <code>SCVD</code> = aeródromo Pichoy, Valdivia. Es el código OACI del aeródromo o FIR afectado (repásalos en la Clase 5).</li>
+          <li><strong>B) Comienzo de validez:</strong> <code>2605311133</code> = 10 dígitos: año-mes-día-hora-minuto en UTC. Se lee: 2026, mayo 31, 11:33 UTC.</li>
+          <li><strong>C) Fin de validez:</strong> <code>2608302255</code> = 30 de agosto de 2026, 22:55 UTC. Si dice <code>EST</code> al final, el término es <em>estimado</em> y se confirmará con otro NOTAM; si dice <code>PERM</code>, el cambio es permanente y pasará al AIP.</li>
+          <li><strong>D) Horario (opcional):</strong> <code>DLY BTN CCCM-FCCV</code> = el evento ocurre <em>diariamente</em> (DLY = daily) entre (BTN = between) las horas indicadas. Este campo solo aparece cuando el evento no es continuo durante toda la vigencia.</li>
+          <li><strong>E) Texto del NOTAM:</strong> El mensaje en sí, en inglés técnico con abreviaturas OACI: <code>RPAS FLT SECT COMUNA MAFIL RDO 11.75NM CENTERED ON GEO COORD: 394004S/0725035W</code> = "Vuelos de RPAS en el sector de la comuna de Máfil, radio 11,75 millas náuticas, centrado en las coordenadas geográficas 39°40'04"S 072°50'35"W".</li>
+          <li><strong>F) Límite inferior:</strong> <code>GND</code> = desde el suelo (ground).</li>
+          <li><strong>G) Límite superior:</strong> <code>400FT AGL</code> = hasta 400 pies sobre el nivel del suelo: justo la altura máxima legal de operación de drones en Chile.</li>
+        </ul>
+
+        <div class="alert-box alert-success">
+          <strong>Lectura completa en español:</strong> "Entre el 31 de mayo y el 30 de agosto de 2026, todos los días en el horario indicado, se realizarán vuelos de drones (RPAS) en el sector de la comuna de Máfil, dentro de un radio de 11,75 millas náuticas centrado en las coordenadas 39°40'04"S 072°50'35"W, desde el suelo hasta 400 pies AGL. Aeródromo de referencia: Pichoy, Valdivia (SCVD), FIR Puerto Montt (SCTZ). Afecta a tránsito IFR y VFR."
+        </div>
+
+        <div class="alert-box alert-info">
+          <strong>Recuerda la conversión horaria (Clase 5):</strong> Todas las fechas y horas de un NOTAM están en <strong>UTC (hora Zulu)</strong>. En Chile continental resta 4 horas en invierno o 3 horas en verano. Así, 11:33 UTC son las 07:33 hora local en invierno.
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Orden de lectura infalible:</strong> primero el tipo (N/R/C), luego la línea Q (¿dónde? ¿qué cosa? ¿a quién afecta?), después las fechas B) y C) (¿está vigente?), y al final el texto E) con los límites F) y G). Si dominas ese orden, cualquier NOTAM del mundo se vuelve legible.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ejercicios -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📝</div>
+        <h3>Ejercicios de Decodificación NOTAM</h3>
+      </div>
+      <div class="card-body">
+        <p>A continuación se presentan NOTAM reales publicados por la DGAC para el aeródromo Pichoy de Valdivia (SCVD, FIR Puerto Montt). Intenta decodificar cada uno antes de ver la solución.</p>
+
+        <!-- Ejercicio 1 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 1:</strong></p>
+          <p style="font-family: 'SF Mono', monospace;"><code>C3414/26 NOTAMN<br>Q)SCTZ/QMPLC/IV/BO/A/000/999/3939S07305W005<br>A)SCVD B)2608162300 C)2608172300<br>E)PRKG GA CLSD</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>NOTAM nuevo C3414/26, FIR Puerto Montt. Código QMPLC: puesto de estacionamiento de aeronaves (MP) cerrado (LC). Afecta a tránsito IFR y VFR, alcance aeródromo. Vigente del 16 de agosto de 2026, 23:00 UTC al 17 de agosto de 2026, 23:00 UTC. <strong>Texto: el estacionamiento (PRKG) de aviación general (GA) está cerrado (CLSD) en Pichoy.</strong> En palabras simples: durante ese día no se puede estacionar aviación general en Valdivia.</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 2:</strong></p>
+          <p style="font-family: 'SF Mono', monospace;"><code>C2717/26 NOTAMN<br>Q)SCTZ/QMNHW/IV/BO/A/000/999/3939S07305W005<br>A)SCVD B)2607011300 C)2610011600<br>E)APN SECT E WIP, CTN</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>NOTAM nuevo C2717/26, FIR Puerto Montt. Código QMNHW: plataforma (MN) con trabajos que prosiguen (HW). Vigente del 1 de julio al 1 de octubre de 2026. <strong>Texto: en la plataforma (APN), sector este (SECT E), hay trabajos en curso (WIP = work in progress); precaución (CTN = caution).</strong> En palabras simples: durante tres meses hay obras en el sector este de la plataforma de Valdivia; opere con precaución.</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 3:</strong></p>
+          <p style="font-family: 'SF Mono', monospace;"><code>C2628/26 NOTAMR C2550/26<br>Q)SCTZ/QMPLT/IV/M/A/000/999/3939S07305W005<br>A)SCVD B)2606231356 C)2609162359<br>E)PRKG 2 NO AVBL, EXC ACFT HOSP, MEDEVAC, HUM, OPS DE EMERG, STS</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>Ojo: es un <strong>NOTAMR</strong>: reemplaza y actualiza al NOTAM C2550/26 anterior. Código QMPLT: estacionamiento de aeronaves (MP) limitado a (LT). Propósito M: asuntos varios. Vigente del 23 de junio al 16 de septiembre de 2026. <strong>Texto: el puesto de estacionamiento 2 no está disponible (NO AVBL), excepto (EXC) aeronaves (ACFT) hospitalarias (HOSP), de evacuación médica (MEDEVAC), humanitarias (HUM), operaciones de emergencia (OPS DE EMERG) y vuelos de Estado (STS).</strong> En palabras simples: el estacionamiento 2 queda reservado solo para vuelos de emergencia y de Estado.</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 4 -->
+        <div class="quiz-question" style="margin-bottom: var(--space-lg);">
+          <p><strong>Ejercicio 4:</strong></p>
+          <p style="font-family: 'SF Mono', monospace;"><code>C2772/26 NOTAMN<br>Q)SCTZ/QMNLT/IV/NBO/A/000/999/3939S07305W005<br>A)SCVD B)2607031304 C)2610011600<br>E)APN GA CON CAPACIDAD LTD. COOR 12HR BFR CON ARO. TEL +56 63 2314306 / +56 9 4288 3662. EXC ACFT HOSP, MEDEVAC, HUM, EXTINCION INCENDIO</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>NOTAM nuevo C2772/26, FIR Puerto Montt. Código QMNLT: plataforma (MN) limitada a (LT). Propósito NBO: requiere atención inmediata y entra al boletín pre-vuelo. Vigente del 3 de julio al 1 de octubre de 2026. <strong>Texto: la plataforma (APN) de aviación general (GA) tiene capacidad limitada (LTD); se debe coordinar (COOR) 12 horas antes (12HR BFR = before) con la oficina ARO, a los teléfonos indicados. Exceptúanse aeronaves hospitalarias, de evacuación médica, humanitarias y de extinción de incendios.</strong> En palabras simples: si vas a Valdivia en aviación general, coordina tu estacionamiento con 12 horas de anticipación.</p>
+          </div>
+        </div>
+
+        <!-- Ejercicio 5 -->
+        <div class="quiz-question" style="margin-bottom: 0;">
+          <p><strong>Ejercicio 5:</strong></p>
+          <p style="font-family: 'SF Mono', monospace;"><code>C3435/26 NOTAMN<br>Q)SCTZ/QLTAS/IV/BO/A/000/999/3939S07305W005<br>A)SCVD B)2608122052 C)2608312359<br>E)REIL RWY 17 U/S</code></p>
+          <button class="tip-toggle" onclick="toggleTip(this)" style="margin-top: 0;">
+            <span>Ver solución</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="tip-content">
+            <p>Es el NOTAM del inicio de la clase. Nuevo, FIR Puerto Montt, código QLTAS: luces de umbral (LT) no utilizables (AS). Vigente del 12 al 31 de agosto de 2026. <strong>Texto: las luces estroboscópicas de identificación de extremo de pista (REIL = Runway End Identifier Lights) de la pista 17 (RWY 17) están fuera de servicio (U/S = unserviceable).</strong> En palabras simples: durante ese periodo, las operaciones nocturnas o de baja visibilidad por pista 17 en Valdivia pierden una ayuda visual importante.</p>
+          </div>
         </div>
       </div>
     </article>
@@ -128,14 +316,318 @@
         <p>Preguntas de alta frecuencia de la DGAC sobre NOTAM:</p>
         <ul>
           <li>¿Qué significa NOTAMN, NOTAMR y NOTAMC?</li>
-          <li>¿En qué plataforma de la DGAC se consultan los NOTAM?</li>
-          <li>¿Qué tipo de información NO encontrarás en un NOTAM?</li>
-          <li>¿Por qué es peligroso volar sin consultar los NOTAM vigentes?</li>
-          <li>¿Un NOTAMC elimina o confirma una restricción?</li>
+          <li>¿En qué plataforma de la DGAC se consultan los NOTAM en Chile?</li>
+          <li>¿Qué información contiene la línea Q de un NOTAM?</li>
+          <li>¿Cómo se lee la fecha/hora de la casilla B)? ¿En qué huso horario está expresada?</li>
+          <li>¿Qué diferencia hay entre un término de validez <code>EST</code> y uno <code>PERM</code>?</li>
+          <li>¿Qué significan las abreviaturas <code>U/S</code>, <code>WIP</code>, <code>CLSD</code>, <code>CTN</code> y <code>AVBL</code>?</li>
+          <li>¿Por qué un METAR con CAVOK no basta para decidir volar?</li>
         </ul>
 
         <div class="alert-box alert-success">
           <strong>Mensaje de cierre:</strong> El curso de Operador Full Stack DGAC del Liceo Bicentenario de Excelencia Polivalente San Nicolás ha recorrido el camino completo: normativa, reglas del aire, operaciones en áreas pobladas, aerodinámica, meteorología y NOTAM. Con disciplina de estudio y práctica responsable, estarán preparados para rendir el examen teórico DGAC y operar drones con seguridad y profesionalismo.
+        </div>
+      </div>
+    </article>
+
+    <!-- Anexo -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📚</div>
+        <h3>Anexo: Códigos más utilizados para leer NOTAM en Chile</h3>
+      </div>
+      <div class="card-body">
+        <p>Tablas de referencia rápida para decodificar NOTAM chilenos. No es necesario memorizarlas todas: úsalas como apoyo mientras practicas en IFIS.</p>
+
+        <h4>FIR de Chile (Regiones de Información de Vuelo)</h4>
+        <div class="diagram" style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <thead>
+              <tr style="background: var(--accent-soft);">
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Código FIR</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Nombre</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Zona que cubre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCFZ</td>
+                <td style="padding: 0.65rem;">FIR Antofagasta</td>
+                <td style="padding: 0.65rem;">Norte de Chile (Arica a Atacama)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCEZ</td>
+                <td style="padding: 0.65rem;">FIR Santiago</td>
+                <td style="padding: 0.65rem;">Zona central (Coquimbo a Bío Bío)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCTZ</td>
+                <td style="padding: 0.65rem;">FIR Puerto Montt</td>
+                <td style="padding: 0.65rem;">Zona sur (La Araucanía a Aysén; incluye Valdivia)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCCZ</td>
+                <td style="padding: 0.65rem;">FIR Punta Arenas</td>
+                <td style="padding: 0.65rem;">Magallanes y Antártica chilena</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700; color: var(--accent-dark);">SCIZ</td>
+                <td style="padding: 0.65rem;">FIR Isla de Pascua</td>
+                <td style="padding: 0.65rem;">Isla de Pascua y espacio oceánico del Pacífico</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="diagram-caption">Las 5 FIR chilenas. Aparecen como primer campo de la línea Q.</div>
+        </div>
+
+        <h4 style="margin-top: var(--space-lg);">Tipo de NOTAM y series</h4>
+        <div class="diagram" style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <thead>
+              <tr style="background: var(--accent-soft);">
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Elemento</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Significado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">NOTAMN</td>
+                <td style="padding: 0.65rem;">Aviso nuevo: informa una situación que no existía</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">NOTAMR</td>
+                <td style="padding: 0.65rem;">Reemplaza a un NOTAM anterior (indica cuál, ej.: NOTAMR C2550/26)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">NOTAMC</td>
+                <td style="padding: 0.65rem;">Cancela un NOTAM: la condición informada ya no existe</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">Series A–Z</td>
+                <td style="padding: 0.65rem;">Letra que agrupa los avisos por materia (ej.: C en aeródromos del sur, W en avisos de navegación/RPAS). La letra S está reservada para los SNOWTAM (nieve en pista). Cada serie parte en 0001 el 1 de enero.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="diagram-caption">Formato del número: Serie + correlativo/año, ej.: W1695/26.</div>
+        </div>
+
+        <h4 style="margin-top: var(--space-lg);">Línea Q: tránsito, propósito y alcance</h4>
+        <div class="diagram" style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <thead>
+              <tr style="background: var(--accent-soft);">
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Campo</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Código</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Significado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-weight: 700;">Tránsito</td>
+                <td style="padding: 0.65rem; font-family: monospace;">I / V / IV</td>
+                <td style="padding: 0.65rem;">Afecta a vuelos IFR / VFR / ambos</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-weight: 700;" rowspan="4">Propósito</td>
+                <td style="padding: 0.65rem; font-family: monospace;">N</td>
+                <td style="padding: 0.65rem;">Requiere atención inmediata de los operadores</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace;">B</td>
+                <td style="padding: 0.65rem;">Se incluye en el Boletín de Información Pre-vuelo (PIB)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace;">O</td>
+                <td style="padding: 0.65rem;">Importante para operaciones IFR</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace;">M</td>
+                <td style="padding: 0.65rem;">Asuntos varios; disponible a solicitud</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-weight: 700;" rowspan="3">Alcance</td>
+                <td style="padding: 0.65rem; font-family: monospace;">A</td>
+                <td style="padding: 0.65rem;">Aeródromo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace;">E</td>
+                <td style="padding: 0.65rem;">En ruta</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.65rem; font-family: monospace;">W</td>
+                <td style="padding: 0.65rem;">Aviso a la navegación (peligros: drones, globos, pirotecnia)</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="diagram-caption">Propósito y alcance pueden combinarse: NBO, BO, AE, AW, etc. Los límites inferior/superior se dan en niveles de vuelo: 000/999 = superficie a ilimitado.</div>
+        </div>
+
+        <h4 style="margin-top: var(--space-lg);">Códigos Q (asunto + condición) frecuentes en Chile</h4>
+        <div class="diagram" style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <thead>
+              <tr style="background: var(--accent-soft);">
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Código</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Significado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">QLTAS</td>
+                <td style="padding: 0.65rem;">Luces de umbral (LT) / no utilizables (AS)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">QMNLC / QMNLT / QMNHW</td>
+                <td style="padding: 0.65rem;">Plataforma (MN) / cerrada (LC), limitada a (LT), prosiguen trabajos (HW)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">QMPLC / QMPLT</td>
+                <td style="padding: 0.65rem;">Puesto de estacionamiento de aeronaves (MP) / cerrado (LC), limitado a (LT)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">QMR..</td>
+                <td style="padding: 0.65rem;">Pista (MR): cierres, daños, trabajos</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">QPACH</td>
+                <td style="padding: 0.65rem;">Llegada normalizada por instrumentos (PA) / cambiada (CH)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">QCAAS</td>
+                <td style="padding: 0.65rem;">Frecuencia de torre/control de aeródromo (CA) / fuera de servicio (AS)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">QCSAS</td>
+                <td style="padding: 0.65rem;">Radar secundario SSR (CS) / fuera de servicio (AS)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">QWULW</td>
+                <td style="padding: 0.65rem;">Aeronave no tripulada (WU) / se realizará (LW) — el código típico de operaciones RPAS</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">QWLLW</td>
+                <td style="padding: 0.65rem;">Lanzamiento de globos (WL) / se realizará (LW)</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">QXXCH / QXX..</td>
+                <td style="padding: 0.65rem;">Lenguaje claro (XX): el texto E) se explica casi literalmente</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="diagram-caption">Estructura: Q + asunto (2 letras) + condición (2 letras). IFIS muestra la traducción automática de cada código al consultar el NOTAM.</div>
+        </div>
+
+        <h4 style="margin-top: var(--space-lg);">Abreviaturas OACI más usadas en el texto E)</h4>
+        <div class="diagram" style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <thead>
+              <tr style="background: var(--accent-soft);">
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Abreviatura</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Significado</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Abreviatura</th>
+                <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid var(--accent);">Significado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">U/S</td>
+                <td style="padding: 0.65rem;">Fuera de servicio</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">AVBL</td>
+                <td style="padding: 0.65rem;">Disponible</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">CLSD</td>
+                <td style="padding: 0.65rem;">Cerrado</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">WIP</td>
+                <td style="padding: 0.65rem;">Trabajos en curso</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">CTN</td>
+                <td style="padding: 0.65rem;">Precaución</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">DLY</td>
+                <td style="padding: 0.65rem;">Diariamente</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">EST</td>
+                <td style="padding: 0.65rem;">Estimado (término por confirmar)</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">PERM</td>
+                <td style="padding: 0.65rem;">Permanente</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">RWY / TWY</td>
+                <td style="padding: 0.65rem;">Pista / calle de rodaje</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">THR</td>
+                <td style="padding: 0.65rem;">Umbral de pista</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">APN</td>
+                <td style="padding: 0.65rem;">Plataforma</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">PRKG</td>
+                <td style="padding: 0.65rem;">Estacionamiento de aeronaves</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">REIL</td>
+                <td style="padding: 0.65rem;">Luces de identificación de extremo de pista</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">TWR / FREQ</td>
+                <td style="padding: 0.65rem;">Torre de control / frecuencia</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">GND / SFC</td>
+                <td style="padding: 0.65rem;">Suelo / superficie</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">UNL</td>
+                <td style="padding: 0.65rem;">Ilimitado</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">AGL</td>
+                <td style="padding: 0.65rem;">Sobre el nivel del suelo</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">AMSL</td>
+                <td style="padding: 0.65rem;">Sobre el nivel medio del mar</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">FT / NM</td>
+                <td style="padding: 0.65rem;">Pies / millas náuticas</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">FL</td>
+                <td style="padding: 0.65rem;">Nivel de vuelo</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">BTN / FM</td>
+                <td style="padding: 0.65rem;">Entre / desde</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">BFR</td>
+                <td style="padding: 0.65rem;">Antes (before)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">ACFT</td>
+                <td style="padding: 0.65rem;">Aeronave(s)</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">RPAS / UA</td>
+                <td style="padding: 0.65rem;">Aeronave no tripulada (dron)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">EXC</td>
+                <td style="padding: 0.65rem;">Excepto</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">COOR</td>
+                <td style="padding: 0.65rem;">Coordinar</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">HOSP / MEDEVAC / HUM</td>
+                <td style="padding: 0.65rem;">Hospitalario / evacuación médica / humanitario</td>
+                <td style="padding: 0.65rem; font-family: monospace; font-weight: 700;">RDO / SECT</td>
+                <td style="padding: 0.65rem;">Radio / sector</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="diagram-caption">Las abreviaturas oficiales completas están en el Doc 8400 OACI y en el AIP Chile, sección GEN 2.2.</div>
+        </div>
+
+        <div class="alert-box alert-info">
+          <strong>Practica con NOTAM reales:</strong> entra a <code>aipchile.dgac.gob.cl/notam</code>, escribe el designador de un aeródromo (por ejemplo SCVD para Valdivia o SCEL para Santiago) y decodifica los avisos vigentes. IFIS muestra además la traducción de cada campo, ideal para comprobar tu lectura.
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Tip de Examen DGAC obligatorio</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Los imprescindibles:</strong> si solo memorizas cinco abreviaturas, que sean <code>U/S</code> (fuera de servicio), <code>CLSD</code> (cerrado), <code>WIP</code> (trabajos en curso), <code>AVBL</code> (disponible) y <code>CTN</code> (precaución). Con ellas se entiende la mayoría de los NOTAM de aeródromo que aparecen en el examen.</p>
         </div>
       </div>
     </article>
