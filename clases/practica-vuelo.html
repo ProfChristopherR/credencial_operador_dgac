@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clase 7: Práctica de Vuelo DJI Mini 2 | Operador Full Stack - DGAC - Liceo Bicentenario de Excelencia Polivalente San Nicolás</title>
+  <meta name="description" content="Clase 7 de práctica de vuelo con DJI Mini 2: controles en Modo 2 (throttle, yaw, pitch, roll), ejercicios de entrenamiento, maniobras evaluadas Pull In, Pull Back y Órbita, checklists prevuelo y postvuelo.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../assets/css/practica.css">
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar-inner">
+      <a href="../index.html" class="navbar-brand">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" width="44" height="44">
+        <div class="brand-text">
+          <span class="brand-name">Liceo Bicentenario de Excelencia Polivalente San Nicolás</span>
+          <span class="brand-sub">Operador Full Stack</span>
+        </div>
+      </a>
+      <div class="navbar-nav" id="main-nav">
+        <a href="marco-normativo.html" class="nav-link">Clase 1</a>
+        <a href="reglas-aire.html" class="nav-link">Clase 2</a>
+        <a href="areas-pobladas.html" class="nav-link">Clase 3</a>
+        <a href="aerodinamica.html" class="nav-link">Clase 4</a>
+        <a href="meteorologia.html" class="nav-link">Clase 5</a>
+        <a href="notam.html" class="nav-link">Clase 6</a>
+        <a href="practica-vuelo.html" class="nav-link active">Clase 7</a>
+        <a href="../evaluacion.html" class="nav-link">Evaluación</a>
+      </div>
+      <div class="navbar-actions">
+        <button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page-transition practica-page" style="padding-top: 96px; padding-bottom: var(--space-3xl);">
+
+    <!-- ENCABEZADO -->
+    <header class="page-header practica-hero reveal">
+      <svg class="hero-drone float-animation" viewBox="-40 -34 80 60" aria-hidden="true">
+        <g class="drone spinning">
+          <g class="dr-rot">
+            <line class="dr-arm" x1="-13" y1="-11" x2="13" y2="11"/>
+            <line class="dr-arm" x1="13" y1="-11" x2="-13" y2="11"/>
+            <circle class="dr-prop" cx="-13" cy="-11" r="8"/><line class="dr-blade" x1="-20" y1="-11" x2="-6" y2="-11"/>
+            <circle class="dr-prop" cx="13" cy="-11" r="8"/><line class="dr-blade" x1="6" y1="-11" x2="20" y2="-11"/>
+            <circle class="dr-prop" cx="-13" cy="11" r="8"/><line class="dr-blade" x1="-20" y1="11" x2="-6" y2="11"/>
+            <circle class="dr-prop" cx="13" cy="11" r="8"/><line class="dr-blade" x1="6" y1="11" x2="20" y2="11"/>
+            <rect class="dr-body" x="-6" y="-11" width="12" height="22" rx="5"/>
+            <circle class="dr-led" cx="0" cy="8" r="1.6"/>
+            <circle class="dr-cam" cx="0" cy="-12" r="3"/>
+            <path class="dr-front" d="M0,-28 l-4.5,6.5 h9z"/>
+          </g>
+        </g>
+      </svg>
+      <p class="body-lg" style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: var(--space-sm);">Clase 7</p>
+      <h1 class="heading-xl" style="font-family: var(--font-heading); color: var(--accent-dark); margin-bottom: var(--space-sm);">Práctica de Vuelo desde Cero</h1>
+      <p>Controles en Modo 2, ejercicios de entrenamiento, maniobras evaluadas y checklists de vuelo con el DJI Mini 2.</p>
+      <div class="chip-row">
+        <span class="chip accent">🛸 DJI Mini 2</span>
+        <span class="chip accent">🎮 Modo 2</span>
+        <span class="chip">🎯 Pull In · Pull Back · Órbita</span>
+        <span class="chip">📋 Checklist imprimible</span>
+      </div>
+    </header>
+
+    <!-- ÍNDICE -->
+    <nav class="toc-grid reveal" aria-label="Secciones de la clase">
+      <a class="toc-item" href="#intro"><span class="toc-num">00</span><span class="toc-title">¿De qué trata esta clase?</span></a>
+      <a class="toc-item" href="#basicos"><span class="toc-num">01</span><span class="toc-title">Movimientos básicos (Modo 2)</span></a>
+      <a class="toc-item" href="#ejercicios"><span class="toc-num">02</span><span class="toc-title">Ejercicios de entrenamiento</span></a>
+      <a class="toc-item" href="#maniobras"><span class="toc-num">03</span><span class="toc-title">Maniobras evaluadas</span></a>
+      <a class="toc-item" href="#checklists"><span class="toc-num">04</span><span class="toc-title">Checklists prevuelo y postvuelo</span></a>
+      <a class="toc-item" href="#rubrica"><span class="toc-num">05</span><span class="toc-title">Rúbrica de evaluación</span></a>
+    </nav>
+
+    <!-- ============ 00 INTRODUCCIÓN ============ -->
+    <div class="section-divider reveal" id="intro">
+      <div class="sd-num">00</div>
+      <div>
+        <div class="sd-kicker">Introducción</div>
+        <h2>¿De qué trata esta clase?</h2>
+      </div>
+      <div class="sd-line"></div>
+    </div>
+
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🎯</div>
+        <h3>De la teoría a los sticks</h3>
+      </div>
+      <div class="card-body">
+        <p>En las clases anteriores aprendiste la normativa, las reglas del aire, la aerodinámica, la meteorología y los NOTAM. Ahora toca volar. Esta clase te lleva paso a paso <strong>desde cero</strong>: primero entenderás qué hace cada stick del control, luego practicarás figuras sencillas para ganar coordinación y, finalmente, conocerás en detalle las <strong>tres maniobras</strong> y los <strong>checklists</strong> que se evaluarán en la prueba práctica.</p>
+        <p>La evaluación práctica es <strong>presencial</strong> y la realiza el profesor en terreno. Esta página es tu material de estudio y preparación: úsala para repasar antes de cada práctica.</p>
+
+        <div class="alert-box alert-info">
+          <strong>Aeronave de la evaluación: DJI Mini 2.</strong> Es un multirrotor estabilizado por GPS y sensores: si sueltas los sticks, se queda quieto en el aire. Por eso no practicaremos "mantener el hover", sino lo que realmente marca la diferencia: <strong>movimientos suaves, frenadas controladas y coordinación de sticks</strong>.
+        </div>
+
+        <div class="fact-grid">
+          <div class="fact"><span class="fact-value">&lt;249 g</span><span class="fact-label">Peso de despegue</span></div>
+          <div class="fact"><span class="fact-value">~31 min</span><span class="fact-label">Autonomía máxima (en la práctica, menos)</span></div>
+          <div class="fact"><span class="fact-value">Nivel 5</span><span class="fact-label">Resistencia al viento (~10,5 m/s)</span></div>
+          <div class="fact"><span class="fact-value">0–40 °C</span><span class="fact-label">Temperatura de operación</span></div>
+          <div class="fact"><span class="fact-value">C · N · S</span><span class="fact-label">Modos de vuelo: Cine, Normal, Sport</span></div>
+          <div class="fact"><span class="fact-value">Solo abajo</span><span class="fact-label">Sensores de visión: <strong>no detecta obstáculos</strong> adelante, atrás ni a los lados</span></div>
+        </div>
+
+        <div class="alert-box alert-danger">
+          <strong>Importante:</strong> el Mini 2 <strong>no tiene sensores anticolisión</strong> frontales, traseros ni laterales. Si retrocedes hacia un árbol o un poste, chocará. El único "sensor" para evitar obstáculos eres tú.
+        </div>
+      </div>
+    </article>
+
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🗺️</div>
+        <h3>¿Cómo será tu evaluación práctica?</h3>
+      </div>
+      <div class="card-body">
+        <p>La evaluación <strong>comienza cuando el profesor te entrega el dron</strong> (en su maleta) y <strong>termina cuando tú se lo devuelves</strong>. Durante todo ese tiempo el profesor <strong>no entregará ningún tipo de ayuda</strong>: todo depende de lo que hayas practicado.</p>
+
+        <ol class="eval-timeline" aria-label="Etapas de la evaluación práctica">
+          <li class="tl-start"><span class="tl-icon">📦</span><span class="tl-title">Recepción del dron</span><span class="tl-desc">Inicia la evaluación. Sacas el dron de la maleta.</span></li>
+          <li><span class="tl-icon">📋</span><span class="tl-title">Checklist prevuelo</span><span class="tl-desc">Dron, batería, control, app, satélites y entorno.</span></li>
+          <li><span class="tl-icon">🧍</span><span class="tl-title">Posición del piloto</span><span class="tl-desc">Mínimo 3 m del dron, mirando su parte trasera.</span></li>
+          <li><span class="tl-icon">🛫</span><span class="tl-title">Despegue</span><span class="tl-desc">Dentro de la zona demarcada, suave y con confianza.</span></li>
+          <li><span class="tl-icon">➡️</span><span class="tl-title">Traslado</span><span class="tl-desc">Movimiento controlado hasta el punto de evaluación.</span></li>
+          <li class="tl-eval"><span class="tl-icon">🔍</span><span class="tl-title">Pull In</span><span class="tl-desc">Acercamiento al objetivo. Hasta 3 intentos.</span></li>
+          <li class="tl-eval"><span class="tl-icon">🔭</span><span class="tl-title">Pull Back / Pull Out</span><span class="tl-desc">Alejamiento del objetivo. Hasta 3 intentos.</span></li>
+          <li class="tl-eval"><span class="tl-icon">🔄</span><span class="tl-title">Órbita</span><span class="tl-desc">Círculo alrededor del objetivo. Hasta 3 intentos.</span></li>
+          <li><span class="tl-icon">🏠</span><span class="tl-title">Regreso</span><span class="tl-desc">Vuelta controlada al lugar de aterrizaje.</span></li>
+          <li><span class="tl-icon">🛬</span><span class="tl-title">Aterrizaje</span><span class="tl-desc">Dentro de los límites de la zona de aterrizaje.</span></li>
+          <li><span class="tl-icon">🧰</span><span class="tl-title">Checklist postvuelo</span><span class="tl-desc">Revisión, apagado y guardado correcto.</span></li>
+          <li class="tl-end"><span class="tl-icon">🤝</span><span class="tl-title">Entrega del dron</span><span class="tl-desc">Termina la evaluación.</span></li>
+        </ol>
+
+        <div class="two-col">
+          <div class="mini-panel ok">
+            <h5>✅ Lo que se espera de ti</h5>
+            <ul>
+              <li>Trabajar de forma autónoma, ordenada y segura.</li>
+              <li>Elevar y mover el dron con <strong>suavidad y confianza</strong>.</li>
+              <li>Elegir tú mismo el <strong>objetivo</strong> para las tres maniobras.</li>
+              <li>Aterrizar dentro de los límites.</li>
+            </ul>
+          </div>
+          <div class="mini-panel bad">
+            <h5>⚠️ Lo que baja tu puntaje</h5>
+            <ul>
+              <li>Salir de la zona demarcada.</li>
+              <li>Necesitar más intentos o fallar los 3 intentos de una maniobra.</li>
+              <li>Movimientos bruscos, frenadas violentas o titubeos.</li>
+              <li>Omitir ítems de los checklists.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="alert-box alert-success">
+          <strong>Puedes llevar tu checklist impreso</strong> durante la evaluación. En la <a href="#checklists">sección 04</a> encontrarás un botón para imprimirlo.
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 01 MOVIMIENTOS BÁSICOS ============ -->
+    <div class="section-divider reveal" id="basicos">
+      <div class="sd-num">01</div>
+      <div>
+        <div class="sd-kicker">Fundamentos</div>
+        <h2>Movimientos básicos en Modo 2</h2>
+      </div>
+      <div class="sd-line"></div>
+    </div>
+
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🎮</div>
+        <h3>El control remoto en Modo 2</h3>
+      </div>
+      <div class="card-body">
+        <p>El <strong>Modo 2</strong> es la configuración de fábrica de DJI y la más usada en el mundo. Cada stick controla dos movimientos:</p>
+        <div class="stick-recipe">
+          <span>🕹️ Stick izquierdo ↕ <strong>Throttle</strong> (subir/bajar)</span>
+          <span>🕹️ Stick izquierdo ↔ <strong>Yaw</strong> (girar sobre su eje)</span>
+          <span>🕹️ Stick derecho ↕ <strong>Pitch</strong> (adelante/atrás)</span>
+          <span>🕹️ Stick derecho ↔ <strong>Roll</strong> (desplazarse a los lados)</span>
+        </div>
+        <p>Pruébalo en el simulador: <strong>mantén presionados</strong> los botones o haz clic en la zona de vuelo y usa el teclado. Primero sube con <em>Throttle ▲</em> para despegar.</p>
+
+        <div class="sim" id="sim-modo2" tabindex="0" aria-label="Simulador interactivo de control Modo 2">
+          <div class="sim-arena">
+            <div class="sim-hud"><span data-hud="state">En tierra</span><span data-hud="alt">Altura 0.0 m</span></div>
+            <div class="sim-hint">⚠️ El dron te está mirando: ahora pitch y roll se sienten <strong>invertidos</strong> respecto a ti.</div>
+          </div>
+          <div class="rc">
+            <div class="rc-body">
+              <div class="rc-side">
+                <span class="rc-side-title">Stick izquierdo</span>
+                <svg class="rc-stick" id="rc-left" viewBox="0 0 120 120" aria-hidden="true">
+                  <defs>
+                    <radialGradient id="knobGrad" cx="0.35" cy="0.35" r="0.8">
+                      <stop offset="0" stop-color="#7dd3fc"/>
+                      <stop offset="1" stop-color="#0369a1"/>
+                    </radialGradient>
+                  </defs>
+                  <circle class="well" cx="60" cy="60" r="50"/>
+                  <line class="cross" x1="60" y1="14" x2="60" y2="106"/>
+                  <line class="cross" x1="14" y1="60" x2="106" y2="60"/>
+                  <text class="lbl" x="60" y="22" text-anchor="middle">THR+</text>
+                  <text class="lbl" x="60" y="104" text-anchor="middle">THR−</text>
+                  <text class="lbl" x="18" y="63">YAW</text>
+                  <circle class="knob" cx="60" cy="60" r="16"/>
+                </svg>
+                <div class="dpad">
+                  <button type="button" class="up" data-ax="t" data-v="1" aria-label="Throttle arriba">THR ▲</button>
+                  <button type="button" class="left" data-ax="y" data-v="-1" aria-label="Yaw izquierda">⟲ YAW</button>
+                  <span class="center" aria-hidden="true"></span>
+                  <button type="button" class="right" data-ax="y" data-v="1" aria-label="Yaw derecha">YAW ⟳</button>
+                  <button type="button" class="down" data-ax="t" data-v="-1" aria-label="Throttle abajo">THR ▼</button>
+                </div>
+              </div>
+              <div class="rc-side">
+                <span class="rc-side-title">Stick derecho</span>
+                <svg class="rc-stick" id="rc-right" viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="well" cx="60" cy="60" r="50"/>
+                  <line class="cross" x1="60" y1="14" x2="60" y2="106"/>
+                  <line class="cross" x1="14" y1="60" x2="106" y2="60"/>
+                  <text class="lbl" x="60" y="22" text-anchor="middle">PITCH+</text>
+                  <text class="lbl" x="60" y="104" text-anchor="middle">PITCH−</text>
+                  <text class="lbl" x="18" y="63">ROLL</text>
+                  <circle class="knob" cx="60" cy="60" r="16"/>
+                </svg>
+                <div class="dpad">
+                  <button type="button" class="up" data-ax="p" data-v="1" aria-label="Pitch adelante">PITCH ▲</button>
+                  <button type="button" class="left" data-ax="r" data-v="-1" aria-label="Roll izquierda">◀ ROLL</button>
+                  <span class="center" aria-hidden="true"></span>
+                  <button type="button" class="right" data-ax="r" data-v="1" aria-label="Roll derecha">ROLL ▶</button>
+                  <button type="button" class="down" data-ax="p" data-v="-1" aria-label="Pitch atrás">PITCH ▼</button>
+                </div>
+              </div>
+            </div>
+            <p class="sim-legend">Teclado: <kbd>W</kbd><kbd>S</kbd> throttle · <kbd>A</kbd><kbd>D</kbd> yaw · <kbd>↑</kbd><kbd>↓</kbd> pitch · <kbd>←</kbd><kbd>→</kbd> roll</p>
+            <div class="sim-actions">
+              <button type="button" class="btn btn-secondary btn-sm" data-sim="reset">↺ Reiniciar dron</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert-box alert-warning">
+          <strong>Experimento:</strong> despega, gira el dron 180° con yaw hasta que la nariz te mire y luego presiona <em>Roll ▶</em>. Verás que el dron se va hacia <strong>tu izquierda</strong>. Los mandos funcionan respecto a la nariz del dron, no respecto a ti. Por eso en la evaluación te ubicarás <strong>detrás del dron, mirando su parte trasera</strong>: así los mandos coinciden con tu punto de vista.
+        </div>
+      </div>
+    </article>
+
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🧭</div>
+        <h3>Los cuatro movimientos fundamentales</h3>
+      </div>
+      <div class="card-body">
+        <p>Todo lo que hace un multirrotor es una combinación de estos cuatro movimientos. Domínalos por separado antes de combinarlos.</p>
+
+        <div class="axis-grid">
+          <!-- THROTTLE -->
+          <div class="axis-card anim-throttle">
+            <div class="axis-stage">
+              <span class="view-tag">Vista lateral</span>
+              <svg class="ax-drone" viewBox="-40 -40 80 80" aria-hidden="true">
+                <g class="ax-d spinning">
+                  <line class="dr-arm" x1="-17" y1="-4" x2="17" y2="-4"/>
+                  <ellipse class="dr-prop" cx="-17" cy="-8" rx="11" ry="2.4"/>
+                  <ellipse class="dr-prop" cx="17" cy="-8" rx="11" ry="2.4"/>
+                  <rect class="dr-body" x="-13" y="-5" width="26" height="10" rx="4.5"/>
+                  <circle class="dr-cam" cx="13" cy="5" r="3.2"/>
+                </g>
+              </svg>
+              <svg class="ax-stick" viewBox="0 0 60 60" aria-hidden="true"><rect class="well" x="3" y="3" width="54" height="54" rx="14"/><line class="cross" x1="30" y1="8" x2="30" y2="52"/><line class="cross" x1="8" y1="30" x2="52" y2="30"/><circle class="knob" cx="30" cy="30" r="8"/></svg>
+            </div>
+            <div class="axis-body">
+              <h4>Throttle</h4>
+              <span class="axis-sub">Stick izquierdo ↕ · Altura</span>
+              <p>Arriba: el dron sube. Abajo: baja. Al centro: mantiene la altura. Se usa para despegar, aterrizar y ajustar la altura del encuadre.</p>
+              <div class="axis-err"><strong>Error típico:</strong> despegar "de golpe" o bajar demasiado rápido en vertical (recuerda el anillo de vórtice de la Clase 4).</div>
+            </div>
+          </div>
+
+          <!-- YAW -->
+          <div class="axis-card anim-yaw">
+            <div class="axis-stage">
+              <span class="view-tag">Vista superior</span>
+              <svg class="ax-drone" viewBox="-40 -40 80 80" aria-hidden="true">
+                <g class="ax-d spinning">
+                  <line class="dr-arm" x1="-13" y1="-11" x2="13" y2="11"/>
+                  <line class="dr-arm" x1="13" y1="-11" x2="-13" y2="11"/>
+                  <circle class="dr-prop" cx="-13" cy="-11" r="8"/><circle class="dr-prop" cx="13" cy="-11" r="8"/>
+                  <circle class="dr-prop" cx="-13" cy="11" r="8"/><circle class="dr-prop" cx="13" cy="11" r="8"/>
+                  <rect class="dr-body" x="-6" y="-11" width="12" height="22" rx="5"/>
+                  <circle class="dr-cam" cx="0" cy="-12" r="3"/>
+                  <path class="dr-front" d="M0,-28 l-4.5,6.5 h9z"/>
+                </g>
+              </svg>
+              <svg class="ax-stick" viewBox="0 0 60 60" aria-hidden="true"><rect class="well" x="3" y="3" width="54" height="54" rx="14"/><line class="cross" x1="30" y1="8" x2="30" y2="52"/><line class="cross" x1="8" y1="30" x2="52" y2="30"/><circle class="knob" cx="30" cy="30" r="8"/></svg>
+            </div>
+            <div class="axis-body">
+              <h4>Yaw</h4>
+              <span class="axis-sub">Stick izquierdo ↔ · Rotación</span>
+              <p>Gira el dron sobre su eje vertical, sin desplazarlo. Cambia hacia dónde apunta la nariz y, por lo tanto, la cámara.</p>
+              <div class="axis-err"><strong>Error típico:</strong> girar demasiado rápido y perder la referencia de dónde está la nariz.</div>
+            </div>
+          </div>
+
+          <!-- PITCH -->
+          <div class="axis-card anim-pitch">
+            <div class="axis-stage">
+              <span class="view-tag">Vista lateral</span>
+              <svg class="ax-drone" viewBox="-40 -40 80 80" aria-hidden="true">
+                <g class="ax-d spinning">
+                  <line class="dr-arm" x1="-17" y1="-4" x2="17" y2="-4"/>
+                  <ellipse class="dr-prop" cx="-17" cy="-8" rx="11" ry="2.4"/>
+                  <ellipse class="dr-prop" cx="17" cy="-8" rx="11" ry="2.4"/>
+                  <rect class="dr-body" x="-13" y="-5" width="26" height="10" rx="4.5"/>
+                  <circle class="dr-cam" cx="13" cy="5" r="3.2"/>
+                </g>
+              </svg>
+              <svg class="ax-stick" viewBox="0 0 60 60" aria-hidden="true"><rect class="well" x="3" y="3" width="54" height="54" rx="14"/><line class="cross" x1="30" y1="8" x2="30" y2="52"/><line class="cross" x1="8" y1="30" x2="52" y2="30"/><circle class="knob" cx="30" cy="30" r="8"/></svg>
+            </div>
+            <div class="axis-body">
+              <h4>Pitch</h4>
+              <span class="axis-sub">Stick derecho ↕ · Adelante / atrás</span>
+              <p>El dron inclina la nariz hacia abajo y avanza, o la levanta y retrocede. Es el movimiento base del <strong>Pull In</strong> y del <strong>Pull Back</strong>.</p>
+              <div class="axis-err"><strong>Error típico:</strong> soltar el stick de golpe, lo que produce una frenada brusca y un "cabeceo" en la imagen.</div>
+            </div>
+          </div>
+
+          <!-- ROLL -->
+          <div class="axis-card anim-roll">
+            <div class="axis-stage">
+              <span class="view-tag">Vista trasera</span>
+              <svg class="ax-drone" viewBox="-40 -40 80 80" aria-hidden="true">
+                <g class="ax-d spinning">
+                  <line class="dr-arm" x1="-18" y1="-3" x2="18" y2="-3"/>
+                  <ellipse class="dr-prop" cx="-18" cy="-7" rx="10" ry="2.4"/>
+                  <ellipse class="dr-prop" cx="18" cy="-7" rx="10" ry="2.4"/>
+                  <rect class="dr-body" x="-8" y="-6" width="16" height="11" rx="4"/>
+                  <circle class="dr-led" cx="0" cy="0" r="1.8"/>
+                </g>
+              </svg>
+              <svg class="ax-stick" viewBox="0 0 60 60" aria-hidden="true"><rect class="well" x="3" y="3" width="54" height="54" rx="14"/><line class="cross" x1="30" y1="8" x2="30" y2="52"/><line class="cross" x1="8" y1="30" x2="52" y2="30"/><circle class="knob" cx="30" cy="30" r="8"/></svg>
+            </div>
+            <div class="axis-body">
+              <h4>Roll</h4>
+              <span class="axis-sub">Stick derecho ↔ · Lateral</span>
+              <p>El dron se inclina hacia un lado y se desplaza lateralmente sin girar la nariz. Combinado con yaw es la base de la <strong>Órbita</strong>.</p>
+              <div class="axis-err"><strong>Error típico:</strong> mezclar sin querer un poco de pitch al mover el stick derecho hacia los lados (el dron se desplaza en diagonal).</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 Técnica de pilotaje: suavidad</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p><strong>Toma los sticks con la yema de los pulgares</strong> (o con pulgar e índice, "estilo pinza") y muévelos de forma progresiva: empieza con poca deflexión, aumenta gradualmente y vuelve al centro de la misma manera. Usar el modo <strong>Cine (C)</strong> del Mini 2 reduce la velocidad y hace más suaves los movimientos, lo que es ideal para practicar las maniobras.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 02 EJERCICIOS ============ -->
+    <div class="section-divider reveal" id="ejercicios">
+      <div class="sd-num">02</div>
+      <div>
+        <div class="sd-kicker">Entrenamiento</div>
+        <h2>Ejercicios para ganar coordinación</h2>
+      </div>
+      <div class="sd-line"></div>
+    </div>
+
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🏋️</div>
+        <h3>Figuras de práctica</h3>
+      </div>
+      <div class="card-body">
+        <p>Estos ejercicios van de lo simple a lo complejo. Cada animación muestra la <strong>trayectoria</strong> vista desde arriba (o de lado) y, debajo, <strong>cómo se mueven los sticks</strong> en tiempo real. Las etiquetas encendidas indican qué mandos se están usando en cada momento. El piloto está siempre abajo, mirando la cola del dron.</p>
+
+        <div class="mv-grid">
+          <div class="mv-card" data-mv="takeoff" data-title="Despegue y aterrizaje controlados">
+            <div class="mv-info">
+              <h4>1. Despegue y aterrizaje <span class="badge badge-basic">Básico</span></h4>
+              <p><strong>Sticks:</strong> Throttle.</p>
+              <p>Sube de forma progresiva hasta ~1,5 m, verifica que el dron esté estable y vuelve a bajar con suavidad. Al tocar el suelo, mantén el throttle abajo hasta que los motores se detengan.</p>
+              <ul><li><strong>Logrado si:</strong> el despegue y aterrizaje son suaves, sin saltos ni golpes.</li></ul>
+            </div>
+          </div>
+
+          <div class="mv-card" data-mv="line" data-title="Línea recta con frenado">
+            <div class="mv-info">
+              <h4>2. Línea recta con frenado <span class="badge badge-basic">Básico</span></h4>
+              <p><strong>Sticks:</strong> Pitch.</p>
+              <p>Avanza en línea recta hasta un punto, detente con suavidad y regresa. Entrena la aceleración y la frenada progresivas que se usan en el Pull In y el Pull Back.</p>
+              <ul><li><strong>Logrado si:</strong> el dron se detiene en el punto elegido sin pasarse ni frenar en seco.</li></ul>
+            </div>
+          </div>
+
+          <div class="mv-card" data-mv="square" data-title="Cuadrado con nariz fija">
+            <div class="mv-info">
+              <h4>3. Cuadrado (nariz fija) <span class="badge badge-basic">Básico</span></h4>
+              <p><strong>Sticks:</strong> Pitch y Roll.</p>
+              <p>Dibuja un cuadrado sin girar el dron: la nariz siempre mira al frente. Haz una pausa en cada esquina.</p>
+              <ul><li><strong>Logrado si:</strong> los lados son rectos y las esquinas se marcan claramente.</li></ul>
+            </div>
+          </div>
+
+          <div class="mv-card" data-mv="squareYaw" data-title="Cuadrado con yaw">
+            <div class="mv-info">
+              <h4>4. Cuadrado con yaw <span class="badge badge-inter">Intermedio</span></h4>
+              <p><strong>Sticks:</strong> Pitch y Yaw.</p>
+              <p>Ahora la nariz apunta siempre hacia donde avanza el dron: avanza, gira 90° en la esquina y vuelve a avanzar. En el lado que viene hacia ti, los mandos laterales se sienten invertidos.</p>
+              <ul><li><strong>Logrado si:</strong> los giros son de 90° exactos y no hay desplazamiento durante el giro.</li></ul>
+            </div>
+          </div>
+
+          <div class="mv-card" data-mv="halfmoon" data-title="Medialuna">
+            <div class="mv-info">
+              <h4>5. Medialuna <span class="badge badge-inter">Intermedio</span></h4>
+              <p><strong>Sticks:</strong> Pitch y Yaw combinados.</p>
+              <p>Recorre medio círculo avanzando con pitch mientras giras suavemente con yaw, de modo que la nariz siga la curva. Gira 180° y regresa por el mismo arco.</p>
+              <ul><li><strong>Logrado si:</strong> el arco es redondeado y continuo, sin tramos rectos ni detenciones.</li></ul>
+            </div>
+          </div>
+
+          <div class="mv-card" data-mv="circle" data-title="Círculo coordinado">
+            <div class="mv-info">
+              <h4>6. Círculo <span class="badge badge-inter">Intermedio</span></h4>
+              <p><strong>Sticks:</strong> Pitch y Yaw constantes.</p>
+              <p>Igual que la medialuna, pero completando los 360°. La clave es mantener <strong>la misma cantidad</strong> de pitch y de yaw durante todo el giro.</p>
+              <ul><li><strong>Logrado si:</strong> el círculo cierra en el punto de partida y tiene un radio parejo.</li></ul>
+            </div>
+          </div>
+
+          <div class="mv-card" data-mv="eight" data-title="Ocho o infinito">
+            <div class="mv-info">
+              <h4>7. Ocho / Infinito <span class="badge badge-adv">Avanzado</span></h4>
+              <p><strong>Sticks:</strong> Pitch y Yaw, cambiando el sentido del giro.</p>
+              <p>Dos círculos unidos. En el cruce central debes invertir el yaw de forma suave (de derecha a izquierda) sin dejar de avanzar.</p>
+              <ul><li><strong>Logrado si:</strong> ambos lóbulos son similares y el cambio de sentido es fluido.</li></ul>
+            </div>
+          </div>
+
+          <div class="mv-card" data-mv="ladder" data-title="Escalera vertical">
+            <div class="mv-info">
+              <h4>8. Escalera <span class="badge badge-adv">Avanzado</span></h4>
+              <p><strong>Sticks:</strong> Throttle y Pitch (por separado y luego combinados).</p>
+              <p>Sube un escalón, avanza, sube otro... y luego desciende en <strong>diagonal</strong> combinando pitch atrás con throttle abajo. Descender en diagonal y no en vertical evita el anillo de vórtice.</p>
+              <ul><li><strong>Logrado si:</strong> los escalones son parejos y el descenso diagonal es continuo.</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert-box alert-info">
+          <strong>Rutina sugerida por batería:</strong> 1 → 2 → 3 (calentamiento), luego 4 a 6, y si queda batería, 7 y 8. Termina siempre practicando las tres maniobras evaluadas y un aterrizaje de precisión.
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 03 MANIOBRAS EVALUADAS ============ -->
+    <div class="section-divider reveal" id="maniobras">
+      <div class="sd-num">03</div>
+      <div>
+        <div class="sd-kicker">Lo que se evalúa</div>
+        <h2>Las tres maniobras evaluadas</h2>
+      </div>
+      <div class="sd-line"></div>
+    </div>
+
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🎬</div>
+        <h3>Antes de empezar</h3>
+      </div>
+      <div class="card-body">
+        <p>Las tres maniobras son movimientos cinematográficos clásicos y se hacen <strong>en torno a un objetivo que tú eliges</strong> (un árbol, un poste, una persona sentada a distancia segura, un cono, etc.). Elige un objetivo fácil de reconocer en la pantalla y sin obstáculos alrededor.</p>
+        <div class="fact-grid">
+          <div class="fact"><span class="fact-value">3</span><span class="fact-label">Maniobras: Pull In, Pull Back y Órbita</span></div>
+          <div class="fact"><span class="fact-value">3</span><span class="fact-label">Intentos como máximo por maniobra</span></div>
+          <div class="fact"><span class="fact-value">1</span><span class="fact-label">Objetivo elegido por ti</span></div>
+        </div>
+        <div class="alert-box alert-warning">
+          <strong>Hazlas de forma manual</strong>, con los sticks. Las funciones automáticas de la app (QuickShots, como Dronie o Circle) no demuestran tu habilidad de pilotaje.
+        </div>
+      </div>
+    </article>
+
+    <!-- PULL IN -->
+    <article class="card reveal eval-maneuver">
+      <div class="card-header">
+        <div class="card-icon">🔍</div>
+        <h3>Maniobra 1: Pull In (acercamiento diagonal) <span class="badge badge-eval">Evaluada</span></h3>
+      </div>
+      <div class="card-body">
+        <p>En el lenguaje audiovisual con drones, el <strong>Pull In</strong> no es un vuelo rasante a la misma altura, sino un <strong>acercamiento en trayectoria diagonal descendente de entre 20°, 30° o 45° (típicamente ~30°)</strong>. El dron parte elevado y alejado, y desciende en diagonal hacia el objetivo combinando avance y descenso simultáneos, manteniendo al sujeto perfectamente encuadrado mediante la inclinación de la cámara (gimbal).</p>
+        <div class="stick-recipe">
+          <span>🕹️ Pitch ▲ (avance suave y continuo)</span>
+          <span>🕹️ Throttle ▼ (descenso coordinado para formar la diagonal)</span>
+          <span>📐 Trayectoria diagonal (~20° a 45°)</span>
+          <span>🎥 Gimbal: ~30° ajustando suavemente para centrar el objetivo</span>
+        </div>
+
+        <div class="eval-split">
+          <div class="mv-card" data-mv="pullin" data-title="Animación Pull In">
+            <div class="mv-info">
+              <h4>Animación: Pull In (descenso en diagonal ~30°)</h4>
+              <p>Observa cómo la trayectoria naranja desciende en ángulo hacia el objetivo mientras la cámara ajusta su ángulo para no perder el encuadre. Debajo verás que <strong>Pitch ▲ y Throttle ▼ se activan al mismo tiempo</strong>.</p>
+            </div>
+          </div>
+          <div>
+            <div class="video-box">
+              <div class="video-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/iJeQVuznPVc?start=141&amp;end=187&amp;rel=0&amp;modestbranding=1" title="Ejemplo de maniobra Pull In con dron" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-meta"><span>▶ Fragmento 2:21 – 3:07 (Demostración de Pull In diagonal)</span><a href="https://www.youtube.com/watch?v=iJeQVuznPVc&amp;t=141s" target="_blank" rel="noopener">Ver en YouTube ↗</a></div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="heading-md" style="margin: var(--space-lg) 0 var(--space-sm);">Paso a paso</h4>
+        <ol class="steps">
+          <li><strong>Posición inicial:</strong> eleva el dron a una altura considerable por encima del objetivo y aléjate a distancia prudente, con la cola hacia ti.</li>
+          <li><strong>Encuadre:</strong> inclina el gimbal de la cámara hacia abajo (aproximadamente 20° a 30°) hasta que el objetivo quede centrado en la pantalla.</li>
+          <li><strong>Ejecución diagonal:</strong> empuja simultáneamente <strong>Pitch hacia adelante + Throttle hacia abajo de forma progresiva</strong> para trazar una diagonal limpia y constante hacia el sujeto.</li>
+          <li><strong>Control de cámara:</strong> acompaña el descenso con micro-ajustes en la rueda del gimbal para que el objetivo no se salga por la parte superior ni inferior.</li>
+          <li><strong>Frenado:</strong> suelta ambos mandos gradualmente para detenerte con suavidad a una distancia segura del objetivo, sin frenadas bruscas.</li>
+        </ol>
+
+        <div class="two-col">
+          <div class="mini-panel ok"><h5>✅ Logrado si…</h5><ul><li>El descenso es una diagonal continua y recta (20°–45°).</li><li>El objetivo permanece perfectamente centrado de principio a fin.</li><li>Ambos sticks (Pitch y Throttle) se mueven en simultáneo con suavidad.</li><li>La frenada es progresiva y a distancia segura.</li></ul></div>
+          <div class="mini-panel bad"><h5>❌ Errores comunes</h5><ul><li>Volar en horizontal plano sin descender.</li><li>Bajar en vertical primero y avanzar después (movimientos separados en vez de coordinados).</li><li>Soltar el pitch de golpe provocando un cabeceo brusco del gimbal.</li><li>Acercarse en exceso o perder de vista los límites de la zona.</li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PULL BACK -->
+    <article class="card reveal eval-maneuver">
+      <div class="card-header">
+        <div class="card-icon">🔭</div>
+        <h3>Maniobra 2: Pull Back / Pull Out (alejamiento diagonal) <span class="badge badge-eval">Evaluada</span></h3>
+      </div>
+      <div class="card-body">
+        <p>Es la maniobra cinematográfica inversa: el dron parte <strong>cerca y a baja altura del objetivo</strong> y retrocede en una <strong>trayectoria diagonal ascendente de entre 20°, 30° o 45° (típicamente ~30°)</strong>. Al combinar retroceso (Pitch atrás) y ganancia de altura (Throttle arriba) simultáneos, se produce el espectacular efecto de "revelación" de la escena, donde el sujeto se mantiene en foco mientras el entorno completo se descubre alrededor.</p>
+        <div class="stick-recipe">
+          <span>🕹️ Pitch ▼ (retroceso suave y continuo)</span>
+          <span>🕹️ Throttle ▲ (ascenso coordinado para formar la diagonal)</span>
+          <span>📐 Trayectoria diagonal ascendente (~20° a 45°)</span>
+          <span>🎥 Gimbal: ~30° ajustando hacia abajo al ganar altura</span>
+        </div>
+
+        <div class="eval-split">
+          <div class="mv-card" data-mv="pullback" data-title="Animación Pull Back">
+            <div class="mv-info">
+              <h4>Animación: Pull Back / Pull Out (ascenso en diagonal ~30°)</h4>
+              <p>Observa cómo el dron asciende en diagonal alejándose del árbol: la cámara va inclinándose hacia abajo para mantener el encuadre. En el panel de mandos, <strong>Pitch ▼ y Throttle ▲ actúan en conjunto</strong>.</p>
+            </div>
+          </div>
+          <div>
+            <div class="video-box">
+              <div class="video-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/iJeQVuznPVc?start=92&amp;end=139&amp;rel=0&amp;modestbranding=1" title="Ejemplo de maniobra Pull Back con dron" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-meta"><span>▶ Fragmento 1:32 – 2:19 (Demostración de Pull Back diagonal)</span><a href="https://www.youtube.com/watch?v=iJeQVuznPVc&amp;t=92s" target="_blank" rel="noopener">Ver en YouTube ↗</a></div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="heading-md" style="margin: var(--space-lg) 0 var(--space-sm);">Paso a paso</h4>
+        <ol class="steps">
+          <li><strong>Inspección visual previa obligatoria:</strong> gira la cabeza y verifica con tus propios ojos que toda la línea diagonal trasera y superior esté completamente libre de postes, ramas o cables. <em>El Mini 2 no tiene sensores traseros ni superiores</em>.</li>
+          <li><strong>Posición inicial:</strong> ubica el dron cerca del objetivo (a distancia de seguridad prudente) y a baja altura, encuadrando al sujeto en plano medio o cerrado.</li>
+          <li><strong>Ejecución diagonal:</strong> aplica simultáneamente <strong>Pitch hacia atrás + Throttle hacia arriba con suavidad progresiva</strong>, manteniendo una proporción constante para formar un ángulo de 20° a 45°.</li>
+          <li><strong>Control de cámara:</strong> conforme el dron gana altura y distancia, inclina suavemente la rueda del gimbal hacia abajo para evitar que el objetivo se escape por la parte inferior de la pantalla.</li>
+          <li><strong>Detención:</strong> suelta ambos mandos con suavidad al alcanzar la apertura deseada, permaneciendo estrictamente dentro de la zona demarcada.</li>
+        </ol>
+
+        <div class="two-col">
+          <div class="mini-panel ok"><h5>✅ Logrado si…</h5><ul><li>El retroceso es un ascenso diagonal limpio y parejo (20°–45°).</li><li>El objetivo permanece perfectamente encuadrado mientras el entorno se abre.</li><li>Se mueven Pitch atrás y Throttle arriba al mismo tiempo sin titubeos.</li><li>El dron no supera los límites de la zona de vuelo.</li></ul></div>
+          <div class="mini-panel bad"><h5>❌ Errores comunes</h5><ul><li>Retroceder a ciegas sin mirar antes si hay obstáculos atrás/arriba.</li><li>Subir primero y retroceder después (o viceversa), perdiendo el dinamismo diagonal.</li><li>Perder el encuadre por no acompañar el ascenso con el gimbal.</li><li>Alejarse tanto que el dron salga del área demarcada de evaluación.</li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ÓRBITA -->
+    <article class="card reveal eval-maneuver">
+      <div class="card-header">
+        <div class="card-icon">🔄</div>
+        <h3>Maniobra 3: Órbita (Orbit cinematográfica) <span class="badge badge-eval">Evaluada</span></h3>
+      </div>
+      <div class="card-body">
+        <p>El dron <strong>describe un círculo continuo alrededor del objetivo</strong> mientras la cámara lo mantiene invariablemente en el centro del encuadre. Para lograr una toma verdaderamente cinematográfica, la órbita <strong>no se vuela a ras de piso ni en plano cenital recto</strong>: el dron debe situarse a una <strong>altura elevada con la cámara inclinada a aproximadamente 30° hacia abajo</strong> (entre 20° y 45°). Esta inclinación es la que genera el clásico <strong>efecto de paralaje tridimensional</strong>, donde el sujeto permanece anclado mientras el horizonte y el fondo giran armónicamente detrás de él.</p>
+        <div class="stick-recipe">
+          <span>🕹️ Roll (desplazamiento lateral hacia un lado)</span>
+          <span>🕹️ Yaw (rotación hacia el lado opuesto para anclar el encuadre)</span>
+          <span>📐 Altura previa + Cámara inclinada a ~30° hacia abajo</span>
+          <span>🕹️ Pitch: micro-correcciones de radio (acercar/alejar)</span>
+        </div>
+
+        <div class="eval-split">
+          <div class="mv-card" data-mv="orbit" data-title="Animación Órbita">
+            <div class="mv-info">
+              <h4>Animación: Órbita cinematográfica con cámara a ~30°</h4>
+              <p>Vista cenital con el dron elevado y cámara apuntando al objetivo central con ~30° de declinación. Observa cómo <strong>Roll y Yaw trabajan en direcciones opuestas pero sincronizadas</strong> durante todo el giro.</p>
+            </div>
+          </div>
+          <div class="video-vertical-wrap">
+            <div class="video-box">
+              <div class="video-frame vertical">
+                <iframe src="https://www.youtube-nocookie.com/embed/_XCb2uEBIpM?rel=0&amp;modestbranding=1" title="Ejemplo de maniobra Órbita con dron" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-meta"><span>▶ Video tutorial completo (Short)</span><a href="https://youtube.com/shorts/_XCb2uEBIpM" target="_blank" rel="noopener">Ver en YouTube ↗</a></div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="heading-md" style="margin: var(--space-lg) 0 var(--space-sm);">Paso a paso</h4>
+        <ol class="steps">
+          <li><strong>Elevación y ángulo:</strong> eleva el dron a una altura adecuada (por ejemplo, entre 5 y 10 metros según el tamaño del objetivo) e inclina la rueda del gimbal hacia abajo unos <strong>30°</strong> para encuadrar al objetivo en el centro de la pantalla.</li>
+          <li><strong>Radio de seguridad:</strong> sitúa el dron a una distancia que servirá como radio de la órbita, asegurándote de que los 360° del círculo queden completamente libres de obstáculos y dentro de la zona de vuelo.</li>
+          <li><strong>Inicio lateral (Roll):</strong> comienza aplicando <strong>Roll suave</strong> hacia un lado (por ejemplo, hacia la izquierda).</li>
+          <li><strong>Compensación (Yaw):</strong> añade inmediatamente <strong>Yaw en sentido contrario</strong> (en este caso, hacia la derecha) con la cantidad exacta para que el objetivo no se desplace del centro del encuadre.</li>
+          <li><strong>Micro-corrección de radio:</strong> si notas que el círculo se abre (el dron se aleja), aplica una leve pulsación de Pitch hacia adelante; si se cierra, una leve pulsación de Pitch hacia atrás.</li>
+          <li><strong>Cierre:</strong> mantén la velocidad constante durante los 360° completos y frena de manera progresiva al cerrar la vuelta.</li>
+        </ol>
+
+        <div class="two-col">
+          <div class="mini-panel ok"><h5>✅ Logrado si…</h5><ul><li>El dron mantiene una altura elevada constante con la cámara a ~30°.</li><li>El radio del círculo es simétrico y constante.</li><li>El objetivo permanece anclado en el centro durante toda la órbita.</li><li>El movimiento es fluido, sin saltos ni detenciones bruscas.</li></ul></div>
+          <div class="mini-panel bad"><h5>❌ Errores comunes</h5><ul><li>Volar al mismo nivel del suelo perdiendo el efecto cinematográfico de paralaje.</li><li>Exceso de Yaw (el objetivo se escapa por el lateral de la pantalla).</li><li>Falta de corrección con Pitch (la órbita se deforma en una espiral).</li><li>Aceleraciones o frenadas a tirones por corregir bruscamente con los dedos.</li></ul></div>
+        </div>
+
+        <button class="tip-toggle" onclick="toggleTip(this)">
+          <span>💡 El secreto de la órbita cinematográfica</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="tip-content">
+          <p>La clave técnica que se muestra en el video está en la <strong>relación entre radio y altura</strong>: con el dron elevado y la cámara inclinada a ~30°, el fondo se desplaza a una velocidad angular distinta que el primer plano, generando profundidad visual. Empieza practicando con un radio amplio (10 a 15 m) en modo <strong>Cine (C)</strong>: a mayor radio, los mandos son mucho más tolerantes y la coordinación entre Roll y Yaw resulta infinitamente más sencilla.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 04 CHECKLISTS ============ -->
+    <div class="section-divider reveal" id="checklists">
+      <div class="sd-num">04</div>
+      <div>
+        <div class="sd-kicker">Seguridad operacional</div>
+        <h2>Checklists prevuelo y postvuelo</h2>
+      </div>
+      <div class="sd-line"></div>
+    </div>
+
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🛡️</div>
+        <h3>¿Por qué usar un checklist?</h3>
+      </div>
+      <div class="card-body">
+        <p>En la aviación, incluso los pilotos con miles de horas de vuelo usan checklists. La razón es simple: <strong>la memoria falla, sobre todo bajo presión</strong> (como en una evaluación). Un checklist asegura que nada quede al azar y te obliga a revisar <strong>todo el sistema</strong>: la aeronave, la batería, el control remoto, la aplicación, el entorno donde volarás y a ti mismo como piloto.</p>
+        <p>La mayoría de los accidentes con drones pequeños se producen por causas evitables: hélices dañadas, baterías mal insertadas, despegar sin suficientes satélites, no ver un cable o un árbol, o volar con viento excesivo. Un buen checklist previene casi todas ellas.</p>
+
+        <div class="highlight-banner">
+          <div class="hb-icon">🖨️</div>
+          <div>
+            <h4>Puedes llevar este checklist impreso a la evaluación</h4>
+            <p>Márcalo aquí mientras practicas (se guarda en tu navegador) e imprime una copia en blanco para el día de la prueba.</p>
+          </div>
+          <button type="button" class="btn btn-primary" data-print-checklist style="flex-shrink:0;">🖨️ Imprimir checklist</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- PREVUELO -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🛫</div>
+        <h3>Checklist prevuelo</h3>
+      </div>
+      <div class="card-body">
+        <p>Se realiza desde que abres la maleta hasta que el dron está listo para despegar. Las marcas <strong>CLAVE</strong> indican ítems críticos para la seguridad.</p>
+
+        <div class="checklist" data-checklist="prevuelo" data-title="CHECKLIST PREVUELO">
+          <div class="cl-toolbar no-print">
+            <div class="cl-progress">
+              <div class="cl-progress-text"><span data-cl-count>0 de 0 ítems</span><span data-cl-pct>0%</span></div>
+              <div class="cl-bar"><div class="cl-bar-fill"></div></div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" data-cl-reset>↺ Reiniciar</button>
+            <span class="cl-done-msg">✅ Checklist prevuelo completo: ¡listo para despegar!</span>
+          </div>
+
+          <div class="check-groups">
+            <div class="check-group">
+              <div class="check-group-head"><span class="cg-icon">🌤️</span><h4>Entorno y zona de vuelo</h4><span class="cg-count">0/0</span></div>
+              <div class="check-list">
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Viento y meteorología aptos</strong><small>Sin lluvia, niebla ni ráfagas fuertes. El Mini 2 resiste hasta ~10,5 m/s, pero para practicar busca viento suave. No es resistente al agua.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Zona de vuelo demarcada y despejada</strong><small>Identifica los límites de la zona y verifica que no haya personas, animales ni vehículos dentro.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Obstáculos identificados</strong><small>Árboles, postes, cables, muros y techos. Recuerda que el Mini 2 no detecta obstáculos adelante, atrás ni a los lados.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Zona de despegue y aterrizaje adecuada</strong><small>Superficie plana, firme y despejada, sin pasto alto, arena ni polvo que puedan entrar a los motores.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Sin interferencias</strong><small>Lejos de antenas, líneas eléctricas, estructuras metálicas y vehículos, que afectan la brújula y la señal.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Posición del sol considerada</strong><small>Evita tener el sol de frente: puedes perder de vista el dron y la pantalla se ve peor.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Espacio aéreo permitido</strong><small>Sin zonas prohibidas o restringidas ni NOTAM vigentes que afecten el lugar (Clases 2 y 6).</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Lugar de aterrizaje de emergencia identificado</strong><small>Un segundo punto despejado por si no puedes volver a la zona de aterrizaje.</small></span></label>
+              </div>
+            </div>
+
+            <div class="check-group">
+              <div class="check-group-head"><span class="cg-icon">🛸</span><h4>Aeronave</h4><span class="cg-count">0/0</span></div>
+              <div class="check-list">
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Maleta completa</strong><small>Dron, control remoto, baterías, hélices de repuesto, cables y protector del gimbal.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Fuselaje sin daños</strong><small>Sin fisuras, golpes ni piezas sueltas en el cuerpo y los brazos.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Hélices en buen estado y bien fijadas</strong><small>Sin cortes, deformaciones ni astillas. Una hélice dañada produce vibraciones y puede causar la caída del dron.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Motores giran libres</strong><small>Gíralos suavemente con el dedo: no deben trabarse ni sonar a arena.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Protector del gimbal retirado</strong><small>Retíralo antes de encender: el gimbal hace una autocomprobación al arrancar y puede dañarse.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Brazos desplegados correctamente</strong><small>Primero los delanteros y luego los traseros, hasta que queden completamente abiertos.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Cámara y sensor inferior limpios</strong><small>El sensor de visión inferior ayuda a mantener la posición cerca del suelo.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Tarjeta microSD insertada</strong><small>Necesaria si se va a grabar el vuelo.</small></span></label>
+              </div>
+            </div>
+
+            <div class="check-group">
+              <div class="check-group-head"><span class="cg-icon">🔋</span><h4>Batería</h4><span class="cg-count">0/0</span></div>
+              <div class="check-list">
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Estado físico de la batería</strong><small>Sin hinchazón, golpes, deformaciones ni contactos dañados. Una batería hinchada no se vuela.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Batería bien insertada</strong><small>Debe entrar completamente y escucharse el "clic" de las trabas. Una batería suelta puede desconectarse en vuelo.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Nivel de carga del dron suficiente</strong><small>Revisa los LED (cada uno equivale a ~25 %). Idealmente, despega con la batería llena.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Control remoto y celular cargados</strong><small>Si el control o el teléfono se apagan en vuelo, pierdes el control y la imagen.</small></span></label>
+              </div>
+            </div>
+
+            <div class="check-group">
+              <div class="check-group-head"><span class="cg-icon">📱</span><h4>Control remoto, app y sistema</h4><span class="cg-count">0/0</span></div>
+              <div class="check-list">
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Celular conectado y antenas desplegadas</strong><small>Teléfono bien fijado al control y antenas abiertas, apuntando hacia el dron.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Orden de encendido correcto</strong><small>Primero el control remoto y después el dron (presión corta + presión larga).</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Conexión dron–control óptima</strong><small>DJI Fly muestra señal fuerte y la imagen de la cámara en tiempo real, sin cortes.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Satélites suficientes y punto de origen registrado</strong><small>Espera el aviso "Punto de origen actualizado". Sin GPS el dron pierde estabilidad y el regreso automático (RTH) no funciona bien.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Sin advertencias en la app</strong><small>Brújula, IMU, batería o temperatura. Si la app pide calibrar la brújula, hazlo lejos de metales.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Ajustes de seguridad revisados</strong><small>Altura de RTH por encima de los obstáculos, altura máxima y acción ante pérdida de señal.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Modo de vuelo seleccionado</strong><small>Normal (N) o Cine (C). Evita Sport (S) en la práctica.</small></span></label>
+              </div>
+            </div>
+
+            <div class="check-group">
+              <div class="check-group-head"><span class="cg-icon">🧍</span><h4>Piloto y posición</h4><span class="cg-count">0/0</span></div>
+              <div class="check-list">
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Dron dentro de la zona demarcada, con la cola hacia el piloto</strong><small>Así los mandos coinciden con tu punto de vista.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Piloto a mínimo 3 m, detrás del dron</strong><small>Te protege si el dron hace un movimiento inesperado al despegar.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Piloto en condiciones</strong><small>Concentrado, descansado y sin distracciones.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Plan de vuelo claro</strong><small>Sabes qué maniobras harás, en qué orden, en torno a qué objetivo y dónde aterrizarás.</small></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- POSTVUELO -->
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🛬</div>
+        <h3>Checklist postvuelo</h3>
+      </div>
+      <div class="card-body">
+        <p>El vuelo no termina al aterrizar. El postvuelo deja el equipo en condiciones para el siguiente piloto y permite detectar daños a tiempo.</p>
+
+        <div class="checklist" data-checklist="postvuelo" data-title="CHECKLIST POSTVUELO">
+          <div class="cl-toolbar no-print">
+            <div class="cl-progress">
+              <div class="cl-progress-text"><span data-cl-count>0 de 0 ítems</span><span data-cl-pct>0%</span></div>
+              <div class="cl-bar"><div class="cl-bar-fill"></div></div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" data-cl-reset>↺ Reiniciar</button>
+            <span class="cl-done-msg">✅ Checklist postvuelo completo: equipo listo para entregar.</span>
+          </div>
+
+          <div class="check-groups">
+            <div class="check-group">
+              <div class="check-group-head"><span class="cg-icon">🛬</span><h4>Aterrizaje y apagado</h4><span class="cg-count">0/0</span></div>
+              <div class="check-list">
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Aterrizaje dentro de los límites</strong><small>Throttle abajo hasta que los motores se detengan por completo.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Esperar que las hélices se detengan</strong><small>No te acerques ni tomes el dron con las hélices girando.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Orden de apagado correcto</strong><small>Primero el dron y después el control remoto (el inverso del encendido).</small></span></label>
+              </div>
+            </div>
+
+            <div class="check-group">
+              <div class="check-group-head"><span class="cg-icon">🔎</span><h4>Inspección</h4><span class="cg-count">0/0</span></div>
+              <div class="check-list">
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Hélices revisadas</strong><small>Busca cortes o golpes producidos durante el vuelo o el aterrizaje.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Motores revisados</strong><small>Temperatura normal, sin ruidos ni suciedad.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Fuselaje, brazos y gimbal sin daños</strong><small>Revisa que el gimbal se mueva libremente y que la cámara esté limpia.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Batería revisada</strong><small>Revisa su temperatura, que no esté hinchada y la carga restante. Una batería caliente debe enfriarse antes de cargarla.</small></span></label>
+              </div>
+            </div>
+
+            <div class="check-group">
+              <div class="check-group-head"><span class="cg-icon">🧳</span><h4>Guardado y registro</h4><span class="cg-count">0/0</span></div>
+              <div class="check-list">
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Batería retirada o guardada correctamente</strong><small>Según indique el profesor, en su compartimento de la maleta.</small></span></label>
+                <label class="check-item critical"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Protector del gimbal colocado</strong><small>Evita que la cámara se golpee o que el gimbal se mueva durante el transporte.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Brazos plegados en el orden correcto</strong><small>El inverso del despliegue: primero los traseros y después los delanteros.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Control remoto guardado</strong><small>Antenas plegadas, sticks guardados y celular desconectado.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Todo el equipo en la maleta y maleta cerrada</strong><small>Dron, control, baterías, hélices y cables: cada cosa en su lugar.</small></span></label>
+                <label class="check-item"><input type="checkbox"><span class="check-box"></span><span class="check-text"><strong>Registro del vuelo</strong><small>Duración, batería utilizada y cualquier incidente o daño detectado.</small></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">🧾</div>
+        <h3>¿Qué se evaluará en los checklists?</h3>
+      </div>
+      <div class="card-body">
+        <p>Durante la evaluación, el profesor observará que realices cada una de estas revisiones <strong>sin ayuda</strong>, en un orden lógico y sin omitir ítems críticos.</p>
+        <div class="eval-table-wrap">
+          <table class="eval-table">
+            <thead>
+              <tr><th>Etapa</th><th>Qué debes demostrar</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>🌤️ Entorno</td><td>Evaluar el clima y el viento, identificar los límites de la zona, los obstáculos, las personas, la superficie de despegue y aterrizaje y las posibles interferencias.</td></tr>
+              <tr><td>🛸 Aeronave</td><td>Sacar el dron de la maleta con cuidado, revisar el fuselaje, las hélices y los motores, retirar el protector del gimbal y desplegar los brazos en el orden correcto.</td></tr>
+              <tr><td>🔋 Batería</td><td>Revisar su estado físico, insertarla correctamente y verificar el nivel de carga del dron, del control y del celular.</td></tr>
+              <tr><td>📱 Sistema</td><td>Encender en el orden correcto y verificar la conexión, la señal, los satélites, el punto de origen y la ausencia de advertencias en la app.</td></tr>
+              <tr><td>🧍 Posición</td><td>Ubicar el dron dentro de la zona con la cola hacia ti y posicionarte a mínimo 3 m, detrás del dron.</td></tr>
+              <tr><td>🛬 Apagado</td><td>Aterrizar dentro de los límites, esperar que las hélices se detengan y apagar en el orden correcto.</td></tr>
+              <tr><td>🔎 Inspección</td><td>Revisar las hélices, los motores, el fuselaje, el gimbal y la batería después del vuelo.</td></tr>
+              <tr><td>🧳 Guardado</td><td>Colocar el protector del gimbal, plegar los brazos, guardar todo el equipo en la maleta y entregarla al profesor.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 05 RÚBRICA ============ -->
+    <div class="section-divider reveal" id="rubrica">
+      <div class="sd-num">05</div>
+      <div>
+        <div class="sd-kicker">Evaluación práctica</div>
+        <h2>Rúbrica de evaluación</h2>
+      </div>
+      <div class="sd-line"></div>
+    </div>
+
+    <article class="card reveal">
+      <div class="card-header">
+        <div class="card-icon">📊</div>
+        <h3>Rúbrica de la evaluación práctica</h3>
+      </div>
+      <div class="card-body">
+        <div class="highlight-banner">
+          <div class="hb-icon">📄</div>
+          <div>
+            <h4>Puedes usar tu checklist impreso durante toda la evaluación</h4>
+            <p>Llévalo contigo y úsalo para guiar tu prevuelo y postvuelo. Usarlo es una buena práctica, no una ayuda indebida.</p>
+          </div>
+        </div>
+
+        <!-- ESPACIO RESERVADO: aquí se implementará la rúbrica de evaluación del profesor -->
+        <div class="rubric-placeholder" id="rubrica-contenido">
+          <span class="rp-icon">🛠️</span>
+          <h4>Rúbrica en preparación</h4>
+          <p>El profesor publicará aquí los criterios y la forma de evaluación de cada etapa.</p>
+        </div>
+      </div>
+    </article>
+
+    <div class="reveal" style="display: flex; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-2xl);">
+      <a href="notam.html" class="btn btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Anterior: Clase 6
+      </a>
+      <a href="../evaluacion.html" class="btn btn-primary">
+        Evaluación Final
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <img src="../assets/images/logo-liceo.webp" alt="Logo Liceo Bicentenario de Excelencia Polivalente San Nicolás" class="footer-logo" width="56" height="56">
+        <div class="footer-brand">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+        <div class="footer-info">
+          Especialidad de Operaciones de Drones — 3°AF<br>
+          Operador Full Stack - Obtención de la credencial de la DGAC<br>
+          <strong>Ing. Christopher Ruiz</strong>
+        </div>
+        <div class="footer-credit">Material educativo generado para uso institucional.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/practica.js"></script>
+</body>
+</html>
