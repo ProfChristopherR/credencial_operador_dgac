@@ -56,8 +56,8 @@
         <circle class="g-pilot" cx="0" cy="-14" r="5"/>
         <path class="g-pilot" d="M-7,4 Q-7,-8 0,-8 Q7,-8 7,4 Z"/>
         <rect x="-6" y="-6" width="12" height="5" rx="1.5" fill="var(--accent)"/>
-      </g>
-      <text class="g-label" x="${x + 12}" y="${y}">PILOTO</text>`;
+        <text class="g-label" x="0" y="8" text-anchor="middle">PILOTO</text>
+      </g>`;
   }
 
   function topGround(w, h, opts = {}) {
@@ -576,7 +576,14 @@
     zone: { x: 30, y: 16, w: 340, h: 238 },
     pad: { x: 200, y: 214 },
     reset() {
+      this.tgt = { t: 0, y: 0, p: 0, r: 0 };
+      this.st = { t: 0, y: 0, p: 0, r: 0 };
+      this.keys.clear();
       this.s = { x: this.pad.x, y: this.pad.y, h: 0, z: 0, vx: 0, vy: 0 };
+      if (this.el) {
+        this.el.querySelectorAll('.dpad button.pressed').forEach(b => b.classList.remove('pressed'));
+        this.el.querySelectorAll('.rc-stick.stick-active').forEach(s => s.classList.remove('stick-active'));
+      }
     }
   };
 
@@ -608,7 +615,22 @@
     sim.knobL = el.querySelector('#rc-left .knob');
     sim.knobR = el.querySelector('#rc-right .knob');
 
-    // Botones (mantener presionado)
+    const keyMap = {
+      KeyW: ['t', 1], KeyS: ['t', -1], KeyA: ['y', -1], KeyD: ['y', 1],
+      ArrowUp: ['p', 1], ArrowDown: ['p', -1], ArrowLeft: ['r', -1], ArrowRight: ['r', 1]
+    };
+
+    const updateDpadHighlight = () => {
+      el.querySelectorAll('.dpad button[data-ax]').forEach(b => {
+        const ax = b.dataset.ax;
+        const v = parseFloat(b.dataset.v);
+        const isKey = [...sim.keys].some(c => keyMap[c] && keyMap[c][0] === ax && keyMap[c][1] === v);
+        const isStick = (v > 0 && sim.tgt[ax] > 0.22) || (v < 0 && sim.tgt[ax] < -0.22);
+        b.classList.toggle('pressed', isKey || isStick);
+      });
+    };
+
+    // Botones D-Pad (mantener presionado / clic)
     el.querySelectorAll('.dpad button[data-ax]').forEach(btn => {
       const ax = btn.dataset.ax;
       const v = parseFloat(btn.dataset.v);
@@ -616,11 +638,14 @@
         e.preventDefault();
         sim.tgt[ax] = v;
         btn.classList.add('pressed');
-        if (btn.setPointerCapture && e.pointerId !== undefined) btn.setPointerCapture(e.pointerId);
+        if (btn.setPointerCapture && e.pointerId !== undefined) {
+          try { btn.setPointerCapture(e.pointerId); } catch (_) {}
+        }
       };
       const release = () => {
         if (sim.tgt[ax] === v) sim.tgt[ax] = 0;
         btn.classList.remove('pressed');
+        updateDpadHighlight();
       };
       btn.addEventListener('pointerdown', press);
       btn.addEventListener('pointerup', release);
@@ -629,22 +654,103 @@
       btn.addEventListener('contextmenu', e => e.preventDefault());
     });
 
+    // Sticks virtuales táctiles (multitouch independiente con pulgares)
+    const stickL = el.querySelector('#rc-left');
+    const stickR = el.querySelector('#rc-right');
+
+    function setupVirtualStick(svgEl, onMove, onRelease) {
+      if (!svgEl) return;
+      let activePointerId = null;
+
+      function calc(e) {
+        const rect = svgEl.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const maxR = Math.max(12, rect.width * 0.32);
+        const dx = e.clientX - cx;
+        const dy = e.clientY - cy;
+        const dist = Math.hypot(dx, dy);
+        const clampedDist = Math.min(dist, maxR);
+        const angle = Math.atan2(dy, dx);
+        const nx = (Math.cos(angle) * clampedDist) / maxR;
+        const ny = (Math.sin(angle) * clampedDist) / maxR;
+        return { nx, ny };
+      }
+
+      function onDown(e) {
+        if (activePointerId !== null) return;
+        activePointerId = e.pointerId;
+        svgEl.classList.add('stick-active');
+        try { svgEl.setPointerCapture(e.pointerId); } catch (_) {}
+        e.preventDefault();
+        const { nx, ny } = calc(e);
+        onMove(nx, ny);
+      }
+
+      function onPointerMove(e) {
+        if (e.pointerId !== activePointerId) return;
+        e.preventDefault();
+        const { nx, ny } = calc(e);
+        onMove(nx, ny);
+      }
+
+      function onUp(e) {
+        if (e.pointerId !== activePointerId) return;
+        activePointerId = null;
+        svgEl.classList.remove('stick-active');
+        try { svgEl.releasePointerCapture(e.pointerId); } catch (_) {}
+        e.preventDefault();
+        onRelease();
+      }
+
+      svgEl.addEventListener('pointerdown', onDown, { passive: false });
+      svgEl.addEventListener('pointermove', onPointerMove, { passive: false });
+      svgEl.addEventListener('pointerup', onUp, { passive: false });
+      svgEl.addEventListener('pointercancel', onUp, { passive: false });
+      svgEl.addEventListener('lostpointercapture', onUp, { passive: false });
+      svgEl.addEventListener('contextmenu', e => e.preventDefault());
+    }
+
+    // Stick Izquierdo (Modo 2): X -> Yaw, Y -> Throttle (arriba = acelerar)
+    setupVirtualStick(
+      stickL,
+      (nx, ny) => {
+        sim.tgt.y = clamp(nx, -1, 1);
+        sim.tgt.t = clamp(-ny, -1, 1);
+        updateDpadHighlight();
+      },
+      () => {
+        sim.tgt.y = 0;
+        sim.tgt.t = 0;
+        updateDpadHighlight();
+      }
+    );
+
+    // Stick Derecho (Modo 2): X -> Roll, Y -> Pitch (arriba = adelante)
+    setupVirtualStick(
+      stickR,
+      (nx, ny) => {
+        sim.tgt.r = clamp(nx, -1, 1);
+        sim.tgt.p = clamp(-ny, -1, 1);
+        updateDpadHighlight();
+      },
+      () => {
+        sim.tgt.r = 0;
+        sim.tgt.p = 0;
+        updateDpadHighlight();
+      }
+    );
+
     // Teclado (cuando el simulador tiene el foco)
-    const keyMap = {
-      KeyW: ['t', 1], KeyS: ['t', -1], KeyA: ['y', -1], KeyD: ['y', 1],
-      ArrowUp: ['p', 1], ArrowDown: ['p', -1], ArrowLeft: ['r', -1], ArrowRight: ['r', 1]
-    };
     const applyKeys = () => {
       ['t', 'y', 'p', 'r'].forEach(ax => { sim.tgt[ax] = 0; });
       sim.keys.forEach(code => {
         const m = keyMap[code];
         if (m) sim.tgt[m[0]] = m[1];
       });
-      el.querySelectorAll('.dpad button[data-ax]').forEach(b => {
-        const active = [...sim.keys].some(c => keyMap[c] && keyMap[c][0] === b.dataset.ax && keyMap[c][1] === parseFloat(b.dataset.v));
-        b.classList.toggle('pressed', active);
-      });
+      updateDpadHighlight();
     };
+
     el.addEventListener('keydown', e => {
       if (keyMap[e.code]) {
         e.preventDefault();
@@ -661,7 +767,11 @@
     el.addEventListener('blur', () => { sim.keys.clear(); applyKeys(); });
     arena.addEventListener('pointerdown', () => el.focus({ preventScroll: true }));
 
-    el.querySelector('[data-sim="reset"]').addEventListener('click', () => sim.reset());
+    el.querySelector('[data-sim="reset"]').addEventListener('click', () => {
+      sim.reset();
+      updateDpadHighlight();
+      drawSim();
+    });
 
     new IntersectionObserver(entries => {
       sim.visible = entries[0].isIntersecting;

@@ -193,7 +193,7 @@
           <span>🕹️ Stick derecho ↕ <strong>Pitch</strong> (adelante/atrás)</span>
           <span>🕹️ Stick derecho ↔ <strong>Roll</strong> (desplazarse a los lados)</span>
         </div>
-        <p>Pruébalo en el simulador: <strong>mantén presionados</strong> los botones o haz clic en la zona de vuelo y usa el teclado. Primero sube con <em>Throttle ▲</em> para despegar.</p>
+        <p>Pruébalo en el simulador: <strong>arrastra los sticks directamente con tus dedos</strong> (en móvil/tablet soporta multitouch), <strong>mantén presionados</strong> los botones de dirección o usa el teclado. Primero sube con <em>Throttle ▲</em> para despegar.</p>
 
         <div class="sim" id="sim-modo2" tabindex="0" aria-label="Simulador interactivo de control Modo 2">
           <div class="sim-arena">
@@ -201,10 +201,11 @@
             <div class="sim-hint">⚠️ El dron te está mirando: ahora pitch y roll se sienten <strong>invertidos</strong> respecto a ti.</div>
           </div>
           <div class="rc">
+            <div class="rc-touch-tip">📱 Arrastra los sticks directamente con tus pulgares</div>
             <div class="rc-body">
               <div class="rc-side">
                 <span class="rc-side-title">Stick izquierdo</span>
-                <svg class="rc-stick" id="rc-left" viewBox="0 0 120 120" aria-hidden="true">
+                <svg class="rc-stick" id="rc-left" viewBox="0 0 120 120" role="slider" aria-label="Stick izquierdo: Throttle y Yaw">
                   <defs>
                     <radialGradient id="knobGrad" cx="0.35" cy="0.35" r="0.8">
                       <stop offset="0" stop-color="#7dd3fc"/>
@@ -216,7 +217,8 @@
                   <line class="cross" x1="14" y1="60" x2="106" y2="60"/>
                   <text class="lbl" x="60" y="22" text-anchor="middle">THR+</text>
                   <text class="lbl" x="60" y="104" text-anchor="middle">THR−</text>
-                  <text class="lbl" x="18" y="63">YAW</text>
+                  <text class="lbl" x="22" y="63" text-anchor="middle">YAW</text>
+                  <text class="lbl" x="98" y="63" text-anchor="middle">YAW</text>
                   <circle class="knob" cx="60" cy="60" r="16"/>
                 </svg>
                 <div class="dpad">
@@ -229,13 +231,14 @@
               </div>
               <div class="rc-side">
                 <span class="rc-side-title">Stick derecho</span>
-                <svg class="rc-stick" id="rc-right" viewBox="0 0 120 120" aria-hidden="true">
+                <svg class="rc-stick" id="rc-right" viewBox="0 0 120 120" role="slider" aria-label="Stick derecho: Pitch y Roll">
                   <circle class="well" cx="60" cy="60" r="50"/>
                   <line class="cross" x1="60" y1="14" x2="60" y2="106"/>
                   <line class="cross" x1="14" y1="60" x2="106" y2="60"/>
                   <text class="lbl" x="60" y="22" text-anchor="middle">PITCH+</text>
                   <text class="lbl" x="60" y="104" text-anchor="middle">PITCH−</text>
-                  <text class="lbl" x="18" y="63">ROLL</text>
+                  <text class="lbl" x="22" y="63" text-anchor="middle">ROLL</text>
+                  <text class="lbl" x="98" y="63" text-anchor="middle">ROLL</text>
                   <circle class="knob" cx="60" cy="60" r="16"/>
                 </svg>
                 <div class="dpad">
@@ -247,7 +250,7 @@
                 </div>
               </div>
             </div>
-            <p class="sim-legend">Teclado: <kbd>W</kbd><kbd>S</kbd> throttle · <kbd>A</kbd><kbd>D</kbd> yaw · <kbd>↑</kbd><kbd>↓</kbd> pitch · <kbd>←</kbd><kbd>→</kbd> roll</p>
+            <p class="sim-legend">📱 <strong>Táctil:</strong> arrastra los sticks · 💻 <strong>Teclado:</strong> <kbd>W</kbd><kbd>S</kbd> throttle · <kbd>A</kbd><kbd>D</kbd> yaw · <kbd>↑</kbd><kbd>↓</kbd> pitch · <kbd>←</kbd><kbd>→</kbd> roll</p>
             <div class="sim-actions">
               <button type="button" class="btn btn-secondary btn-sm" data-sim="reset">↺ Reiniciar dron</button>
             </div>

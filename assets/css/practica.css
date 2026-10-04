@@ -323,12 +323,14 @@
   display: grid;
   grid-template-columns: 1.3fr 1fr;
   gap: var(--space-lg);
-  margin: var(--space-lg) 0;
+  margin: var(--space-lg) auto;
   padding: var(--space-lg);
   background: var(--bg-tertiary);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   outline: none;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .sim:focus-visible {
@@ -440,6 +442,48 @@
   width: 100%;
   max-width: 120px;
   aspect-ratio: 1;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 50%;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.rc-stick:hover {
+  filter: brightness(1.08);
+}
+
+.rc-stick.stick-active {
+  cursor: grabbing;
+}
+
+.rc-stick.stick-active .well {
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.5));
+}
+
+.rc-stick.stick-active .knob {
+  stroke: #38bdf8;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.85));
+}
+
+.rc-touch-tip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  background: var(--accent-soft);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  border-radius: var(--radius-full);
+  padding: 4px 12px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .rc-stick .well { fill: #1e293b; stroke: #475569; stroke-width: 2; }
@@ -1326,9 +1370,77 @@
   .two-col {
     grid-template-columns: 1fr;
   }
+
+  .sim {
+    max-width: 520px;
+    margin: var(--space-md) auto;
+  }
 }
 
 @media (max-width: 768px) {
+  .practica-page .card-body {
+    padding: var(--space-md) 10px;
+  }
+
+  .practica-page .sim {
+    padding: 14px 8px;
+    margin: var(--space-md) auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sim-arena {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .rc {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .rc-body {
+    width: 100%;
+    max-width: 380px;
+    box-sizing: border-box;
+    padding: 12px 6px;
+    gap: 8px;
+    margin: 0 auto;
+    justify-content: center;
+    justify-items: center;
+    border-radius: 22px;
+  }
+
+  .rc-side {
+    width: 100%;
+    max-width: 170px;
+  }
+
+  .rc-stick {
+    max-width: 95px;
+    margin: 0 auto;
+  }
+
+  .dpad {
+    grid-template-columns: repeat(3, minmax(24px, 32px));
+    grid-template-rows: repeat(3, minmax(24px, 32px));
+    gap: 3px;
+    justify-content: center;
+  }
+
+  .dpad button {
+    font-size: 0.58rem;
+    padding: 0;
+    border-radius: 7px;
+  }
+
   .section-divider .sd-line { display: none; }
   .section-divider .sd-num { width: 52px; height: 52px; font-size: 1.3rem; }
   .mv-grid { grid-template-columns: 1fr; }
@@ -1336,6 +1448,54 @@
   .highlight-banner { flex-direction: column; text-align: center; }
   .highlight-banner p { text-align: center !important; }
   .mv-panel { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .practica-page .card-body {
+    padding: 10px 4px;
+  }
+
+  .practica-page .sim {
+    padding: 10px 4px;
+    border-radius: var(--radius-md);
+  }
+
+  .rc-body {
+    padding: 10px 4px;
+    gap: 4px;
+    border-radius: 18px;
+  }
+
+  .rc-side-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+  }
+
+  .rc-stick {
+    max-width: 82px;
+  }
+
+  .dpad {
+    grid-template-columns: repeat(3, 26px);
+    grid-template-rows: repeat(3, 26px);
+    gap: 2px;
+  }
+
+  .dpad button {
+    font-size: 0.5rem;
+    border-radius: 6px;
+  }
+
+  .rc-touch-tip {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .sim-legend {
+    font-size: 0.72rem;
+    padding: 0 4px;
+    line-height: 1.35;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
